@@ -1,0 +1,29 @@
+{
+  "name": "composio-app-research",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent that researches whether apps can become Composio toolkits, with a verification loop.",
+  "scripts": {
+    "preflight": "tsx src/preflight.ts",
+    "research": "tsx src/cli.ts research",
+    "verify": "tsx src/cli.ts verify",
+    "evaluate": "tsx src/cli.ts evaluate",
+    "analyze": "tsx src/cli.ts analyze",
+    "render": "tsx src/cli.ts render",
+    "ui": "tsx src/server.ts",
+    "finish": "tsx src/cli.ts finish",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "^0.3.330",
+    "@composio/core": "^0.31.0",
+    "dotenv": "^18.0.10",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

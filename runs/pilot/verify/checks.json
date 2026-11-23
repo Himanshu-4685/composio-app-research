@@ -1,0 +1,278 @@
+{
+ "2": {
+  "name": "HubSpot",
+  "flags": [
+   {
+    "app_id": 2,
+    "field": "verdict",
+    "layer": "L1",
+    "msg": "verdict build_with_conditions but access fields imply build_now"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.hubspot.com/docs/api/intro-to-auth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.hubspot.com/docs/api/intro-to-auth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/create-an-app",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.hubspot.com/docs/api-reference/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.hubspot.com/docs/build-with-ai/remote-mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/integrate-with-the-remote-hubspot-mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/integrate-with-the-remote-hubspot-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "hubspot",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 354
+  }
+ },
+ "4": {
+  "name": "Attio",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.attio.com/rest-api/guides/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://attio.com/help/apps/other-apps/generating-an-api-key",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.attio.com/rest-api/guides/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.attio.com/rest-api/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.attio.com/mcp/overview",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "attio",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 105
+  }
+ },
+ "8": {
+  "name": "Close",
+  "flags": [
+   {
+    "app_id": 8,
+    "field": "verdict",
+    "layer": "L1",
+    "msg": "verdict build_with_conditions but access fields imply build_now"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.close.com/topics/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.close.com/api/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.close.com/integrations/create-an-oauth-app",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.close.com/integrations/create-an-oauth-app",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.close.com/api/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.close.com/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "close",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 75
+  }
+ },
+ "52": {
+  "name": "SE Ranking",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://seranking.com/api/how-to-get-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://seranking.com/api/data/getting-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://seranking.com/api/how-to-get-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://seranking.com/api/how-to-get-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://seranking.com/api/how-to-get-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://seranking.com/api/integrations/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://seranking.com/api/data/getting-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://seranking.com/api/integrations/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://seranking.com/api/integrations/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://seranking.com/api/integrations/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "90": {
+  "name": "PitchBook",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "access",
+    "url": "https://pitchbook.com/help/pitchbook-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://pitchbook.com/help/pitchbook-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://documenter.getpostman.com/view/5190535/TzCV1iRc",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://documenter.getpostman.com/view/5190535/TzCV1iRc",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://pitchbook.com/help/pitchbook-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://pitchbook.com/media/press-releases/pitchbook-launches-an-agentic-platform-assistant-and-new-pitchbook-data-mcp-to-meet-investors-rapidly-evolving-workflow-needs",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "pitchbook",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 130
+  }
+ },
+ "98": {
+  "name": "Mermaid CLI",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "identity",
+    "url": "https://github.com/mermaid-js/mermaid-cli",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://github.com/mermaid-js/mermaid-cli",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://github.com/mermaid-js/mermaid-cli",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://github.com/mermaid-js/mermaid-cli",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/andrewginns/mermaid-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ }
+}

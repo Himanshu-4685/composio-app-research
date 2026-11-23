@@ -1,0 +1,130 @@
+{
+ "run_id": "pilot2",
+ "source": "baseline",
+ "n": 2,
+ "ok": 2,
+ "computed_at": "2026-11-23T12:56:59.411Z",
+ "verdicts": {
+  "build_now": 2
+ },
+ "auth_methods": {
+  "oauth2": 2,
+  "personal_token": 1,
+  "api_key": 1
+ },
+ "auth_combos": {
+  "oauth2+personal_token": 1,
+  "api_key+oauth2": 1
+ },
+ "dev_access": {
+  "free": 1,
+  "free_trial": 1
+ },
+ "production_access": {
+  "free": 2
+ },
+ "public_app_review": {
+  "yes": 2
+ },
+ "primary_blockers": {
+  "none": 2
+ },
+ "mcp": {
+  "official": 2
+ },
+ "api_types": {
+  "rest": 2,
+  "sdk": 2,
+  "cli": 1,
+  "webhooks": 2,
+  "other": 1
+ },
+ "breadth": {
+  "broad": 2
+ },
+ "confidence": {
+  "high": 2
+ },
+ "in_composio": 0,
+ "byCategory": [
+  {
+   "category": "CRM and Sales",
+   "n": 2,
+   "self_serve_dev": 2,
+   "api_on_all_plans": 2,
+   "verdicts": {
+    "build_now": 2
+   },
+   "auth": {
+    "oauth2": 2,
+    "personal_token": 1,
+    "api_key": 1
+   },
+   "official_mcp": 2,
+   "in_composio": 0
+  }
+ ],
+ "easy_wins": [
+  {
+   "id": 2,
+   "name": "HubSpot",
+   "category": "CRM and Sales",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 8,
+   "name": "Close",
+   "category": "CRM and Sales",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  }
+ ],
+ "easy_wins_not_in_composio": [
+  {
+   "id": 2,
+   "name": "HubSpot",
+   "category": "CRM and Sales",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 8,
+   "name": "Close",
+   "category": "CRM and Sales",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  }
+ ],
+ "outreach": [],
+ "conditions": [],
+ "limited_or_unclear": []
+}

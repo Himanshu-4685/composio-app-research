@@ -1,0 +1,4852 @@
+{
+ "1": {
+  "name": "Salesforce",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.salesforce.com/docs/platform/api-rest/guide/intro-rest-compatible-editions.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/quickstart_dev_org.htm",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_oauth_and_connected_apps.htm",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/hosted-mcp-servers-overview.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.salesforce.com/docs/platform/hosted-mcp-servers/guide/hosted-mcp-servers-overview.html",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "salesforce",
+   "auth_schemes": [
+    "OAUTH2",
+    "S2S_OAUTH2"
+   ],
+   "tools_count": 556
+  }
+ },
+ "2": {
+  "name": "HubSpot",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.hubspot.com/docs/api/intro-to-auth",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.hubspot.com/docs/api/intro-to-auth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.hubspot.com/docs/apps/developer-platform/build-apps/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.hubspot.com/docs/developer-tooling/platform/usage-guidelines",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.hubspot.com/docs/developer-tooling/platform/usage-guidelines",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.hubspot.com/docs/api/intro-to-auth",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.hubspot.com/docs/build-with-ai/remote-mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.hubspot.com/docs/build-with-ai/remote-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "hubspot",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 354
+  }
+ },
+ "3": {
+  "name": "Pipedrive",
+  "flags": [
+   {
+    "app_id": 3,
+    "field": "mcp",
+    "layer": "L1",
+    "msg": "official MCP url mcp.pipedrive.ai is not on the vendor domain (pipedrive.com, pipedrive.com)"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://pipedrive.readme.io/docs/marketplace-oauth-authorization",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.pipedrive.com/docs/api/v1",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://pipedrive.readme.io/docs/developer-sandbox-account",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://pipedrive.readme.io/docs/developer-sandbox-account",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.pipedrive.com/docs/api/v1",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://pipedrive.readme.io/docs/core-api-concepts-rate-limiting",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://pipedrive.readme.io/docs/core-api-concepts-rate-limiting",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://support.pipedrive.com/en/article/mcp-chatgpt",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "pipedrive",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 404
+  }
+ },
+ "4": {
+  "name": "Attio",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.attio.com/rest-api/guides/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.attio.com/rest-api/guides/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://attio.com/help/apps/other-apps/generating-an-api-key",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.attio.com/rest-api/guides/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.attio.com/rest-api/guides/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.attio.com/rest-api/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.attio.com/rest-api/endpoint-reference/openapi",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.attio.com/mcp/overview",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "attio",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 105
+  }
+ },
+ "5": {
+  "name": "Twenty",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.twenty.com/developers/extend/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.twenty.com/developers/extend/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://twenty.com/pricing",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://twenty.com/pricing",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.twenty.com/developers/extend/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.twenty.com/developers/extend/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.twenty.com/user-guide/ai/capabilities/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "identity",
+    "url": "https://docs.twenty.com/developers/introduction",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "twenty",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 23
+  }
+ },
+ "6": {
+  "name": "Podio",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.podio.com/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.podio.com/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.podio.com/api-key",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.podio.com/index/limits",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.podio.com/doc",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://progress.com/podio/documentation/using-podio/podio-mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://progress.com/podio/documentation/using-podio/podio-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "podio",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 143
+  }
+ },
+ "7": {
+  "name": "Zoho CRM",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://www.zoho.com/crm/developer/docs/api/v8/oauth-overview.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://www.zoho.com/crm/developer/docs/api/v8/register-client.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://www.zoho.com/crm/developer/docs/api/v8/api-limits.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://www.zoho.com/crm/developer/docs/api/v8/api-limits.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://www.zoho.com/crm/developer/docs/api/v8/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://zoho.com/crm/developer/docs/mcp/overview.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://zoho.com/crm/developer/docs/mcp/overview.html",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "zoho",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 115
+  }
+ },
+ "8": {
+  "name": "Close",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.close.com/topics/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.close.com/integrations",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.close.com/integrations",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.close.com/integrations/publish",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.close.com/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.close.com/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "close",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 75
+  }
+ },
+ "9": {
+  "name": "Copper",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.copper.com/introduction/authentication.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.copper.com/introduction/oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.copper.com/introduction/oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://support.copper.com/en/articles/8823462-api-docs-and-tips",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.copper.com/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://copper.com/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://copper.com/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "copper",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 65
+  }
+ },
+ "10": {
+  "name": "DealCloud",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://api.docs.dealcloud.com/docs/token",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://api.docs.dealcloud.com/docs/token",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://api.docs.dealcloud.com/docs/apikeys",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://api.docs.dealcloud.com/docs/apikeys",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://api.docs.dealcloud.com/docs/limits",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://api.docs.dealcloud.com",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://api.docs.dealcloud.com/mcp/getting-started",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "11": {
+  "name": "Zendesk",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.zendesk.com/api-reference/introduction/security-and-auth/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.zendesk.com/documentation/marketplace/building-a-marketplace-app/set-up-a-global-oauth-client/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.zendesk.com/documentation/api-basics/getting-started/getting-a-trial-or-sponsored-account-for-development/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.zendesk.com/api-reference/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://support.zendesk.com/hc/en-us/articles/11400026079130",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://support.zendesk.com/hc/en-us/articles/11400026079130",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "zendesk",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 483
+  }
+ },
+ "12": {
+  "name": "Intercom",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.intercom.com/docs/build-an-integration/learn-more/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://intercom.com/help/en/articles/9071694-intercom-developer-faqs",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://intercom.com/help/en/articles/9071694-intercom-developer-faqs",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://intercom.com/help/en/articles/9071694-intercom-developer-faqs",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://intercom.com/help/en/articles/9071694-intercom-developer-faqs",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://intercom.com/help/en/articles/9071694-intercom-developer-faqs",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/intercom/intercom-mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/intercom/intercom-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "intercom",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 138
+  }
+ },
+ "13": {
+  "name": "Freshdesk",
+  "flags": [
+   {
+    "app_id": 13,
+    "field": "mcp",
+    "layer": "L1",
+    "msg": "official MCP url crmsupport.freshworks.com is not on the vendor domain (freshdesk.com, freshdesk.com)"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.freshdesk.com/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.freshdesk.com/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.freshdesk.com/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.freshdesk.com/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.freshdesk.com/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.freshdesk.com/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://support.freshdesk.com/support/solutions/articles/50000014407",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://support.freshdesk.com/support/solutions/articles/50000014407",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://support.freshdesk.com/support/solutions/articles/50000014407",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "freshdesk",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 184
+  }
+ },
+ "14": {
+  "name": "Front",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://dev.frontapp.com/docs/oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://dev.frontapp.com/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://dev.frontapp.com/docs/create-and-manage-apps",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://dev.frontapp.com/docs/rate-limiting",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://dev.frontapp.com/docs/oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://dev.frontapp.com/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://dev.frontapp.com/docs/mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "front",
+   "auth_schemes": [
+    "API_KEY",
+    "OAUTH2"
+   ],
+   "tools_count": 180
+  }
+ },
+ "15": {
+  "name": "Pylon",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.usepylon.com/pylon-docs/developer/api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.usepylon.com/pylon-docs/developer/api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://usepylon.com/pricing",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.usepylon.com/pylon-docs/developer/api/sdks",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.usepylon.com/pylon-docs/developer/api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.usepylon.com/pylon-docs/integrations/pylon-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "16": {
+  "name": "LiveAgent",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://support.liveagent.com/741982-API-key",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://support.liveagent.com/741982-API-key",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://support.liveagent.com/567924-Documentation",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://support.liveagent.com/931802-API-rate-limit-API-requests-limit",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://support.liveagent.com/567924-Documentation",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://support.liveagent.com/647358-MCP-Integration-for-agents",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://support.liveagent.com/647358-MCP-Integration-for-agents",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "17": {
+  "name": "Plain",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://plain.com/docs/graphql/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://plain.com/docs/graphql/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://plain.com/llms.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://plain.com/docs/graphql/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://plain.com/docs/graphql/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://plain.com/docs/integrations/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://plain.com/docs/integrations/mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "plain",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 119
+  }
+ },
+ "18": {
+  "name": "Help Scout",
+  "flags": [
+   {
+    "app_id": 18,
+    "field": "mcp",
+    "layer": "L1",
+    "msg": "official MCP url mcp.helpscout.net is not on the vendor domain (helpscout.com, helpscout.com)"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.helpscout.com/mailbox-api/overview/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.helpscout.com/mailbox-api/overview/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.helpscout.com/article/1140-mailbox-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.helpscout.com/article/1140-mailbox-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.helpscout.com/mailbox-api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.helpscout.com/article/1779-connect-your-ai-agent-with-help-scout-to-search-conversations-and-pull-reports",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.helpscout.com/article/1779-connect-your-ai-agent-with-help-scout-to-search-conversations-and-pull-reports",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "help_scout",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 129
+  }
+ },
+ "19": {
+  "name": "Gorgias",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.gorgias.com/reference/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.gorgias.com/docs/set-up-oauth2-app-store",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.gorgias.com/en-US/rest-api-208286",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.gorgias.com/docs/set-up-oauth2-app-store",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.gorgias.com/docs/1-register-on-developer-portal",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.gorgias.com/reference/limitations",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.gorgias.com/docs/getting-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://mcp.gorgias.com",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://gorgias.com/blog/gorgias-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "gorgias",
+   "auth_schemes": [
+    "API_KEY",
+    "OAUTH2"
+   ],
+   "tools_count": 51
+  }
+ },
+ "20": {
+  "name": "Gladly",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.gladly.com/rest",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.gladly.com/rest",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.gladly.com/rest",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.gladly.com/rest",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://usefulapi.io/gladly",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "21": {
+  "name": "Slack",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.slack.dev/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.slack.dev/ai/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.slack.dev/distribution/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.slack.dev/distribution/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.slack.dev/distribution/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.slack.dev/apis/web-api/rate-limits",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.slack.dev/ai/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.slack.dev/ai/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.slack.dev/ai/mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "slack",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 165
+  }
+ },
+ "22": {
+  "name": "Twilio",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://www.twilio.com/docs/usage/requests-to-twilio",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://www.twilio.com/docs/usage/requests-to-twilio",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://www.twilio.com/en-us/try-twilio",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://www.twilio.com/en-us/try-twilio",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://www.twilio.com/docs/usage/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://twilio.com/docs/ai/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://twilio.com/docs/ai/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "twilio",
+   "auth_schemes": [
+    "API_KEY",
+    "BASIC",
+    "S2S_OAUTH2"
+   ],
+   "tools_count": 452
+  }
+ },
+ "23": {
+  "name": "Zoho Cliq",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://www.zoho.com/cliq/help/restapi/v2/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://www.zoho.com/cliq/help/restapi/v2/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://zoho.com/cliq/pricing.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://zoho.com/cliq/pricing.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://www.zoho.com/cliq/help/restapi/v2/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://www.zoho.com/cliq/help/restapi/v2/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://zoho.com/cliq/help/platform/zoho-cliq-mcp.html",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "zoho_cliq",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 162
+  }
+ },
+ "24": {
+  "name": "Lark (Larksuite)",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://open.larksuite.com/document/home/introduction-to-scope-and-authorization/access-credentials",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://open.larksuite.com/llms.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://open.larksuite.com/llms.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://open.larksuite.com/llms.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://open.larksuite.com/llms.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://open.larksuite.com/llms.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://raw.githubusercontent.com/larksuite/lark-openapi-mcp/main/README.md",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "lark",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 451
+  }
+ },
+ "25": {
+  "name": "Pumble",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://cake-com.github.io/pumble-node-sdk/authorization.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://cake-com.github.io/pumble-node-sdk/authorization.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/api-keys-integration",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/how-to-use-the-pumble-mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://pumble.com/help/integrations/automation-workflow-integrations/how-to-use-the-pumble-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "pumble",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 9
+  }
+ },
+ "26": {
+  "name": "Discord",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://discord.com/developers/docs/topics/oauth2",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://discord.com/developers/docs/topics/oauth2",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://discord.com/developers/docs/reference",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://discord.com/developers/docs/reference",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/SaseQ/discord-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "discord",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 23
+  }
+ },
+ "27": {
+  "name": "Telegram",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://core.telegram.org/bots/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://core.telegram.org/bots/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://core.telegram.org/api/obtaining_api_id",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://core.telegram.org/api/obtaining_api_id",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://core.telegram.org/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://core.telegram.org/bots/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/chigwell/telegram-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "telegram",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 18
+  }
+ },
+ "28": {
+  "name": "WhatsApp Business",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.facebook.com/docs/whatsapp/cloud-api/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.facebook.com/documentation/mcp/whatsapp-business-tools-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "whatsapp",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 127
+  }
+ },
+ "29": {
+  "name": "Aircall",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.aircall.io/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.aircall.io/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.aircall.io/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.aircall.io/api-references/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://support.aircall.io/en-gb/articles/39677926959517",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://support.aircall.io/en-gb/articles/39677926959517",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "aircall",
+   "auth_schemes": [
+    "OAUTH2",
+    "BASIC"
+   ],
+   "tools_count": 48
+  }
+ },
+ "30": {
+  "name": "Vonage",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.vonage.com/en/getting-started/concepts/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.vonage.com/en/getting-started/concepts/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.vonage.com/en/getting-started/concepts/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://api.support.vonage.com/hc/en-us/articles/212107987-How-can-I-get-full-account-features-enabled-",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://api.support.vonage.com/hc/en-us/articles/212107987-How-can-I-get-full-account-features-enabled-",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.vonage.com/en/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.vonage.com/en/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.vonage.com/en/mcp-server/technical-details",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/Vonage-Community/vonage-mcp-server-api-bindings",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "31": {
+  "name": "Google Ads",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.google.com/google-ads/api/docs/oauth/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.google.com/google-ads/api/docs/oauth/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.google.com/google-ads/api/docs/api-policy/developer-token",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.google.com/google-ads/api/docs/api-policy/access-levels",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.google.com/google-ads/api/docs/api-policy/access-levels",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.google.com/google-ads/api/docs/api-policy/access-levels",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.google.com/google-ads/api/docs/api-policy/developer-token",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.google.com/google-ads/api/docs/start",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.google.com/google-ads/api/docs/developer-toolkit/mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "googleads",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 78
+  }
+ },
+ "32": {
+  "name": "Meta Ads",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.facebook.com/docs/marketing-api/overview/authorization",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.facebook.com/docs/marketing-api/overview/authorization",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.facebook.com/docs/marketing-api/overview/authorization",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.facebook.com/docs/marketing-api/overview/authorization",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.facebook.com/docs/marketing-apis",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.facebook.com/documentation/ads-commerce/ads-ai-connectors/ads-mcp-server/ads-mcp-server-get-started",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "metaads",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 99
+  }
+ },
+ "33": {
+  "name": "LinkedIn Ads",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://learn.microsoft.com/en-us/linkedin/shared/authentication/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://learn.microsoft.com/en-us/linkedin/marketing/increasing-access",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://learn.microsoft.com/en-us/linkedin/marketing/increasing-access",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://learn.microsoft.com/en-us/linkedin/marketing/getting-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://learn.microsoft.com/en-us/linkedin/marketing/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://learn.microsoft.com/en-us/linkedin/marketing/getting-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/get-mcp-ads/linkedin-ads-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "linkedin_ads",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 28
+  }
+ },
+ "34": {
+  "name": "GoHighLevel",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://marketplace.gohighlevel.com/docs/Authorization/OAuth2.0",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://marketplace.gohighlevel.com/docs/Authorization/PrivateIntegrationsToken",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://marketplace.gohighlevel.com/docs/Authorization/OAuth2.0",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://marketplace.gohighlevel.com/docs/Authorization/OAuth2.0",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://marketplace.gohighlevel.com/docs/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://marketplace.gohighlevel.com/docs/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://marketplace.gohighlevel.com/docs/other/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://marketplace.gohighlevel.com/docs/other/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "35": {
+  "name": "Mailchimp",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://mailchimp.com/developer/marketing/build/get-started/generate-your-api-key",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://mailchimp.com/developer/marketing/build/start-developing/set-up-an-oauth-app",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://mailchimp.com/developer/marketing/api-concepts/authentication/oauth-2",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://mailchimp.com/developer/marketing/build/get-started/create-an-account",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://mailchimp.com/developer/marketing/api-concepts/authentication/oauth-2",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://mailchimp.com/developer/marketing/build/get-started/create-an-account",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://mailchimp.com/developer/marketing/build/start-developing/send-your-first-api-request",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://mailchimp.com/developer/marketing/build/ai-tools/mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "mailchimp",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 275
+  }
+ },
+ "36": {
+  "name": "Klaviyo",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.klaviyo.com/en/docs/authenticate_",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.klaviyo.com/en/docs/authenticate_",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.klaviyo.com/en/docs/authenticate_",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.klaviyo.com/en/docs/set_up_oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.klaviyo.com/en/docs/set_up_oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://community.klaviyo.com/developer-group-64/klaviyo-api-questions-5097",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.klaviyo.com/en/docs/authenticate_",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.klaviyo.com/en/reference/api_overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.klaviyo.com/en/docs/connect_to_the_klaviyo_mcp_server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.klaviyo.com/en/docs/connect_to_the_klaviyo_mcp_server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "klaviyo",
+   "auth_schemes": [
+    "API_KEY",
+    "OAUTH2"
+   ],
+   "tools_count": 233
+  }
+ },
+ "37": {
+  "name": "systeme.io",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.systeme.io/reference/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://help.systeme.io/article/2323-how-to-use-systeme-io-public-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://systeme.io/pricing",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.systeme.io/reference/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://help.systeme.io/article/2323-how-to-use-systeme-io-public-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.systeme.io/reference/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.systeme.io/docs/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.systeme.io/docs/mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "38": {
+  "name": "Pinterest",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.pinterest.com/docs/getting-started/set-up-authentication-and-authorization/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.pinterest.com/docs/getting-started/set-up-app/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.pinterest.com/docs/key-concepts/access-tiers/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.pinterest.com/docs/api/v5/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.pinterest.com/about-pinterest-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "pinterest",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 27
+  }
+ },
+ "39": {
+  "name": "Threads (Meta)",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.facebook.com/documentation/threads/get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.facebook.com/documentation/threads/get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.facebook.com/documentation/threads/get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.facebook.com/documentation/threads/get-started/create-an-app",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.facebook.com/documentation/threads/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.facebook.com/documentation/threads/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.facebook.com/documentation/threads/get-started/create-an-app",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/baguskto/threads-mcp/blob/main/README.md",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "threads",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 24
+  }
+ },
+ "40": {
+  "name": "SendGrid",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://www.twilio.com/docs/sendgrid/api-reference/how-to-use-the-sendgrid-v3-api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://sendgrid.com/en-us/pricing",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://www.twilio.com/docs/sendgrid/api-reference",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/deyikong/sendgrid-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "sendgrid",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 359
+  }
+ },
+ "41": {
+  "name": "Shopify",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://shopify.dev/docs/api/usage/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://shopify.dev/docs/apps/launch/distribution",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://shopify.dev/docs/apps/build/stores/development-stores",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://shopify.dev/docs/apps/launch/distribution",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://shopify.dev/docs/apps/build/stores/development-stores",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://shopify.dev/docs/api/admin-graphql",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://shopify.dev/docs/apps/build/devmcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "shopify",
+   "auth_schemes": [
+    "OAUTH2",
+    "S2S_OAUTH2"
+   ],
+   "tools_count": 386
+  }
+ },
+ "42": {
+  "name": "WooCommerce",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "identity",
+    "url": "https://developer.woocommerce.com/docs/apis/rest-api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.woocommerce.com/docs/apis/rest-api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://woocommerce.github.io/woocommerce-rest-api-docs/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://woocommerce.github.io/woocommerce-rest-api-docs/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.woocommerce.com/docs/apis/rest-api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://woocommerce.github.io/woocommerce-rest-api-docs/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://woocommerce.github.io/woocommerce-rest-api-docs/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.woocommerce.com/docs/features/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.woocommerce.com/docs/features/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "43": {
+  "name": "BigCommerce",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.bigcommerce.com/developer/docs/overview/api-fundamentals/api-accounts.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/auth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.bigcommerce.com",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.bigcommerce.com/developer/docs/integrations/apps/guide/auth",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.bigcommerce.com/developer/api-reference/rest/admin/management/abandoned-carts",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.bigcommerce.com/developer/docs/overview/api-fundamentals/api-accounts.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.bigcommerce.com/developer/docs/beta/store-management-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "bigcommerce",
+   "auth_schemes": [
+    "API_KEY",
+    "OAUTH2"
+   ],
+   "tools_count": 532
+  }
+ },
+ "44": {
+  "name": "Salesforce Commerce Cloud",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/authorization-for-shopper-apis.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/authorization-for-admin-apis.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/authorization-for-shopper-apis.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/scapi-get-started.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/scapi-get-started.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.salesforce.com/docs/commerce/account-manager/guide/b2c-get-started-sandboxes.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/scapi-get-started.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.salesforce.com/docs/commerce/commerce-api/guide/authorization-for-admin-apis.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.salesforce.com/docs/commerce/b2c-commerce/guide/mcp-dx-intro.html",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "45": {
+  "name": "Magento (Adobe Commerce)",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.adobe.com/commerce/webapi/rest/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.adobe.com/commerce/webapi/get-started/authentication/gs-authentication-token/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.adobe.com/commerce/webapi/get-started/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.adobe.com/commerce/webapi/rest/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.adobe.com/commerce/webapi/rest/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/magenable/magento-adobe-commerce-mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "identity",
+    "url": "https://developer.adobe.com/commerce/webapi/rest/",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "46": {
+  "name": "Squarespace",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.squarespace.com/commerce-apis/authentication-and-permissions",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.squarespace.com/commerce-apis/authentication-and-permissions",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.squarespace.com/oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.squarespace.com/oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.squarespace.com/commerce-apis/authentication-and-permissions",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.squarespace.com/commerce-apis/authentication-and-permissions",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.squarespace.com/mcp/connect-a-client",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.squarespace.com/mcp/connect-a-client",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "47": {
+  "name": "Ecwid",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.ecwid.com/get-started/make-your-first-api-request",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.ecwid.com/get-started/make-your-first-api-request",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.ecwid.com/get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.ecwid.com/get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.ecwid.com/develop-apps/private-and-public-ecwid-apps.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.ecwid.com/get-started/make-your-first-api-request",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.ecwid.com/api-reference",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.ecwid.com/api-reference",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://usefulapi.io/ecwid",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "48": {
+  "name": "Gumroad",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://gumroad.com/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://gumroad.com/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://gumroad.com/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://gumroad.com/claude",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://gumroad.com/claude",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "gumroad",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 13
+  }
+ },
+ "49": {
+  "name": "Amazon Selling Partner",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer-docs.amazon.com/sp-api/docs/onboarding-overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer-docs.amazon.com/sp-api/docs/self-authorization",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer-docs.amazon.com/sp-api/docs/onboarding-overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer-docs.amazon.com/sp-api/docs/sp-api-registration-overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer-docs.amazon.com/sp-api/docs/onboarding-overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer-docs.amazon.com/sp-api/docs/self-authorization",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer-docs.amazon.com/sp-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/amzn/selling-partner-agentic-toolkit",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "50": {
+  "name": "fanbasis",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "identity",
+    "url": "https://npmjs.com/package/commas-cli",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://apidocs.fan",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://apidocs.fan",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://apidocs.fan",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://apidocs.fan",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://npmjs.com/package/commas-cli",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "51": {
+  "name": "DataForSEO",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.dataforseo.com/v3/auth/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.dataforseo.com/v3/auth/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://dataforseo.com/pricing",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://dataforseo.com/pricing",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.dataforseo.com/v3/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.dataforseo.com/v3/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/dataforseo/mcp-server-typescript/blob/master/README.md",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "dataforseo",
+   "auth_schemes": [
+    "BASIC"
+   ],
+   "tools_count": 354
+  }
+ },
+ "52": {
+  "name": "SE Ranking",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://seranking.com/api/how-to-get-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://seranking.com/api/data/getting-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://seranking.com/api/how-to-get-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://seranking.com/api/how-to-get-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://seranking.com/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://seranking.com/api/integrations/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://seranking.com/api/data/getting-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://seranking.com/api/how-to-get-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://seranking.com/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://seranking.com/api/integrations/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://seranking.com/api/integrations/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "53": {
+  "name": "Ahrefs",
+  "flags": [
+   {
+    "app_id": 53,
+    "field": "auth",
+    "layer": "L4",
+    "msg": "Composio toolkit 'ahrefs' supports OAUTH2, not in our auth methods [api_key]"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.ahrefs.com/api/docs/api-keys-creation-and-management",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.ahrefs.com/api/docs/api-keys-creation-and-management",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.ahrefs.com/api/docs/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.ahrefs.com/api/docs/free-test-queries",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.ahrefs.com/api/docs/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.ahrefs.com/api/docs/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.ahrefs.com/api/docs/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.ahrefs.com/docs/mcp/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.ahrefs.com/docs/mcp/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "identity",
+    "url": "https://ahrefs.com/api",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "ahrefs",
+   "auth_schemes": [
+    "API_KEY",
+    "OAUTH2"
+   ],
+   "tools_count": 46
+  }
+ },
+ "54": {
+  "name": "MrScraper",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.mrscraper.com/docs/api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.mrscraper.com/docs/getting-started/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.mrscraper.com/docs/getting-started/billing",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.mrscraper.com/docs/getting-started/billing",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.mrscraper.com/docs/api/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.mrscraper.com/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.mrscraper.com/docs/getting-started/mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "mrscraper",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 11
+  }
+ },
+ "55": {
+  "name": "Apify",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.apify.com/api/v2",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.apify.com/agents/quickstart",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.apify.com/api/v2",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.apify.com/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "apify",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 184
+  }
+ },
+ "56": {
+  "name": "Firecrawl",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.firecrawl.dev/oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://www.firecrawl.dev/pricing",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.firecrawl.dev/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.firecrawl.dev/api-reference/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.firecrawl.dev/mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "firecrawl",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 245
+  }
+ },
+ "57": {
+  "name": "Bright Data",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.brightdata.com/api-reference/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.brightdata.com/api-reference/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.brightdata.com/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.brightdata.com/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/brightdata/brightdata-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "brightdata",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 167
+  }
+ },
+ "58": {
+  "name": "Sherlock",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "identity",
+    "url": "https://github.com/sherlock-project/sherlock",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://sherlockproject.xyz/installation",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://sherlockproject.xyz/installation",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://github.com/sherlock-project/sherlock",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://sherlockproject.xyz/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "59": {
+  "name": "Waterfall.io",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.waterfall.io/v1/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.waterfall.io/v1/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.waterfall.io/v1/evaluate-waterfall",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.waterfall.io/v1/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.waterfall.io/v1/introduction",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "60": {
+  "name": "Clay",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.clay.com/public-api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.clay.com/public-api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.clay.com/quickstart",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.clay.com/tables",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://university.clay.com/docs/connect-to-clay-mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.clay.com/api-reference/me/get-the-authenticated-user.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://university.clay.com/docs/connect-to-clay-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "clay",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 15
+  }
+ },
+ "61": {
+  "name": "GitHub",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.github.com/en/rest/authentication/authenticating-to-the-rest-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.github.com/en/rest/about-the-rest-api/about-the-rest-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/github/github-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "github",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 883
+  }
+ },
+ "62": {
+  "name": "Vercel",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://vercel.com/docs/rest-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://vercel.com/docs/sign-in-with-vercel/manage-from-dashboard",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://vercel.com/docs/rest-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://vercel.com/docs/sign-in-with-vercel/manage-from-dashboard",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://vercel.com/docs/rest-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://vercel.com/docs/rest-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://vercel.com/docs/mcp/vercel-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "vercel",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 399
+  }
+ },
+ "63": {
+  "name": "Netlify",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.netlify.com/api-and-cli-guides/api-guides/get-started-with-api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://www.netlify.com/pricing/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://open-api.netlify.com/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.netlify.com/build/build-with-ai/netlify-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "64": {
+  "name": "Cloudflare",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.cloudflare.com/fundamentals/api/get-started/create-token/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.cloudflare.com/fundamentals/api/get-started/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.cloudflare.com/fundamentals/api/get-started/create-token/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.cloudflare.com/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "cloudflare",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 171
+  }
+ },
+ "65": {
+  "name": "Supabase",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://supabase.com/docs/reference/api/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://supabase.com/docs/reference/api/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://supabase.com/docs/guides/api/api-keys",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://supabase.com/docs/guides/api/api-keys",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://supabase.com/docs/reference/api/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://supabase.com/docs/reference/api/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://supabase.com/docs/guides/getting-started/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://supabase.com/docs/guides/getting-started/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "supabase",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 230
+  }
+ },
+ "66": {
+  "name": "Neo4j",
+  "flags": [
+   {
+    "app_id": 66,
+    "field": "auth",
+    "layer": "L4",
+    "msg": "Composio toolkit 'neo4j' supports OAUTH2, not in our auth methods [api_key, basic]"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://neo4j.com/docs/aura/api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://neo4j.com/docs/aura/api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://neo4j.com/docs/aura/api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://neo4j.com/docs/aura/api/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://neo4j.com/docs/aura/api/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://neo4j.com/docs/query-api/current/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/neo4j/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "neo4j",
+   "auth_schemes": [
+    "OAUTH2",
+    "BASIC",
+    "API_KEY",
+    "S2S_OAUTH2"
+   ],
+   "tools_count": 21
+  }
+ },
+ "67": {
+  "name": "Snowflake",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.snowflake.com/en/developer-guide/sql-api/authenticating",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.snowflake.com/en/user-guide/admin-trial-account",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.snowflake.com/en/developer-guide/snowflake-rest-api/snowflake-rest-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "snowflake",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 16
+  }
+ },
+ "68": {
+  "name": "MongoDB Atlas",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://www.mongodb.com/docs/atlas/api/api-authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://www.mongodb.com/docs/atlas/api/api-authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://www.mongodb.com/docs/atlas/configure-api-access/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://www.mongodb.com/docs/atlas/configure-api-access/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://www.mongodb.com/docs/atlas/reference/api-resources-spec/v2/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://www.mongodb.com/docs/atlas/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://www.mongodb.com/docs/atlas/api/api-authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/mongodb-js/mongodb-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "69": {
+  "name": "Datadog",
+  "flags": [
+   {
+    "app_id": 69,
+    "field": "auth",
+    "layer": "L4",
+    "msg": "Composio toolkit 'datadog' supports OAUTH2, not in our auth methods [api_key]"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.datadoghq.com/api/latest/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.datadoghq.com/account_management/api-app-keys/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://www.datadoghq.com/pricing/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.datadoghq.com/api/latest/rate-limits/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.datadoghq.com/mcp_server.md",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "datadog",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY",
+    "BEARER_TOKEN"
+   ],
+   "tools_count": 255
+  }
+ },
+ "70": {
+  "name": "Sentry",
+  "flags": [
+   {
+    "app_id": 70,
+    "field": "mcp",
+    "layer": "L1",
+    "msg": "official MCP url mcp.sentry.dev is not on the vendor domain (sentry.io, sentry.io)"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.sentry.io/api/auth/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.sentry.io/api/auth/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.sentry.io/api/auth/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.sentry.io/organization/integrations/integration-platform/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.sentry.io/api/auth/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.sentry.io/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.sentry.io/api/ratelimits/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.sentry.io/product/sentry-mcp/",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "sentry",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 210
+  }
+ },
+ "71": {
+  "name": "Notion",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.notion.com/guides/get-started/authorization",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.notion.com/guides/get-started/authorization",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.notion.com/guides/get-started/authorization",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.notion.com/reference/intro",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.notion.com/guides/mcp/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "notion",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 57
+  }
+ },
+ "72": {
+  "name": "Airtable",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://airtable.com/developers/web/api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://airtable.com/developers/web/api/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://airtable.com/developers/web/guides/oauth-integrations",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://airtable.com/developers/web/api/rate-limits",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://airtable.com/developers/web/api/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://airtable.com/developers/agents/mcp/getting-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://airtable.com/developers/agents/mcp/getting-started",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "airtable",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 26
+  }
+ },
+ "73": {
+  "name": "Linear",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://linear.app/developers/graphql",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://linear.app/developers/oauth-2-0-authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://linear.app/developers/graphql",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://linear.app/developers/graphql",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://linear.app/docs/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "linear",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 47
+  }
+ },
+ "74": {
+  "name": "Jira",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.atlassian.com/cloud/jira/platform/oauth-2-3lo-apps/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.atlassian.com/cloud/jira/platform/basic-auth-for-rest-apis/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.atlassian.com/cloud/jira/platform/rest/v3/intro/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.atlassian.com/cloud/rovo-mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.atlassian.com/cloud/rovo-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "jira",
+   "auth_schemes": [
+    "OAUTH2",
+    "S2S_OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 166
+  }
+ },
+ "75": {
+  "name": "Asana",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.asana.com/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.asana.com/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.asana.com/docs/oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.asana.com/docs/rate-limits",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.asana.com/docs/manage-distribution",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.asana.com/reference/rest-api-reference",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.asana.com/docs/using-asanas-mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.asana.com/docs/using-asanas-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "asana",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 247
+  }
+ },
+ "76": {
+  "name": "Monday.com",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.monday.com/api-reference/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.monday.com/api-reference/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.monday.com/apps/docs/oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.monday.com/api-reference/docs/basics",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.monday.com/api-reference/docs/basics",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.monday.com/api-reference/docs/monday-mcp-overview",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "monday",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 122
+  }
+ },
+ "77": {
+  "name": "ClickUp",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.clickup.com/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.clickup.com/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.clickup.com/docs/rate-limits",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.clickup.com/docs/index",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.clickup.com/docs/index",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.clickup.com/docs/connect-an-ai-assistant-to-clickups-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "clickup",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 163
+  }
+ },
+ "78": {
+  "name": "Coda",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "access",
+    "url": "https://coda.io/developers/apis/v1",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://coda.io/developers/apis/v1",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://coda.io/developers/apis/v1",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://coda.io/developers/apis/v1",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://help.coda.io/hc/en-us/articles/44722661982989-Connect-to-the-Coda-MCP",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://help.coda.io/hc/en-us/articles/44722661982989-Connect-to-the-Coda-MCP",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://help.coda.io/hc/en-us/articles/44722661982989-Connect-to-the-Coda-MCP",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "coda",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 109
+  }
+ },
+ "79": {
+  "name": "Smartsheet",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.smartsheet.com/api/smartsheet/guides/getting-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.smartsheet.com/api/smartsheet/guides/advanced-topics/oauth",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.smartsheet.com/api/smartsheet/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.smartsheet.com/api/smartsheet/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.smartsheet.com/api/smartsheet/introduction",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.smartsheet.com/ai-mcp/smartsheet/install-the-smartsheet-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "smartsheet",
+   "auth_schemes": [
+    "OAUTH2",
+    "BEARER_TOKEN"
+   ],
+   "tools_count": 180
+  }
+ },
+ "80": {
+  "name": "Harvest",
+  "flags": [
+   {
+    "app_id": 80,
+    "field": "mcp",
+    "layer": "L1",
+    "msg": "official MCP url api.harvestapp.com is not on the vendor domain (getharvest.com, getharvest.com)"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://help.getharvest.com/api-v2/authentication-api/authentication/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://help.getharvest.com/api-v2/introduction/overview/general/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://help.getharvest.com/api-v2/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://support.getharvest.com/hc/en-us/articles/46293697226381-Harvest-MCP",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "harvest",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 57
+  }
+ },
+ "81": {
+  "name": "Stripe",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.stripe.com/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.stripe.com/connect/oauth-reference",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.stripe.com/keys",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.stripe.com/keys",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.stripe.com/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.stripe.com/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.stripe.com/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "stripe",
+   "auth_schemes": [
+    "API_KEY",
+    "OAUTH2"
+   ],
+   "tools_count": 428
+  }
+ },
+ "82": {
+  "name": "Plaid",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://plaid.com/docs/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://plaid.com/docs/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://plaid.com/docs/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://plaid.com/docs/quickstart/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://plaid.com/docs/api/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://plaid.com/docs/resources/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://plaid.com/docs/resources/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "plaid",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 70
+  }
+ },
+ "83": {
+  "name": "Binance",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-api-information",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-api-information",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.binance.com/en/docs/products/login/web-integration",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-api-information",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-api-information",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.binance.com/docs/binance-spot-api-docs/rest-api/general-api-information",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.binance.com/en/docs/agent-native/mcp-server/agentic",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.binance.com/en/docs/agent-native/mcp-server/agentic",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "84": {
+  "name": "Paygent Connect",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "identity",
+    "url": "https://gopaygent.com/products/connect",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://gopaygent.com/developers/docs",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://gopaygent.com/signup",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://gopaygent.com/developers/docs",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://gopaygent.com/products/connect",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "85": {
+  "name": "iPayX",
+  "flags": [
+   {
+    "app_id": 85,
+    "field": "api",
+    "layer": "L1",
+    "msg": "breadth narrow but 4 resource families listed"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://ipayx.ai/developers",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://ipayx.ai/docs/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://ipayx.ai/docs/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://ipayx.ai/docs/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://ipayx.ai/developers",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://ipayx.ai/developers",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "86": {
+  "name": "QuickBooks",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.intuit.com/app/developer/qbo/docs/develop/sandboxes",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.intuit.com/app/developer/qbo/docs/go-live/publish-app/platform-requirements",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.intuit.com/app/developer/qbo/docs/go-live/publish-app/platform-requirements",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.intuit.com/app/developer/qbo/docs/learn/explore-the-quickbooks-online-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/intuit/quickbooks-online-mcp-server/blob/main/README.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/intuit/quickbooks-online-mcp-server/blob/main/README.md",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "quickbooks",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 119
+  }
+ },
+ "87": {
+  "name": "Xero",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.xero.com/documentation/guides/oauth2/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.xero.com/documentation/guides/oauth2/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.xero.com/documentation/guides/oauth2/limits",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.xero.com/documentation/guides/oauth2/limits",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.xero.com/documentation/api/accounting/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/XeroAPI/xero-mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.xero.com/documentation/api/accounting/overview",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "xero",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 109
+  }
+ },
+ "88": {
+  "name": "Brex",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developer.brex.com/docs/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developer.brex.com/docs/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.brex.com/docs/authentication/",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developer.brex.com/docs/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.brex.com/",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developer.brex.com/",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.brex.com/docs/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developer.brex.com/docs/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "brex",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 84
+  }
+ },
+ "89": {
+  "name": "Ramp",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.ramp.com/llms-guides/getting-started.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.ramp.com/developer-api/v1/sandbox-access",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.ramp.com",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.ramp.com/llms-guides/authorization.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.ramp.com/llms-guides/ramp-mcp.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.ramp.com/llms-guides/ramp-mcp.txt",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "ramp",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 186
+  }
+ },
+ "90": {
+  "name": "PitchBook",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "access",
+    "url": "https://pitchbook.com/help/pitchbook-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://pitchbook.com/help/pitchbook-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://documenter.getpostman.com/view/5190535/TzCV1iRc",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://documenter.getpostman.com/view/5190535/TzCV1iRc",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://documenter.getpostman.com/view/5190535/TzCV1iRc",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://pitchbook.com/help/pitchbook-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://pitchbook.com/help/pitchbook-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://pitchbook.com/media/press-releases/pitchbook-launches-an-agentic-platform-assistant-and-new-pitchbook-data-mcp-to-meet-investors-rapidly-evolving-workflow-needs",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "pitchbook",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 130
+  }
+ },
+ "91": {
+  "name": "NotebookLM",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks-sources.md.txt",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.cloud.google.com/gemini/enterprise/notebooklm-enterprise/docs/api-notebooks",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/dandye/notebooklm_sdk/blob/main/GEMINI.md",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "notebook_lm",
+   "auth_schemes": [
+    "OAUTH2"
+   ],
+   "tools_count": 11
+  }
+ },
+ "92": {
+  "name": "Otter AI",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://help.otter.ai/hc/en-us/articles/36130822688279",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://help.otter.ai/hc/en-us/articles/35287607569687-Otter-MCP-Server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "93": {
+  "name": "Fathom",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.fathom.ai/quickstart.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.fathom.ai/faq.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.fathom.ai/faq.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.fathom.ai/oauth.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://developers.fathom.ai/faq.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://developers.fathom.ai/quickstart.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://fathom.ai/features/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.fathom.ai/mcp-docs",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "fathom",
+   "auth_schemes": [
+    "OAUTH2",
+    "API_KEY"
+   ],
+   "tools_count": 10
+  }
+ },
+ "94": {
+  "name": "Consensus",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.consensus.app/api-get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.consensus.app/consensus-mcp.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.consensus.app/api-plans-and-access",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.consensus.app/api-get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.consensus.app/api-get-started",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.consensus.app/api-plans-and-access",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.consensus.app/consensus-mcp.md",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.consensus.app/consensus-mcp.md",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "consensus",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 1
+  }
+ },
+ "95": {
+  "name": "Reducto",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.reducto.ai/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.reducto.ai/quickstart",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.reducto.ai/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://reducto.ai/pricing",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://reducto.ai/pricing",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.reducto.ai/mcp-server",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.reducto.ai/api-reference/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://reducto.ai/pricing",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.reducto.ai/quickstart",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.reducto.ai/mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "96": {
+  "name": "Devin",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.devin.ai/api-reference/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.devin.ai/api-reference/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.devin.ai/api-reference/getting-started/teams-quickstart",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.devin.ai/api-reference/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.devin.ai/admin/billing/self-serve",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.devin.ai/api-reference/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.devin.ai/api-reference/overview",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.devin.ai/work-with-devin/devin-mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://docs.devin.ai/work-with-devin/devin-mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "97": {
+  "name": "higgsfield",
+  "flags": [
+   {
+    "app_id": 97,
+    "field": "api",
+    "layer": "L1",
+    "msg": "breadth narrow but 4 resource families listed"
+   }
+  ],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://docs.higgsfield.ai/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://docs.higgsfield.ai/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://docs.higgsfield.ai/docs/help/faq",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.higgsfield.ai/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://docs.higgsfield.ai/docs/authentication",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://higgsfield.ai/creator-hub/help-center/integrations/how-do-i-connect-higgsfield-to-ai-agent",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://higgsfield.ai/cli",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "higgsfield",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 13
+  }
+ },
+ "98": {
+  "name": "Mermaid CLI",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "identity",
+    "url": "https://github.com/mermaid-js/mermaid-cli",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://github.com/mermaid-js/mermaid-cli",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://github.com/mermaid-js/mermaid-cli",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://github.com/mermaid-js/mermaid-cli",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://github.com/mermaid-js/mermaid-cli",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://github.com/mermaid-js/mermaid-cli",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://github.com/andrewginns/mermaid-mcp-server",
+    "result": "verbatim"
+   }
+  ],
+  "composio": null
+ },
+ "99": {
+  "name": "YouTube Transcript",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://transcriptapi.com/docs/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://transcriptapi.com/docs/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://transcriptapi.com/docs/getting-started/curl",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://transcriptapi.com/docs/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://transcriptapi.com/docs/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://transcriptapi.com/docs/api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://transcriptapi.com/docs/mcp",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://transcriptapi.com/docs/mcp",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "youtube_transcript",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 9
+  }
+ },
+ "100": {
+  "name": "Grain",
+  "flags": [],
+  "quotes": [
+   {
+    "field": "auth",
+    "url": "https://developers.grain.com/authentication.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.grain.com/authentication.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "auth",
+    "url": "https://developers.grain.com/authentication.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://support.grain.com/en/articles/15507288-grain-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://support.grain.com/en/articles/15507288-grain-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "access",
+    "url": "https://support.grain.com/en/articles/15507288-grain-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://support.grain.com/en/articles/15507288-grain-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "api",
+    "url": "https://support.grain.com/en/articles/15507288-grain-api",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.grain.com/authentication.html",
+    "result": "verbatim"
+   },
+   {
+    "field": "mcp",
+    "url": "https://developers.grain.com/mcp/faq.html",
+    "result": "verbatim"
+   }
+  ],
+  "composio": {
+   "slug": "grain",
+   "auth_schemes": [
+    "API_KEY"
+   ],
+   "tools_count": 17
+  }
+ }
+}

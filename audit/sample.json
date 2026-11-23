@@ -1,0 +1,154 @@
+{
+  "seed": 20261123,
+  "excluded_pilot_ids": [
+    2,
+    4,
+    8,
+    52,
+    90,
+    98
+  ],
+  "created_at": "2026-11-23T12:50:42.787Z",
+  "picks": [
+    {
+      "id": 7,
+      "name": "Zoho CRM",
+      "category": "CRM and Sales",
+      "hint": "zoho.com/crm",
+      "group": "calibration"
+    },
+    {
+      "id": 1,
+      "name": "Salesforce",
+      "category": "CRM and Sales",
+      "hint": "salesforce.com",
+      "group": "holdout"
+    },
+    {
+      "id": 19,
+      "name": "Gorgias",
+      "category": "Support and Helpdesk",
+      "hint": "gorgias.com",
+      "group": "calibration"
+    },
+    {
+      "id": 20,
+      "name": "Gladly",
+      "category": "Support and Helpdesk",
+      "hint": "gladly.com",
+      "group": "holdout"
+    },
+    {
+      "id": 30,
+      "name": "Vonage",
+      "category": "Communications and Messaging",
+      "hint": "developer.vonage.com",
+      "group": "calibration"
+    },
+    {
+      "id": 23,
+      "name": "Zoho Cliq",
+      "category": "Communications and Messaging",
+      "hint": "zoho.com/cliq",
+      "group": "holdout"
+    },
+    {
+      "id": 35,
+      "name": "Mailchimp",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "mailchimp.com/developer",
+      "group": "calibration"
+    },
+    {
+      "id": 38,
+      "name": "Pinterest",
+      "category": "Marketing, Ads, Email and Social",
+      "hint": "developers.pinterest.com",
+      "group": "holdout"
+    },
+    {
+      "id": 50,
+      "name": "fanbasis",
+      "category": "Ecommerce",
+      "hint": "fanbasis.com",
+      "group": "calibration"
+    },
+    {
+      "id": 46,
+      "name": "Squarespace",
+      "category": "Ecommerce",
+      "hint": "developers.squarespace.com",
+      "group": "holdout"
+    },
+    {
+      "id": 53,
+      "name": "Ahrefs",
+      "category": "Data, SEO and Scraping",
+      "hint": "ahrefs.com/api",
+      "group": "calibration"
+    },
+    {
+      "id": 57,
+      "name": "Bright Data",
+      "category": "Data, SEO and Scraping",
+      "hint": "brightdata.com",
+      "group": "holdout"
+    },
+    {
+      "id": 67,
+      "name": "Snowflake",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "docs.snowflake.com",
+      "group": "calibration"
+    },
+    {
+      "id": 70,
+      "name": "Sentry",
+      "category": "Developer, Infra and Data platforms",
+      "hint": "docs.sentry.io/api",
+      "group": "holdout"
+    },
+    {
+      "id": 80,
+      "name": "Harvest",
+      "category": "Productivity and Project Management",
+      "hint": "harvestapp.com (help.getharvest.com/api-v2)",
+      "group": "calibration"
+    },
+    {
+      "id": 72,
+      "name": "Airtable",
+      "category": "Productivity and Project Management",
+      "hint": "airtable.com/developers",
+      "group": "holdout"
+    },
+    {
+      "id": 84,
+      "name": "Paygent Connect",
+      "category": "Finance and Fintech",
+      "hint": "paygent (NMI-powered)",
+      "group": "calibration"
+    },
+    {
+      "id": 87,
+      "name": "Xero",
+      "category": "Finance and Fintech",
+      "hint": "developer.xero.com",
+      "group": "holdout"
+    },
+    {
+      "id": 91,
+      "name": "NotebookLM",
+      "category": "AI, Research and Media-native",
+      "hint": "cloud.google.com/gemini (Enterprise API)",
+      "group": "calibration"
+    },
+    {
+      "id": 93,
+      "name": "Fathom",
+      "category": "AI, Research and Media-native",
+      "hint": "fathom.video",
+      "group": "holdout"
+    }
+  ]
+}

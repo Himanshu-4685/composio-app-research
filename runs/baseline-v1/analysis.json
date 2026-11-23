@@ -1,0 +1,1858 @@
+{
+ "run_id": "baseline-v1",
+ "source": "baseline",
+ "n": 100,
+ "ok": 100,
+ "computed_at": "2026-11-23T15:42:17.930Z",
+ "verdicts": {
+  "build_with_conditions": 22,
+  "build_now": 70,
+  "outreach_required": 5,
+  "limited": 2,
+  "needs_research": 1
+ },
+ "auth_methods": {
+  "oauth2": 68,
+  "api_key": 70,
+  "personal_token": 22,
+  "other": 3,
+  "service_account_or_jwt": 8,
+  "basic": 2,
+  "none": 2
+ },
+ "auth_combos": {
+  "oauth2": 12,
+  "api_key+oauth2": 34,
+  "oauth2+personal_token": 10,
+  "api_key": 22,
+  "api_key+other": 1,
+  "api_key+service_account_or_jwt": 2,
+  "oauth2+service_account_or_jwt": 1,
+  "oauth2+personal_token+service_account_or_jwt": 3,
+  "api_key+oauth2+personal_token+service_account_or_jwt": 1,
+  "api_key+basic": 2,
+  "none": 2,
+  "oauth2+other+personal_token": 1,
+  "api_key+oauth2+personal_token": 5,
+  "api_key+oauth2+service_account_or_jwt": 1,
+  "api_key+personal_token": 2,
+  "other": 1
+ },
+ "dev_access": {
+  "free": 60,
+  "free_trial": 20,
+  "partner_or_sales": 5,
+  "unknown": 4,
+  "app_review": 3,
+  "paid_plan": 7,
+  "not_applicable": 1
+ },
+ "production_access": {
+  "paid_plan": 11,
+  "free": 74,
+  "app_review": 9,
+  "not_applicable": 2,
+  "partner_or_sales": 2,
+  "unknown": 2
+ },
+ "public_app_review": {
+  "unknown": 19,
+  "yes": 27,
+  "no": 18,
+  "not_applicable": 36
+ },
+ "primary_blockers": {
+  "paid tier or API add-on": 12,
+  "none": 70,
+  "partner / sales gate": 5,
+  "vendor app approval": 8,
+  "restricted / local-only tool": 2,
+  "unclear: needs research": 3
+ },
+ "mcp": {
+  "official": 85,
+  "announced": 2,
+  "community": 11,
+  "none_found": 2
+ },
+ "api_types": {
+  "rest": 95,
+  "soap": 2,
+  "sdk": 77,
+  "cli": 37,
+  "webhooks": 84,
+  "graphql": 11,
+  "other": 39
+ },
+ "breadth": {
+  "broad": 84,
+  "moderate": 11,
+  "narrow": 4,
+  "unknown": 1
+ },
+ "confidence": {
+  "high": 36,
+  "medium": 63,
+  "low": 1
+ },
+ "in_composio": 74,
+ "byCategory": [
+  {
+   "category": "CRM and Sales",
+   "n": 10,
+   "self_serve_dev": 9,
+   "api_on_all_plans": 8,
+   "verdicts": {
+    "build_with_conditions": 2,
+    "build_now": 7,
+    "outreach_required": 1
+   },
+   "auth": {
+    "oauth2": 10,
+    "api_key": 8
+   },
+   "official_mcp": 9,
+   "in_composio": 9
+  },
+  {
+   "category": "Support and Helpdesk",
+   "n": 10,
+   "self_serve_dev": 8,
+   "api_on_all_plans": 8,
+   "verdicts": {
+    "build_now": 7,
+    "outreach_required": 2,
+    "build_with_conditions": 1
+   },
+   "auth": {
+    "oauth2": 5,
+    "api_key": 9,
+    "personal_token": 1
+   },
+   "official_mcp": 9,
+   "in_composio": 7
+  },
+  {
+   "category": "Communications and Messaging",
+   "n": 10,
+   "self_serve_dev": 9,
+   "api_on_all_plans": 9,
+   "verdicts": {
+    "build_now": 9,
+    "build_with_conditions": 1
+   },
+   "auth": {
+    "oauth2": 7,
+    "api_key": 8,
+    "other": 1,
+    "service_account_or_jwt": 1
+   },
+   "official_mcp": 8,
+   "in_composio": 9
+  },
+  {
+   "category": "Marketing, Ads, Email and Social",
+   "n": 10,
+   "self_serve_dev": 8,
+   "api_on_all_plans": 6,
+   "verdicts": {
+    "build_now": 6,
+    "build_with_conditions": 4
+   },
+   "auth": {
+    "oauth2": 8,
+    "service_account_or_jwt": 2,
+    "personal_token": 2,
+    "api_key": 4
+   },
+   "official_mcp": 6,
+   "in_composio": 8
+  },
+  {
+   "category": "Ecommerce",
+   "n": 10,
+   "self_serve_dev": 6,
+   "api_on_all_plans": 7,
+   "verdicts": {
+    "build_now": 6,
+    "build_with_conditions": 4
+   },
+   "auth": {
+    "oauth2": 8,
+    "api_key": 8,
+    "personal_token": 2,
+    "service_account_or_jwt": 1
+   },
+   "official_mcp": 8,
+   "in_composio": 3
+  },
+  {
+   "category": "Data, SEO and Scraping",
+   "n": 10,
+   "self_serve_dev": 8,
+   "api_on_all_plans": 7,
+   "verdicts": {
+    "build_with_conditions": 2,
+    "build_now": 6,
+    "limited": 1,
+    "outreach_required": 1
+   },
+   "auth": {
+    "basic": 1,
+    "api_key": 9,
+    "oauth2": 3,
+    "none": 1
+   },
+   "official_mcp": 8,
+   "in_composio": 7
+  },
+  {
+   "category": "Developer, Infra and Data platforms",
+   "n": 10,
+   "self_serve_dev": 10,
+   "api_on_all_plans": 10,
+   "verdicts": {
+    "build_now": 10
+   },
+   "auth": {
+    "oauth2": 7,
+    "personal_token": 7,
+    "other": 1,
+    "api_key": 6,
+    "basic": 1,
+    "service_account_or_jwt": 2
+   },
+   "official_mcp": 10,
+   "in_composio": 8
+  },
+  {
+   "category": "Productivity and Project Management",
+   "n": 10,
+   "self_serve_dev": 9,
+   "api_on_all_plans": 9,
+   "verdicts": {
+    "build_now": 9,
+    "build_with_conditions": 1
+   },
+   "auth": {
+    "oauth2": 9,
+    "api_key": 4,
+    "personal_token": 8,
+    "service_account_or_jwt": 2
+   },
+   "official_mcp": 10,
+   "in_composio": 10
+  },
+  {
+   "category": "Finance and Fintech",
+   "n": 10,
+   "self_serve_dev": 7,
+   "api_on_all_plans": 6,
+   "verdicts": {
+    "build_now": 5,
+    "build_with_conditions": 3,
+    "needs_research": 1,
+    "outreach_required": 1
+   },
+   "auth": {
+    "api_key": 6,
+    "oauth2": 5,
+    "other": 1
+   },
+   "official_mcp": 9,
+   "in_composio": 7
+  },
+  {
+   "category": "AI, Research and Media-native",
+   "n": 10,
+   "self_serve_dev": 7,
+   "api_on_all_plans": 6,
+   "verdicts": {
+    "build_now": 5,
+    "build_with_conditions": 4,
+    "limited": 1
+   },
+   "auth": {
+    "oauth2": 6,
+    "api_key": 8,
+    "personal_token": 2,
+    "none": 1
+   },
+   "official_mcp": 8,
+   "in_composio": 6
+  }
+ ],
+ "easy_wins": [
+  {
+   "id": 2,
+   "name": "HubSpot",
+   "category": "CRM and Sales",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 3,
+   "name": "Pipedrive",
+   "category": "CRM and Sales",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Attio",
+   "category": "CRM and Sales",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 5,
+   "name": "Twenty",
+   "category": "CRM and Sales",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Podio",
+   "category": "CRM and Sales",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 7,
+   "name": "Zoho CRM",
+   "category": "CRM and Sales",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2"
+   ]
+  },
+  {
+   "id": 8,
+   "name": "Close",
+   "category": "CRM and Sales",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 11,
+   "name": "Zendesk",
+   "category": "Support and Helpdesk",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 12,
+   "name": "Intercom",
+   "category": "Support and Helpdesk",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 13,
+   "name": "Freshdesk",
+   "category": "Support and Helpdesk",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "\"\"",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 14,
+   "name": "Front",
+   "category": "Support and Helpdesk",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 16,
+   "name": "LiveAgent",
+   "category": "Support and Helpdesk",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "\"\"",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 17,
+   "name": "Plain",
+   "category": "Support and Helpdesk",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 19,
+   "name": "Gorgias",
+   "category": "Support and Helpdesk",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 21,
+   "name": "Slack",
+   "category": "Communications and Messaging",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2"
+   ]
+  },
+  {
+   "id": 22,
+   "name": "Twilio",
+   "category": "Communications and Messaging",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 23,
+   "name": "Zoho Cliq",
+   "category": "Communications and Messaging",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "\"\"",
+   "auth": [
+    "oauth2"
+   ]
+  },
+  {
+   "id": 24,
+   "name": "Lark (Larksuite)",
+   "category": "Communications and Messaging",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 25,
+   "name": "Pumble",
+   "category": "Communications and Messaging",
+   "verdict": "build_now",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 26,
+   "name": "Discord",
+   "category": "Communications and Messaging",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "community",
+   "in_composio": true,
+   "blocker": "\"\"",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 27,
+   "name": "Telegram",
+   "category": "Communications and Messaging",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "community",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "other"
+   ]
+  },
+  {
+   "id": 28,
+   "name": "WhatsApp Business",
+   "category": "Communications and Messaging",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 30,
+   "name": "Vonage",
+   "category": "Communications and Messaging",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "service_account_or_jwt"
+   ]
+  },
+  {
+   "id": 31,
+   "name": "Google Ads",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "No hard blocker. Production use needs the Cloud project to get Explorer access, or Basic or Standard for higher limits and restricted services. Basic needs brand verification. Standard needs a manual audit.",
+   "auth": [
+    "oauth2",
+    "service_account_or_jwt"
+   ]
+  },
+  {
+   "id": 34,
+   "name": "GoHighLevel",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 35,
+   "name": "Mailchimp",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 36,
+   "name": "Klaviyo",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 37,
+   "name": "systeme.io",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 40,
+   "name": "SendGrid",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "community",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 41,
+   "name": "Shopify",
+   "category": "Ecommerce",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 42,
+   "name": "WooCommerce",
+   "category": "Ecommerce",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 43,
+   "name": "BigCommerce",
+   "category": "Ecommerce",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ]
+  },
+  {
+   "id": 45,
+   "name": "Magento (Adobe Commerce)",
+   "category": "Ecommerce",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "community",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key",
+    "personal_token",
+    "service_account_or_jwt"
+   ]
+  },
+  {
+   "id": 48,
+   "name": "Gumroad",
+   "category": "Ecommerce",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 50,
+   "name": "fanbasis",
+   "category": "Ecommerce",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 52,
+   "name": "SE Ranking",
+   "category": "Data, SEO and Scraping",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 54,
+   "name": "MrScraper",
+   "category": "Data, SEO and Scraping",
+   "verdict": "build_now",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 55,
+   "name": "Apify",
+   "category": "Data, SEO and Scraping",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 56,
+   "name": "Firecrawl",
+   "category": "Data, SEO and Scraping",
+   "verdict": "build_now",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 57,
+   "name": "Bright Data",
+   "category": "Data, SEO and Scraping",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 60,
+   "name": "Clay",
+   "category": "Data, SEO and Scraping",
+   "verdict": "build_now",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 61,
+   "name": "GitHub",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token",
+    "other"
+   ]
+  },
+  {
+   "id": 62,
+   "name": "Vercel",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "personal_token",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 63,
+   "name": "Netlify",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 64,
+   "name": "Cloudflare",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "personal_token",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 65,
+   "name": "Supabase",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "Not a hard blocker. Supabase has two API surfaces: the Management API (PAT or OAuth2) and the per-project data API (a project URL plus a secret key). The connection model must pick one or support both. I did not fetch a pricing page to confirm that the free tier includes API access.",
+   "auth": [
+    "api_key",
+    "personal_token",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 66,
+   "name": "Neo4j",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "basic"
+   ]
+  },
+  {
+   "id": 67,
+   "name": "Snowflake",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "service_account_or_jwt",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 68,
+   "name": "MongoDB Atlas",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "service_account_or_jwt",
+    "api_key"
+   ]
+  },
+  {
+   "id": 69,
+   "name": "Datadog",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 70,
+   "name": "Sentry",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token",
+    "api_key"
+   ]
+  },
+  {
+   "id": 71,
+   "name": "Notion",
+   "category": "Productivity and Project Management",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "\"\"",
+   "auth": [
+    "oauth2",
+    "api_key",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 72,
+   "name": "Airtable",
+   "category": "Productivity and Project Management",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 73,
+   "name": "Linear",
+   "category": "Productivity and Project Management",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 74,
+   "name": "Jira",
+   "category": "Productivity and Project Management",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "\"\"",
+   "auth": [
+    "oauth2",
+    "api_key",
+    "service_account_or_jwt"
+   ]
+  },
+  {
+   "id": 75,
+   "name": "Asana",
+   "category": "Productivity and Project Management",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token",
+    "service_account_or_jwt"
+   ]
+  },
+  {
+   "id": 76,
+   "name": "Monday.com",
+   "category": "Productivity and Project Management",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "personal_token",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 77,
+   "name": "ClickUp",
+   "category": "Productivity and Project Management",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 78,
+   "name": "Coda",
+   "category": "Productivity and Project Management",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 80,
+   "name": "Harvest",
+   "category": "Productivity and Project Management",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 81,
+   "name": "Stripe",
+   "category": "Finance and Fintech",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 83,
+   "name": "Binance",
+   "category": "Finance and Fintech",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "\"\"",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 87,
+   "name": "Xero",
+   "category": "Finance and Fintech",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2"
+   ]
+  },
+  {
+   "id": 89,
+   "name": "Ramp",
+   "category": "Finance and Fintech",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2"
+   ]
+  },
+  {
+   "id": 91,
+   "name": "NotebookLM",
+   "category": "AI, Research and Media-native",
+   "verdict": "build_now",
+   "breadth": "moderate",
+   "mcp": "community",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "oauth2"
+   ]
+  },
+  {
+   "id": 93,
+   "name": "Fathom",
+   "category": "AI, Research and Media-native",
+   "verdict": "build_now",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 94,
+   "name": "Consensus",
+   "category": "AI, Research and Media-native",
+   "verdict": "build_now",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 95,
+   "name": "Reducto",
+   "category": "AI, Research and Media-native",
+   "verdict": "build_now",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 100,
+   "name": "Grain",
+   "category": "AI, Research and Media-native",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "",
+   "auth": [
+    "personal_token",
+    "api_key",
+    "oauth2"
+   ]
+  }
+ ],
+ "easy_wins_not_in_composio": [
+  {
+   "id": 16,
+   "name": "LiveAgent",
+   "category": "Support and Helpdesk",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "\"\"",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 30,
+   "name": "Vonage",
+   "category": "Communications and Messaging",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key",
+    "service_account_or_jwt"
+   ]
+  },
+  {
+   "id": 34,
+   "name": "GoHighLevel",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 37,
+   "name": "systeme.io",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 42,
+   "name": "WooCommerce",
+   "category": "Ecommerce",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 45,
+   "name": "Magento (Adobe Commerce)",
+   "category": "Ecommerce",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "community",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "api_key",
+    "personal_token",
+    "service_account_or_jwt"
+   ]
+  },
+  {
+   "id": 50,
+   "name": "fanbasis",
+   "category": "Ecommerce",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 52,
+   "name": "SE Ranking",
+   "category": "Data, SEO and Scraping",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 63,
+   "name": "Netlify",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "oauth2",
+    "personal_token"
+   ]
+  },
+  {
+   "id": 68,
+   "name": "MongoDB Atlas",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "service_account_or_jwt",
+    "api_key"
+   ]
+  },
+  {
+   "id": 83,
+   "name": "Binance",
+   "category": "Finance and Fintech",
+   "verdict": "build_now",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "\"\"",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 85,
+   "name": "iPayX",
+   "category": "Finance and Fintech",
+   "verdict": "build_now",
+   "breadth": "narrow",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 95,
+   "name": "Reducto",
+   "category": "AI, Research and Media-native",
+   "verdict": "build_now",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  }
+ ],
+ "outreach": [
+  {
+   "id": 10,
+   "name": "DealCloud",
+   "category": "CRM and Sales",
+   "verdict": "outreach_required",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "No self-serve developer access. Getting credentials needs a DealCloud site, so a developer needs a customer tenant or a sandbox from Intapp. Each customer must also have an admin enable the API capability and issue a per-user API key.",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ]
+  },
+  {
+   "id": 15,
+   "name": "Pylon",
+   "category": "Support and Helpdesk",
+   "verdict": "outreach_required",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "There is no self-serve developer access. Pylon trials are set up by a sales rep as a demo org for prospects, and the API is a paid-plan feature (no free tier). A developer needs a trial or partner workspace from Pylon sales before they can get an API token.",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 20,
+   "name": "Gladly",
+   "category": "Support and Helpdesk",
+   "verdict": "outreach_required",
+   "breadth": "broad",
+   "mcp": "community",
+   "in_composio": false,
+   "blocker": "No self-serve developer access found. Credentials need a Gladly customer org with the API User permission, and the sandbox is enabled by Gladly, so a customer or Gladly contact is needed to get started.",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 59,
+   "name": "Waterfall.io",
+   "category": "Data, SEO and Scraping",
+   "verdict": "outreach_required",
+   "breadth": "broad",
+   "mcp": "none_found",
+   "in_composio": false,
+   "blocker": "API keys are not self-serve; developers must contact the Waterfall team for access and pricing before they can get credentials.",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 90,
+   "name": "PitchBook",
+   "category": "Finance and Fintech",
+   "verdict": "outreach_required",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "There is no self-serve developer access. The API needs a standalone contract with PitchBook's Direct Data team, an API key from PitchBook, a sandbox key from the account manager, and purchased credits.",
+   "auth": [
+    "api_key"
+   ]
+  }
+ ],
+ "conditions": [
+  {
+   "id": 1,
+   "name": "Salesforce",
+   "category": "CRM and Sales",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "The API needs an edition that includes it (Enterprise or above, or the Professional add-on). Developers can use a free Developer Edition org. Customers also need an External Client App set up, because new connected apps are restricted.",
+   "auth": [
+    "oauth2"
+   ],
+   "primary": "paid tier or API add-on"
+  },
+  {
+   "id": 9,
+   "name": "Copper",
+   "category": "CRM and Sales",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "announced",
+   "in_composio": true,
+   "blocker": "The API is tier-gated: it is available on trial, Professional and Business plans only. OAuth for multi-customer use requires Copper to register the app by email (partners@copper.com).",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ],
+   "primary": "paid tier or API add-on"
+  },
+  {
+   "id": 18,
+   "name": "Help Scout",
+   "category": "Support and Helpdesk",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "The Inbox API is not available on the Free plan; customers need a paid plan (Standard or above) and reporting endpoints need Plus or Pro.",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ],
+   "primary": "paid tier or API add-on"
+  },
+  {
+   "id": 29,
+   "name": "Aircall",
+   "category": "Communications and Messaging",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "A full REST API exists and customers can use Basic Auth API keys right away. A multi-tenant OAuth app is tied to the Technology Partner program and marketplace approval. Dev sandbox/trial access was not confirmed.",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ],
+   "primary": "vendor app approval"
+  },
+  {
+   "id": 32,
+   "name": "Meta Ads",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "Development works free with a Meta developer app, but a public multi-customer production app needs Meta App Review for advanced access to ads_read/ads_management and the Full access tier. Limited tier is heavily rate-limited and for development only.",
+   "auth": [
+    "oauth2",
+    "personal_token",
+    "service_account_or_jwt"
+   ],
+   "primary": "vendor app approval"
+  },
+  {
+   "id": 33,
+   "name": "LinkedIn Ads",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "community",
+   "in_composio": true,
+   "blocker": "Developer access requires LinkedIn to approve an Advertising API application. Managing more than 5 ad accounts needs a separate Standard tier request through a support ticket, and LinkedIn may decline it.",
+   "auth": [
+    "oauth2"
+   ],
+   "primary": "vendor app approval"
+  },
+  {
+   "id": 38,
+   "name": "Pinterest",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "announced",
+   "in_composio": true,
+   "blocker": "Developers need Pinterest approval of an app request for Trial access, then an upgrade to Standard access to serve real users. Newer apps may also face PINNER_DATA_ACCESS_DENIED limits on non-business users' boards and Pins.",
+   "auth": [
+    "oauth2"
+   ],
+   "primary": "vendor app approval"
+  },
+  {
+   "id": 39,
+   "name": "Threads (Meta)",
+   "category": "Marketing, Ads, Email and Social",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "community",
+   "in_composio": true,
+   "blocker": "Serving users outside the developer's own app roles requires Meta App Review and publishing of the app, for each permission. Without review, only Threads Testers on the app can authorize it.",
+   "auth": [
+    "oauth2"
+   ],
+   "primary": "vendor app approval"
+  },
+  {
+   "id": 44,
+   "name": "Salesforce Commerce Cloud",
+   "category": "Ecommerce",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "There is no self-serve developer signup. Credentials come from a licensed B2C Commerce tenant, and on-demand sandboxes need purchased credits. Each customer's Account Manager admin must create an API client with scopes and roles, or a SLAS client. No central OAuth app exists.",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ],
+   "primary": "paid tier or API add-on"
+  },
+  {
+   "id": 46,
+   "name": "Squarespace",
+   "category": "Ecommerce",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "API keys need the merchant's Commerce Advanced plan, and a public multi-customer OAuth app needs Squarespace to review and approve the OAuth client before credentials are issued.",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ],
+   "primary": "paid tier or API add-on"
+  },
+  {
+   "id": 47,
+   "name": "Ecwid",
+   "category": "Ecommerce",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "community",
+   "in_composio": false,
+   "blocker": "The API needs a paid Ecwid plan, for developers and for customers. Developers can request a free paid-plan upgrade. Reaching many customers through OAuth means publishing a public app in the Ecwid App Market.",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ],
+   "primary": "paid tier or API add-on"
+  },
+  {
+   "id": 49,
+   "name": "Amazon Selling Partner",
+   "category": "Ecommerce",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "Developers must register a developer profile that Amazon reviews. Public multi-seller apps also need Amazon approval and an Appstore listing. Private apps are limited to the developer's own organization and to 10 authorizations.",
+   "auth": [
+    "oauth2"
+   ],
+   "primary": "vendor app approval"
+  },
+  {
+   "id": 51,
+   "name": "DataForSEO",
+   "category": "Data, SEO and Scraping",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "Free signup gives only $1 trial credit and a sandbox with sample data; real production use needs a funded account (minimum $50 top-up) and each customer supplies their own API login/password.",
+   "auth": [
+    "basic",
+    "api_key"
+   ],
+   "primary": "paid tier or API add-on"
+  },
+  {
+   "id": 53,
+   "name": "Ahrefs",
+   "category": "Data, SEO and Scraping",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "The API needs an eligible paid Ahrefs plan, for developers and for customers. Usage draws on a metered API-unit allowance, and free test queries are limited to ahrefs.com/wordcount.com targets.",
+   "auth": [
+    "api_key"
+   ],
+   "primary": "paid tier or API add-on"
+  },
+  {
+   "id": 79,
+   "name": "Smartsheet",
+   "category": "Productivity and Project Management",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "API and OAuth app registration need a paid Business, Enterprise or Advanced Work Management plan. Free and Pro accounts cannot use the API, so developers and customers both need a qualifying plan.",
+   "auth": [
+    "oauth2",
+    "api_key"
+   ],
+   "primary": "paid tier or API add-on"
+  },
+  {
+   "id": 82,
+   "name": "Plaid",
+   "category": "Finance and Fintech",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "Sandbox is free, but live use requires the customer to get Plaid Production approval via Dashboard, and end-user bank access needs a Link (UI) flow to obtain item access tokens.",
+   "auth": [
+    "api_key"
+   ],
+   "primary": "vendor app approval"
+  },
+  {
+   "id": 86,
+   "name": "QuickBooks",
+   "category": "Finance and Fintech",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "The API and a free sandbox are available, but production keys need Intuit's app assessment questionnaire and approval, plus an annual security review, before any real customer company can connect.",
+   "auth": [
+    "oauth2"
+   ],
+   "primary": "vendor app approval"
+  },
+  {
+   "id": 88,
+   "name": "Brex",
+   "category": "Finance and Fintech",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "No sandbox: developers need a real Brex account where an admin accepts the API agreement and creates a token. No OAuth app model was found for the REST API (only for MCP), so each customer admin supplies a token.",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ],
+   "primary": "unclear: needs research"
+  },
+  {
+   "id": 92,
+   "name": "Otter AI",
+   "category": "AI, Research and Media-native",
+   "verdict": "build_with_conditions",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "Core public REST API is gated to the Otter Enterprise plan (may need account manager to enable). The OAuth MCP server is available more broadly but is limited to meeting search/retrieval.",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ],
+   "primary": "paid tier or API add-on"
+  },
+  {
+   "id": 96,
+   "name": "Devin",
+   "category": "AI, Research and Media-native",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "Credentials are service user keys or PATs from a paying Devin org, and it is unconfirmed whether the Free or Pro plans include API access. There is no OAuth, so each customer has to create a service user key themselves.",
+   "auth": [
+    "api_key",
+    "personal_token"
+   ],
+   "primary": "unclear: needs research"
+  },
+  {
+   "id": 97,
+   "name": "higgsfield",
+   "category": "AI, Research and Media-native",
+   "verdict": "build_with_conditions",
+   "breadth": "narrow",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "Both routes cost money. The REST API needs a topped-up pay-as-you-go balance, and the account-based MCP/CLI needs a paid subscription. Every generation spends credits. I found no free developer tier.",
+   "auth": [
+    "api_key",
+    "oauth2"
+   ],
+   "primary": "paid tier or API add-on"
+  },
+  {
+   "id": 99,
+   "name": "YouTube Transcript",
+   "category": "AI, Research and Media-native",
+   "verdict": "build_with_conditions",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "Developers get 100 free credits, but production use needs a paid TranscriptAPI plan or credits bought by the end user. Credits are metered per call, and rate limits depend on the plan.",
+   "auth": [
+    "api_key"
+   ],
+   "primary": "paid tier or API add-on"
+  }
+ ],
+ "limited_or_unclear": [
+  {
+   "id": 58,
+   "name": "Sherlock",
+   "category": "Data, SEO and Scraping",
+   "verdict": "limited",
+   "breadth": "narrow",
+   "mcp": "community",
+   "in_composio": false,
+   "blocker": "Sherlock is a local CLI with no hosted API, so a Composio toolkit would need to run the tool in a sandbox or container. Its scope is narrow: one username search operation.",
+   "auth": [
+    "none"
+   ],
+   "primary": "restricted / local-only tool"
+  },
+  {
+   "id": 84,
+   "name": "Paygent Connect",
+   "category": "Finance and Fintech",
+   "verdict": "needs_research",
+   "breadth": "unknown",
+   "mcp": "none_found",
+   "in_composio": false,
+   "blocker": "There is no public API reference, auth documentation or self-serve developer signup for the Pathfinder/Connect API. Credentials may require merchant underwriting or a sales/partner conversation.",
+   "auth": [
+    "other"
+   ],
+   "primary": "unclear: needs research"
+  },
+  {
+   "id": 98,
+   "name": "Mermaid CLI",
+   "category": "AI, Research and Media-native",
+   "verdict": "limited",
+   "breadth": "narrow",
+   "mcp": "community",
+   "in_composio": false,
+   "blocker": "It is a local CLI with narrow scope (render diagrams to files). There is no remote or hosted API, and it needs Node.js and headless Chromium at runtime. It could only work as a sandboxed local-execution tool.",
+   "auth": [
+    "none"
+   ],
+   "primary": "restricted / local-only tool"
+  }
+ ]
+}

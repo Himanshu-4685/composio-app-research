@@ -1,0 +1,2092 @@
+{
+ "1": {
+  "auth": {
+   "status": "suspect",
+   "reason": "The oauth2 claim is supported (external client app/connected app with OAuth 2.0). But methods lists only oauth2. Salesforce also supports the JWT bearer flow and client credentials flow, which are widely used for server-to-server integrations (service_account_or_jwt). The detail text says these 'were not verified', so the methods list is probably incomplete. Check the JWT bearer and client credentials flows."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The edition gating and the free Developer Edition are supported by the evidence. Two problems. (1) public_app_review is 'unknown'. Distributing an app across customer orgs generally goes through the AppExchange security review, so this is probably knowable and should be checked. (2) The gates list mixes in the MCP Flex Credits restriction and the 5 MB storage limit. These are not REST API access gates and could mislead. production_access=paid_plan is fair, because Professional needs an API add-on."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The REST, Bulk 2.0 and Apex REST evidence matches. The broad list of types and resource families is consistent with Salesforce's well-known API surface. The rate limits are marked as not checked, which is acceptable."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The page is Salesforce's own developer documentation for Hosted MCP Servers. It is first-party, so 'official' is justified. It shows OAuth-based connection and the Flex Credits restriction, and the note records that condition."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_with_conditions fits: a free Developer Edition org exists, but production API access depends on the edition (Professional needs an add-on). External Client App setup is customer admin work and is a normal step, not a gate. The blocker text is mostly fine. The record's own concerns are about auth completeness and public_app_review, not the verdict."
+  }
+ },
+ "2": {
+  "auth": {
+   "status": "suspect",
+   "reason": "Evidence supports OAuth2 and static auth token for single-account. But the static token from app settings is a personal/static access token (personal_token), not an api_key; 'api_key' is likely mislabeled (hapikey is deprecated/limited). Also the record's detail says hapikey exists only for a few app-level features, which isn't shown in evidence. Researcher should check whether methods should be oauth2 + personal_token."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Evidence supports developer test accounts, tier-dependent rate limits, and the 110/10s marketplace limit. The 10-account private cap and marketplace review gate are consistent with cited pages. Free developer account is well known. public_app_review=yes is reasonable."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Date-versioned REST API on CRM objects is shown (/crm/objects/2026-03/contacts). Broad breadth, SDKs, CLI and webhooks are consistent with known HubSpot offerings."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "HubSpot's own developer docs describe a publicly hosted remote MCP server at mcp.hubspot.com, with sign-in via the user's HubSpot account. It is first-party, so 'official' is appropriate."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now is plausible, since free developer accounts and APIs are available on all plans. However, the record's own gates (OAuth for multi-account, 10-account private cap, marketplace review for broad distribution, tier-dependent endpoints) may justify build_with_conditions for a multi-tenant toolkit. Composio would need marketplace distribution for broad use. Also check the auth methods mislabeling."
+  }
+ },
+ "3": {
+  "auth": {
+   "status": "supported",
+   "reason": "OAuth2 authorization code (required for Marketplace apps) and personal API token are both evidenced by the cited pages. Methods are correctly categorized."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Free developer sandbox (5 seats) with the inactivity deletion rules (45 days / 6 months) is confirmed by the cited page. Marketplace review is correctly recorded as public_app_review rather than as a gate on the verdict. Plan-scaled rate limits are not a paid-API gate."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST/JSON API, token budget formula (30,000 x plan multiplier x seats) and burst limits per plan and token type (Lite 20 vs 80) match the cited rate-limit page. Lite is listed with API limits, so API access across plans is reasonably supported."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Pipedrive's own support site documents an official Pipedrive MCP server (mcp.pipedrive.ai) with permissions inherited from the user's role. The excerpt doesn't show the URL or the OAuth install step, but the official status is credible. Community servers are noted separately."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: free sandbox, OAuth and API tokens, API on all plans (Lite has API limits), and Marketplace review is only for public listing. The researcher's own open question about the cheapest plan is minor given the rate-limit table includes Lite."
+  }
+ },
+ "4": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm two token routes: OAuth 2.0 authorization code flow and workspace API key. Methods oauth2 and api_key fit the rubric."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Help page says API keys are available on all plans and only admins can create them. Docs confirm the 25-workspace cap for unpublished apps, admin-only workspace-level tokens, and workspace-level-only webhooks. These are normal conditions, not paid gates. public_app_review=yes is consistent with the publish requirement."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Public REST API with an OpenAPI spec, webhooks and guides for rate limits, pagination and filtering is confirmed. Broad resource coverage is plausible. The 'sdk' and 'SQL surface' claims are not shown in the excerpts but are minor."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "docs.attio.com/mcp/overview describes Attio's own hosted MCP server using OAuth, so 'official' is correct. The mcp.attio.com/mcp URL is consistent with that."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "API keys are on all plans, OAuth app registration is free, and the API is broad. The admin and 25-workspace conditions are normal and don't change the verdict. build_now fits the rubric."
+  }
+ },
+ "5": {
+  "auth": {
+   "status": "supported",
+   "reason": "API key creation in Settings > Developers > API and OAuth for external apps are both shown in the docs. The methods list is reasonable. The record admits the OAuth details (PKCE, client credentials, dynamic registration) come from a search snippet, but the core OAuth claim is backed."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The pricing page shows a free trial with no credit card. The Developers table shows REST & GraphQL API as 'Yes' in all three plan columns, with MCP and webhooks also 'Yes' everywhere. That resolves the researcher's worry about plan restrictions. The 50 vs 100 per minute rate limit is a per-plan difference, not a conflict. Self-hosting is also available. The only loose end is the trial length, which doesn't change the verdict."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The docs confirm REST and GraphQL, Core and Metadata APIs, per-workspace schema, and batching up to 60 records. The resource families are partly inferred, and the record says so. The sdk, cli and webhooks types are plausible given the intro page."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Twenty's own docs describe a first-party MCP server at {workspace-url}/mcp, with OAuth or API key authentication. That makes 'official' correct."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: there is a free trial and a self-hosted option, API access is listed as available on all plans, and no partner or sales gate was found. The record's open questions are minor, and the medium confidence is appropriate."
+  }
+ },
+ "6": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm OAuth2 with registered client ID/secret and four flows (server-side, client-side, username/password, app auth). Token lifetimes of 8h and 28d are confirmed. Listing api_key as a method is acceptable because the client ID/secret is called an API key."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The API key page shows self-serve key generation and the rate limits are accurate. However, dev_access and production_access are both set to 'free' while the record admits the plan requirements were not verified. Podio dropped its free plan in 2024 (Citrix/Progress changes), so a free signup may no longer exist. Check whether a trial or free tier exists for new developers, and whether API access depends on the customer's plan."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The docs list the areas (applications, items, tasks, files, hooks, comments, contacts, and others) and confirm webhooks (hooks) and the rate limits. The REST API is broad. The SDK claim is plausible, and the client libraries page is referenced."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The Progress documentation page describes the Podio MCP server at mcp.podio.com/mcp. It lists 22 tools and OAuth endpoints, and states that the shared default credentials are for testing with about 30-40 requests. The vendor docs make 'official' reasonable."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now requires free or trial developer access and API on all plans. The record's own open questions say that plan dependence and free/trial availability are unverified, and I believe Podio ended its free plan, so there may be no free developer path. A more cautious verdict such as build_with_conditions or needs_research fits until it is checked. Higher rate limits also need a paid add-on, but that is not a gate for the base case."
+  }
+ },
+ "7": {
+  "auth": {
+   "status": "supported",
+   "reason": "OAuth 2.0 via the Zoho API Console is confirmed by the cited pages. Self Client is a recognised client type. Zoho also offers other options, such as legacy auth tokens, which are deprecated. oauth2 alone is acceptable."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The API Limits page lists credits for the Free Edition (5,000) and says trial editions match their paid editions. That shows API access exists on all editions, and the credit caps are listed as gates. Public app review is correctly marked unknown."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The v8 docs page lists Metadata, Core CRUD, Composite, Bulk and Notification APIs. COQL is also part of the v8 API. The 'broad' rating is reasonable."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor's own docs domain describes pre-built Zoho CRM MCP servers. They use OAuth, and the page confirms that MCP calls consume API credits."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "A free dev path exists: the Free Edition, trials and Self Client. API access covers all editions, and the credit caps are rate limits rather than gates. build_now fits the rubric. The one gap is that edition-specific endpoints were not verified, but the record already notes this and gives medium confidence."
+  }
+ },
+ "8": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show API keys (Settings > Developer, HTTP Basic) and OAuth 2.0 as the two methods; the record matches."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Free dev/secondary org and the public app review gate are confirmed by the docs. The record notes it found no API tier gate, and nothing shown contradicts that. The public_app_review=yes entry matches the Make Public review process."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The developer home page confirms the REST API, webhooks, event log, reporting, sequences and bulk actions. A broad rating is reasonable."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor's own developer docs at developer.close.com/mcp list the hosted URL, Streamable HTTP, OAuth DCR, API key headers and the three scopes. That makes it official."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: a free dev org is available, the API is not tier-gated in the evidence, and public app review does not change the verdict under the rubric. Residual doubt: pricing-plan API access was not checked, but I know of no plan restriction on Close's API."
+  }
+ },
+ "9": {
+  "auth": {
+   "status": "supported",
+   "reason": "Official docs confirm API keys (admin-generated, with email header) and OAuth2 with registration via partners@copper.com; single scope developer/v1/all confirmed. Methods list matches the rubric."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Help center says API is 'Available on our trial, professional and business plan', which supports the tier gating and trial dev access. Registration by email is shown. Minor: the 'not Basic/Starter' wording is inferred, and public_app_review is 'unknown' though the OAuth contact step is vendor registration."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Official developer page confirms a RESTful JSON API covering most resources. The note correctly flags webhooks and rate limits as unverified from official pages. Webhooks in types is slightly unverified but disclosed."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "copper.com/mcp states an official Copper-built, hosted MCP server, beta launching November 2026, read-only, Claude only, using the user's own login. 'Announced' fits. Note today is 2026-11-23, so the beta may now be live or about to launch; a quick recheck of the status is worthwhile."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_with_conditions fits: trial gives dev access, but the API requires Professional or Business tiers, and OAuth for multi-customer use requires emailing Copper. Not a sales-only gate since API keys work self-serve on trial."
+  }
+ },
+ "10": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm the OAuth2 client credentials flow with client_id and an API key enabled in Profile, scopes as listed, and 900s tokens. Listing api_key and oauth2 together is reasonable."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The gates match the docs (API site-area capability, per-user key). But dev_access 'partner_or_sales' and production_access 'free' rest on no evidence. Nothing shown covers pricing or whether API access is included in every license. 'free' is unsupported for a licensed enterprise product. Check whether a sandbox or partner program exists, and whether the API is a licensed add-on."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The rate limits of 5/s on Data, Schema and User Management match the docs. The listed resource families match the docs navigation. The webhooks type is listed even though the note says webhooks were not confirmed. That is a minor inconsistency, and the note itself is honest."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor docs describe a default per-tenant MCP server and an optional Enable Write Tools toggle. The tenant URL format is confirmed. The Celeste license requirement and the user-delegated OAuth are not visible in the excerpt, but they are plausible. The listed 'url' is the docs page, not the endpoint, which is a minor point."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "No self-serve access exists. Credentials require a licensed DealCloud site, so outreach_required fits. The blocker is stated clearly. The 'free' production_access value is inconsistent with this verdict and should be corrected to something like paid or unknown."
+  }
+ },
+ "11": {
+  "auth": {
+   "status": "supported",
+   "reason": "OAuth2 is the recommended method, and API tokens are documented as deprecated but still available. Both are supported by the cited pages."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The 14-day free trial and the Marketplace-only sponsored account are confirmed. The global OAuth client approval gate is confirmed, and it is listed as a condition rather than hidden."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The API reference confirms broad coverage of ticketing, help center, chat, voice, sell and custom data, plus AI agents, messaging and omnichannel. The plan-tier caveat is already noted in the record."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The Zendesk help article confirms a Zendesk-hosted MCP server at https://example.zendesk.com/mcp, reached through Zendesk Bridge. It is in EAP and free during the EAP, with pricing possibly changing later. The record states these conditions."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now conflicts with the record's own gates. Multi-customer apps need a Zendesk-approved global OAuth client, which is a vendor approval step. Dev access is a 14-day trial, and the non-expiring sponsored account is partner-only. Plan tiers for production API access were never checked, and API access on some Zendesk plans, such as the Sell APIs, is limited. Consider build_with_conditions, with the global OAuth client approval and plan-tier checks as the named conditions. Under the rubric, public_app_review should not change the verdict. A 14-day trial may still count as 'free/trial dev access', so check how the team treats expiring trials."
+  }
+ },
+ "12": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm Access Token (issued on app creation) for own workspace and OAuth for public apps. Mapping the token to personal_token is reasonable."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The 403 'API Plan restricted' evidence says some APIs need a plan upgrade, and the evidence shown doesn't establish which ones. The record lists this as a gate but still sets production_access to free and the verdict to build_now. Developer workspaces are free but 'for development only', so production use depends on customers' plans. public_app_review is 'unknown' even though the app store review process is cited. Check which endpoints are plan-gated and whether OAuth public apps need review before installs by other workspaces."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The rate limits and webhooks match the FAQ excerpts. The REST breadth and resource families are plausible but the record admits it did not fetch the reference page. Intercom does have a broad REST API."
+  },
+  "mcp": {
+   "status": "contradicted",
+   "reason": "The cited GitHub README says 'Currently the Intercom MCP server is only supported in US hosted workspaces.' The record says 'US and EU workspaces' in the mcp note, and its AU gate implies EU is supported. The excerpt supports US only. The official status, URL and the OAuth/Bearer methods are supported. EU support may have been added later, so verify it against current docs."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now requires API access on all plans, but the record's own evidence shows some endpoints are plan-restricted (403 API Plan restricted). The open questions also include unverified app-store review and install caps for OAuth apps. build_with_conditions looks more accurate, with the condition that some endpoints need specific customer plans. Confidence is only medium."
+  }
+ },
+ "13": {
+  "auth": {
+   "status": "supported",
+   "reason": "Personal API key via Basic auth is directly shown in docs and the profile settings location is quoted. No OAuth for the public REST API matches my knowledge too. The Nov 2026 Service Accounts API claim has no shown evidence, but it is not material to the method."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The evidence shows trial accounts get 50 calls/min, so the API works in trials. But production_access 'free' is unsupported. Rate limits are listed only for Growth/Pro/Enterprise, and the open questions admit the Free plan was not checked. From my knowledge, the Free plan has had limited or no API access, and the API is plan-dependent. The note that 'some endpoints may need higher plans' is itself a condition. Check whether the Free plan includes the API, and whether any endpoints are tier-gated. The MCP metering from Sep 2026 is a real condition too."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The quotes support REST v2, JSON-only, HTTPS-only, no custom CNAMEs and the broad resource categories. Webhooks are plausible from my knowledge, since Freshdesk automation webhooks exist, though this evidence does not show them."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The official Freshworks support articles on freshdesk.com confirm a hosted MCP server with API key auth, GA on Sep 10, 2026, a Freshdesk 2021/Unified Omni 2026 compatibility matrix, and ticket, contact, company and conversation tools. The Actions-based billing is also shown."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now needs free/trial dev access plus API on all plans. The record leaves open whether the Free plan has API access, and its own gates cite plan-dependent endpoints, paid extra API volume and a 50/min trial limit. Confidence is only medium. The blocker is the string '\"\"', which is a formatting glitch. A free trial exists, so build_now may still be right. It is not verified for all plans, so confirm the Free plan API availability, or use build_with_conditions or needs_research."
+  }
+ },
+ "14": {
+  "auth": {
+   "status": "supported",
+   "reason": "OAuth2 authorization code flow and API tokens are both confirmed by the cited pages. API tokens map to api_key (personal_token would also fit)."
+  },
+  "access": {
+   "status": "insufficient",
+   "reason": "The record says dev_access is free_trial, but its own gate and open question admit that no free trial or sandbox was confirmed. The cited evidence covers only rate limits, admin authorization and the publish process. It doesn't show that the API is available on all plans, and it doesn't show that production_access is 'free'. Front is a paid product, and the API may need a paid plan or trial. Check front.com/pricing and whether a trial gives API token access."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Core API resources (conversations, contacts, inboxes) and Bearer tokens are confirmed. The note says the resource list is partly inferred, but the 'broad' rating is reasonable given Front's known API."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The official docs at dev.frontapp.com describe a first-party hosted MCP server at mcp.frontapp.com/mcp, with OAuth and user-scoped tokens. They also mention the separate Admin MCP server."
+  },
+  "verdict": {
+   "status": "insufficient",
+   "reason": "build_now needs confirmed free or trial developer access plus API on all plans. The record itself says trial or sandbox access was not confirmed, and plan availability of the API wasn't verified. That leaves needs_research, or build_with_conditions if the API turns out to need a paid plan. The record's medium confidence and open questions agree with this."
+  }
+ },
+ "15": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm admin-created bearer tokens, no scopes, no expiry, own identity or act-as user/bot. api_key fits. MCP OAuth is correctly noted as MCP-only."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The pricing FAQ confirms trials are for prospects and set up by a sales rep. But the record's own open questions say it is unclear whether the REST API is on Professional or only Enterprise. Production_access=paid_plan and the claim that the API is a paid-plan feature rest on a pricing excerpt that isn't shown here. Also, a sales-assisted trial/demo org may still give an API token, which would make this a sales-gated trial rather than a hard partner gate. Check which tier includes the REST API, and whether demo orgs can create tokens."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "SDKs (TS/Python/Go) and the US/EU regional base URLs are confirmed by the docs. Webhooks are flagged as unverified in the record's own note, which is acceptable. The CLI and breadth claims are plausible."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Vendor docs describe a hosted official MCP server at mcp.usepylon.com (EU: mcp.eu.usepylon.com), with OAuth 2.0 or API token auth and Streamable HTTP transport."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "outreach_required depends on the API being gated behind sales. The evidence only shows that trials are sales-assisted, not that access is blocked until a partner or sales contact. The record says it is unresolved whether the API is on Professional ($89/seat, which looks purchasable). If a paid plan or a demo org gives API tokens, build_with_conditions (paid plan or sales-set-up trial) may fit better, or needs_research if the tier is unknown. Confidence is medium and several open questions bear directly on the verdict."
+  }
+ },
+ "16": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence shows admin-created API v3 key with per-key permissions sent in an `apikey` header. api_key is the right method. The MCP OAuth/bearer is correctly separated."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The trial-for-testing, in-account docs and 180 rpm per-key limit are all backed by the quotes. The record admits plan restrictions were not checked, which is honest, but it still marks production_access as 'free' with no plan evidence."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The REST v3 docs live in the account and cover agents and tickets. The cited pages show nothing contradictory. Breadth 'broad', the SDK and webhooks are not shown in the excerpts but are plausible."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor's own support page documents a built-in MCP server at /api/mcp using Streamable HTTP with OAuth 2.1 or a bearer token. That makes it official."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now needs the API to be available on all plans, and the record says this was not verified (open question 1). From memory, LiveAgent's API access may be limited on the cheapest or free plans. I believe the pricing page lists API access on paid tiers, and the free plan is limited. Check the pricing page and the plan comparison. If the API is gated by tier, the verdict should be build_with_conditions (paid_plan). Also, the blocker field contains a literal \"\\\"\\\"\" string, which should be empty or null."
+  }
+ },
+ "17": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show API keys created via 'Add API Key' with permissions, sent as Bearer token. MCP OAuth is correctly noted as separate from GraphQL auth."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The 7-day no-credit-card trial is confirmed in llms.txt. The record itself lists the lack of an explicit statement on API key availability per plan as an open question, and the docs state no API/UI limitations. Paid plans are not an API gate under the rubric."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The GraphQL endpoint, Bearer auth, TypeScript SDK and the 'no limitations' vs UI statement are all confirmed. Webhooks are plausible given the MCP page mentions them. Rate limits are honestly marked unverified."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor-hosted official server at mcp.plain.com/mcp is confirmed on Plain's own docs. It uses OAuth with the user's account and has nearly 400 tools. API keys, billing and webhooks are confirmed as app-only."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "A free trial without a credit card, self-serve API keys and a broad API with no documented tier gating fit build_now. The open question about plan restrictions is minor, and the docs say there are no API/UI limitations."
+  }
+ },
+ "18": {
+  "auth": {
+   "status": "supported",
+   "reason": "OAuth2 with Authorization Code and Client Credentials confirmed by the authentication page, along with the My apps creation path and the active invited user requirement. The Docs API key is a separate credential and is not shown in the excerpts, but it is consistent with the MCP page's mention of a Docs API key."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The vendor article confirms that the Free plan has no API access, that Standard, Plus and Pro have rate limits of 200, 400 and 800 calls per minute, and that Standard lacks reporting endpoints. paid_plan is justified because the API needs a paid tier. dev_access 'free_trial' is unverified, and the record admits it, but it is flagged as an open question rather than asserted as fact."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST v2 at api.helpscout.net with JSON and HATEOAS links is confirmed, and SDKs are mentioned on the page. The resource families are admitted to be partly from general knowledge, but they are plausible and the breadth is not in dispute."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor docs describe an official Help Scout MCP, give the URL https://mcp.helpscout.net/mcp, and state that it is read-only for new connections, with per-user login, report tools on Plus/Pro, and a Docs API key for Docs tools. The 'generally available' wording is not directly shown, but the page does not contradict it."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_with_conditions fits: API access requires a paid tier (Standard or higher), and reporting needs Plus or Pro. The trial question is open, but the verdict is reasonable and confidence is marked medium."
+  }
+ },
+ "19": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm API key (Basic auth with email + key) for private apps and mandatory OAuth2 for public apps; 24h access token and non-expiring refresh token confirmed."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "API on all Helpdesk plans is confirmed, but the free-trial claim relies on an unfetched blog post, and the record itself lists it as an open question whether trial accounts can create API keys. The sandbox also needs a draft app plus an email to Gorgias to move from Demo to Developer plan. That is an extra manual step. Check on a real trial that API key creation works. Also check whether the API is really free in production, since the helpdesk itself is paid and no free plan is shown."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST API at the per-account subdomain, rate limits match the page, and the sidebar confirms several resource families. The record honestly flags the unconfirmed ones. Webhooks as an API type is not shown in the evidence but is plausible (HTTP integrations)."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "mcp.gorgias.com is a vendor-hosted domain and the vendor blog confirms it is in open beta for paid plan customers. 'No extra cost' is a reasonable reading of the page. The status is official."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now needs free or trial dev access with the API on all plans. Trial API-key creation is unverified (open question), and the sandbox needs a manual email step to get a Developer plan. Confidence is only medium. Either confirm the trial can create keys, or use build_with_conditions or needs_research until it is confirmed."
+  }
+ },
+ "20": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm token-based Basic auth with agent email + API token, created by a user with API User permission. api_key is a reasonable classification (token created in UI); no OAuth shown."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "Evidence shows sandbox enabled by Gladly and API User permission, but nothing shows access requires a sales/partner process beyond being a customer. Gladly's developer docs say the API is available to customers; check whether API access is plan-gated or whether Gladly offers developer sandboxes on request. dev_access=partner_or_sales plus production_access=free is somewhat inconsistent and pricing/plan was admittedly not checked."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Docs confirm REST API at the org's own Gladly domain over HTTPS, plus Lookup API. Webhooks/SDK claims are plausible from the docs cited (iOS/Android SDKs, chat widget); breadth fine."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The usefulapi page confirms a third-party hosted MCP server; 'community' status with no official server found is consistent with evidence. Could double-check for an official Gladly MCP, but nothing contradicts."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "outreach_required asserts sales/partner is needed before any access, but the evidence only shows that you need an existing Gladly org (a paid product, which is not an API gate per the rubric). The record itself says no plan gating was found and pricing was unchecked, so needs_research (or build_with_conditions) may fit better. Verify whether Gladly offers trial/developer sandboxes or API-tier restrictions."
+  }
+ },
+ "21": {
+  "auth": {
+   "status": "supported",
+   "reason": "OAuth 2.0 install flow with bot/user tokens is well evidenced; MCP confidential OAuth is quoted. Single-workspace install token is still OAuth-derived. Fine."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "Evidence shows free app creation, but production_access 'free' glosses over a material condition: commercial multi-workspace distribution is supposed to go through Marketplace review, and Slack has restricted rate limits (e.g. conversations.history, conversations.replies at ~1 req/min, limit 15) for non-Marketplace commercially distributed apps since 2025. The researcher itself did not verify this. Check the rate-limits changelog; this may warrant build_with_conditions."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Broad Web API, Events API, Socket Mode, webhooks; same rate-limit tiers on all plans is quoted. Types and breadth are reasonable."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Official Slack-hosted endpoint https://mcp.slack.com/mcp over Streamable HTTP, with Marketplace/internal-only restriction and no DCR/SSE, all quoted from docs.slack.dev."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now with high confidence conflicts with the record's own gates and open questions: Marketplace listing is expected for commercial distribution, the MCP server needs Marketplace/internal apps, and non-Marketplace apps face tightened rate limits that the researcher did not verify. A multi-tenant integrator like Composio likely needs build_with_conditions (Marketplace review/rate limits) rather than build_now. Verify and consider downgrading confidence."
+  }
+ },
+ "22": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm HTTP Basic with API Key SID/Secret (recommended) or Account SID/Auth Token, key types Main/Standard/Restricted, created in Console or API. api_key is a reasonable method label."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Signup page shows free trial, no credit card, all products, limited by time/features/usage caps. Paid usage-based account for production is correctly noted as a product cost, not an API gate. The record flags the unverified regulatory registration. production_access 'free' is slightly odd wording but the gate text clarifies."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Page confirms REST APIs per product, HTTPS and SDKs. Breadth is plausible given 1,800+ endpoints across 30+ products. CLI and webhooks are well known and the CLI is referenced in the page excerpt."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Official Twilio page confirms hosted mcp.twilio.com/docs, beta, read-only, no credentials. The record honestly notes twilio-labs/mcp was not fetched and is based on snippets, and it keeps the claims about the hosted server separate."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: free trial with no card, API on all plans, and paid usage is not an API gate. Trial restrictions (verified recipients only) and A2P registration are mild friction, not a material restriction. Twilio Connect for multi-tenant OAuth is an open question but does not change this."
+  }
+ },
+ "23": {
+  "auth": {
+   "status": "supported",
+   "reason": "Zoho API Console OAuth2 with client registration, grant token, refresh tokens is shown on the docs. Self Client is a variant of oauth2, so oauth2 only is fine."
+  },
+  "access": {
+   "status": "insufficient",
+   "reason": "The record itself admits API availability on the Free plan is unconfirmed. The pricing excerpt shows 'API support' as a row, with the per-plan values not visible. Cliq's pricing has historically limited some API/extension features by plan. Also the evidence says trial downgrades to free, which supports the free plan existing, but not API access on it. dev_access/production_access 'free' therefore asserts more than shown."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The v2 REST docs show JSON REST, granular scopes and org export endpoints (OrganizationMessages.READ). Webhooks, bots and Deluge are plausible and consistent with the platform. Minor: the claims about the OpenAPI spec and v3 are not evidenced here."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Zoho's own docs page (zoho.com/cliq/help/platform) calls it 'our official MCP server', so an official status is supported."
+  },
+  "verdict": {
+   "status": "insufficient",
+   "reason": "build_now requires free/trial dev access with the API on all plans. The researcher states that API availability per plan is unconfirmed, the rate limits are tight, and the confidence is medium. The pricing page shows 'API support' as a plan-comparison row, which may mean tiered limits. Confirm the Free-plan API availability, or use build_with_conditions or needs_research. Also, the blocker field is a literal '\"\"' string, which is a formatting glitch."
+  }
+ },
+ "24": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence supports App ID/Secret -> tenant_access_token and OAuth2 user_access_token. Listing api_key for App ID/Secret exchange is a loose but acceptable classification."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Custom vs store app limits, ISV qualification, scope approval and data-permission review are all quoted. Admin consent is correctly treated as normal. The record honestly flags unverified paid-plan gating."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST, SDKs (go, python, java, nodejs), events and Bearer-style token headers are supported by the llms.txt excerpts. Breadth is plausible from the doc index."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The README in the official larksuite GitHub org says it is the official Feishu/Lark OpenAPI MCP tool and is in Beta. That supports status official."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now rests on free dev and prod access, but the record itself lists unverified open questions: some API features may need higher Lark plans, free tenant signup is unconfirmed, and an IP allowlist may be required. Some Lark APIs (e.g. certain CoreHR, approval and attendance features) are, to my knowledge, tied to paid editions. Check that before finalising. If any are, build_with_conditions fits better. Confidence is only medium."
+  }
+ },
+ "25": {
+  "auth": {
+   "status": "supported",
+   "reason": "OAuth2 auth code flow, non-expiring tokens, and API-key addon are all backed by the cited pages."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "API addon is on all plans for Owner/Admin/Member with 1000 req/min limit; creating custom apps in Configure apps is documented. Unknown public review is honestly flagged."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "API-key addon actions listed match the page. Moderate breadth with REST/SDK/CLI/webhooks is plausible; the OAuth resource families are consistent with the MCP scope table."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor's own help page documents a Pumble MCP server, with a scope-dependent tool list, so 'official' is justified."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free access on all plans, with self-serve API key and app creation, fits build_now. The open questions (marketplace review, OAuth rate limits) are not evidenced as restrictions, so medium confidence is reasonable."
+  }
+ },
+ "26": {
+  "auth": {
+   "status": "supported",
+   "reason": "OAuth2 grants confirmed by the docs. The bot token from the Developer Portal is a reasonable api_key/other mapping. The record's own blocker field is a stray empty string, which is cosmetic."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The gates are mostly sourced, but bot verification and the privileged intents (Message Content, Server Members, Presence) are unconfirmed. From my knowledge, bots in 100 or more servers must be verified, and Message Content needs approval. That is a real production condition for any public multi-tenant Composio bot. Check Discord's verification docs. 'production_access: free' with public_app_review 'unknown' is weakly supported."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The base URL and the rate-limit and revocation language match the cited reference page. The REST, Gateway and webhooks breadth is consistent with the public docs."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The community status is backed by the SaseQ repo, which uses a user-supplied bot token. The 'official' MCP is correctly treated as unverified. I know of no official Discord-owned MCP server, though my knowledge may be outdated."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now is likely too optimistic. The record itself lists unconfirmed verification and privileged-intent approval at scale, partner-only scopes, and a per-guild bot install. Those fit build_with_conditions better, or at least need resolving before build_now. Also, dev access depends on an unfetched Developer Portal page, so confidence in 'free' is only medium."
+  }
+ },
+ "27": {
+  "auth": {
+   "status": "supported",
+   "reason": "Bot token from @BotFather in URL is confirmed; api_key plus other (MTProto user login with api_id/api_hash) is reasonable. No OAuth is correct."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Bot API and Telegram API are stated free of charge; api_id requires my.telegram.org, one per number, and abuse bans are confirmed. Gates are appropriately noted, with no paid tier or partner gate."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Bot API is HTTPS/JSON with webhooks and getUpdates, mutually exclusive, 24h retention, all confirmed. Breadth broad is consistent. Rate limits are flagged as unverified."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Community status with chigwell/telegram-mcp (Telethon, 80+ tools) is supported by the cited page. The no-official-server claim is not disproven by the evidence, and I know of no official Telegram MCP server."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free Bot API with instant token creation and no tier gating fits build_now. The per-user bot-token model is a design matter, not an access gate."
+  }
+ },
+ "28": {
+  "auth": {
+   "status": "supported",
+   "reason": "System user permanent token (api_key-like/personal token) and Meta OAuth/Embedded Signup for multi-customer are both evidenced. Docs say 'OAuth (not 2.0)', but oauth2 for Embedded Signup is reasonable. Minor: system-user token could be labelled personal_token, but acceptable."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Test accounts/numbers are free with no payment method for template sends; production gates (App Review, Tech Provider, business verification) are captured and per-message billing is correctly treated as usage billing, not an API gate. public_app_review=yes is consistent."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Graph API over HTTPS and 80 msg/s default throughput are directly quoted. Broad resource families plausible for the platform."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Meta's own developer docs page documents the official server at mcp.facebook.com/whatsapp_business_tools, Streamable HTTP, Meta OAuth, beta status and gradual rollout. 'official' is valid; beta caveat noted in the record."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now is arguably right for free test access, but production use needs a business portfolio, templates approval and, for multi-customer apps, App Review plus Tech Provider onboarding/Embedded Signup (public_app_review=yes), and business verification affects throughput. Per rubric, vendor review does not change the verdict, so build_now is defensible. Still, check whether sending to real non-test numbers requires a payment method and a registered production phone number. Confidence 'high' is a bit strong given the open questions on App Review and pricing were not verified."
+  }
+ },
+ "29": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm Basic Auth (API ID + token from Dashboard) and OAuth for multi-customer apps. Methods api_key and oauth2 fit the rubric; the approved tech partner condition is noted in the detail."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The evidence supports the partner gating of OAuth and the AI add-on requirement. But dev_access is 'unknown', and 'app_review' for production is a loose fit: Basic Auth works immediately for a customer's own account, and the OAuth route needs a Technology Partner relationship. I believe Aircall has a partner signup that gives a sandbox or test account, so check that. The record's own text says the add-on gate applies only to conversation intelligence, which is fine. Also confirm whether public_app_review 'yes' is the right label, since the partner program is a vendor review of the public OAuth app."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The API reference page shows a public REST API with webhooks and many resource families, and a CTI SDK in the navigation. The 'broad' rating is reasonable."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Aircall's own support article documents an official beta MCP at mcp.aircall.io/mcp that is read-only, needs the AI add-on for conversation intelligence tools, and needs beta enrollment via the account manager. The record matches this."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_with_conditions is plausible, since Basic Auth works now for own-account use and OAuth needs partner approval. But the rubric says outreach_required applies when a partner relationship is needed before access. For multi-tenant use (what Composio would need) OAuth is tied to being an approved tech partner, which points to outreach_required for that path. Dev/trial access is unverified, so needs_research is also arguable. Check whether Composio's multi-tenant use case needs partner approval, and whether OAuth client credentials can be had without the Marketplace."
+  }
+ },
+ "30": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence confirms account API key/secret from dashboard and JWT signed with application private key. api_key and service_account_or_jwt are reasonable; no OAuth model is plausible for Vonage."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Support article confirms trial mode (5 verified test numbers, demo text) and removal by adding funds. Treating pay-as-you-go funds as usage cost rather than an API tier gate fits the rubric. Gates are listed."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The API reference index shows broad families (Voice, Number Management, Account, Reports, Conversation, Pricing, Verify, etc.). Beta label on Messages is noted as an open question."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor developer site documents the Vonage MCP Server, and the note openly says the tooling repo is in Vonage-Community. 'Official' is backed by a vendor-hosted docs page, and the caveat is disclosed."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Self-serve signup, free trial credit and API on all accounts support build_now. Trial limits and sender registration are normal product usage constraints, not an API-tier gate."
+  }
+ },
+ "31": {
+  "auth": {
+   "status": "supported",
+   "reason": "OAuth2 (multi-user and single-user) and service account are confirmed by the OAuth overview and developer-token sunset pages. Access level now tied to the Cloud project is also confirmed."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Test, Explorer, Basic and Standard tiers, the ops limits, brand verification for Basic/Standard and the manual audit for Standard are all supported by the access-levels and developer-token pages. Free access is reasonable, and the Google OAuth public-app review is flagged with public_app_review=yes. Minor: Standard is required for tools with many users, which the record notes as an open question."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The start page supports broad account, campaign and GAQL reporting coverage. The types list (rest, sdk, other/gRPC) is plausible, since the API offers both gRPC and REST."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Google's own developer docs describe the MCP server and link to the googleads GitHub repo. The modes, transports and local/self-hosted nature match the docs, so 'official' with a non-hosted note is accurate."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now looks too generous. Production use of a multi-tenant toolkit needs Explorer access, which Google 'may let you apply for' after initial sign-up, so it is not guaranteed. Explorer is capped at 2,880 ops/day and excludes account linking, user management and keyword planning. Real scale needs Standard, which is a manual audit of about 10 business days. The record also lists known issues with rejected or unhonored upgrades. This looks like build_with_conditions (access-tier application, with a Standard audit for scale), so a researcher should check it."
+  }
+ },
+ "32": {
+  "auth": {
+   "status": "supported",
+   "reason": "OAuth via Facebook Login with ads_management/ads_read scope and system user tokens are shown in the evidence. User access tokens fit under personal_token. System user tokens are reasonably mapped to service_account_or_jwt."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The evidence supports the tier and App Review gates. Meta usually also requires Business Verification, and often Advanced Access for other businesses' data, before ads permissions are approved. The record lists this only as an open question. The MCP claim that it was 'opened to any developer' and the 'July 2026' date are not in the shown evidence. The MCP server may also need its own app permission (ads_mcp_management) review. Check these before finalizing."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The Marketing API is a Graph API REST collection covering campaigns, ad sets, creatives and related areas. The breadth claim is plausible and the cited page matches it. The claim that docs show v27.0 matches the OAuth URL in the evidence."
+  },
+  "mcp": {
+   "status": "insufficient",
+   "reason": "The evidence shows the URL mcp.facebook.com/ads on developers.facebook.com docs, which supports an official Meta-hosted server. The record's note adds claims that are not shown: that it was opened to any developer in July 2026, and that it supports OAuth, user tokens and system user tokens. The excerpt does show OAuth, user and system-user tokens, but not the opening date or the 'any developer' claim."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_with_conditions fits: free dev access is automatic, and production use for other advertisers needs App Review, Advanced Access and the Full tier, which are named conditions. Business Verification is unconfirmed and may add to the conditions, but it does not change the verdict category."
+  }
+ },
+ "33": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm Marketing APIs require 3-legged member authorization, not client credentials. oauth2 is the right method."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The increasing-access page supports the Development tier (read unlimited, edit 5 accounts, 1 test account) and a separate Standard tier request. It also supports LinkedIn's discretion to decline. app_review for dev and production access, with public_app_review yes, fits the rubric."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The overview page confirms campaigns, creatives and reporting. The getting-started page confirms versioning and the sunset of 202505. The broader resource families and the webhooks type are plausible, but this excerpt does not show them. LinkedIn does offer lead sync and event webhooks."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The cited GitHub repo is a third-party community server, not LinkedIn's. The record says community and notes that no vendor server was found. I know of no official LinkedIn Ads MCP server."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_with_conditions fits. Access needs an approved Advertising API application, and Standard tier is needed beyond 5 ad accounts and can be declined. For a multi-tenant platform this is arguably close to outreach_required or limited, but the Development tier gives real access, so the conditional verdict is defensible. The record already lists the open questions on cost and partner status."
+  }
+ },
+ "34": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm Authorization Code OAuth2 and Private Integration Tokens (static scoped tokens from UI). v1 API keys are EOL. Methods fit the rubric."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "Evidence only shows the developer account is free. The record itself admits that third parties report plan tiers for API access (Starter/Unlimited vs Agency Pro) and that OAuth or agency-level endpoints may need Agency Pro. In my knowledge, Private Integrations and some API features are gated by plan (the advanced API/Agency Pro tier, and a HighLevel account is paid after the trial). Testing needs a HighLevel account, and trial terms were not verified. 'free' for production access is not supported. Check the HighLevel pricing and API-access help pages."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Docs home page supports the REST API, the resource families listed and webhooks for 50+ events. The note honestly flags the unconfirmed rate limits."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor docs on marketplace.gohighlevel.com describe a vendor-hosted LeadConnector MCP server with OAuth, a Claude endpoint, and 550+ operations across 38 domains. The source is first party, so 'official' is supported."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now needs free or trial dev access and API on all plans. The record's own gates and open questions say plan-tier requirements for API, OAuth and agency endpoints are unresolved, and a HighLevel account for testing is not confirmed free. Confidence is medium. This looks like build_with_conditions (plan tier, possibly Agency Pro) or needs_research until the pricing and API-access pages are checked."
+  }
+ },
+ "35": {
+  "auth": {
+   "status": "supported",
+   "reason": "API key and OAuth2 authorization code flow with self-serve app registration are confirmed by the cited pages. Non-expiring tokens with no refresh token are also confirmed."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Any account can create an API key, and the docs say capabilities depend on plan level. The record states the plan-dependence as a gate and does not use paid_plan. OAuth app registration is self-serve. The 'free' claim is slightly soft, but the plan caveat is disclosed."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The REST API covers audiences and campaigns, and the pages show client libraries. The CLI and webhooks types and the resource family list are not shown in the excerpts, but they are plausible and consistent with my knowledge of Mailchimp."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The official MCP server is documented and only searches the docs, not the account. The record states this limitation clearly and treats community servers separately."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "A free account can create an API key, and OAuth registration is self-serve with no review. build_now fits the rubric. Plan-dependent features are an open question and not a named API gate. Medium confidence is appropriate."
+  }
+ },
+ "36": {
+  "auth": {
+   "status": "supported",
+   "reason": "Private key (pk_, Klaviyo-API-Key header) and OAuth2 with PKCE are confirmed. Public key is client-only and correctly excluded from methods."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Role requirement, unlisted-app installation URL, and the 5-install marketplace requirement are all confirmed. API access on the free plan rests on a community answer from a Klaviyo staff-style reply. That is weak but consistent with my knowledge. The record flags it as unofficial."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Rate limits, scopes and the JSON:API structure are confirmed. The broad resource list is plausible. The record already says webhooks were not verified. Klaviyo webhooks exist as a flow action, not as a general API subscription. The 'webhooks' type may be loosely stated."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Vendor docs confirm the official remote MCP at mcp.klaviyo.com/mcp, with OAuth DCR, Streamable HTTP and the role restriction. The tool count is unverified but minor."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Self-serve keys and OAuth, with no sales or partner gate, and the API is available on all plans, including free. build_now fits. The marketplace review is correctly kept out of the verdict."
+  }
+ },
+ "37": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs say API key in X-API-Key is the only option; help article shows key creation under Settings > MCP & API keys. MCP key detail matches the MCP page."
+  },
+  "access": {
+   "status": "insufficient",
+   "reason": "Free plan existence is shown, but nothing shows Public API key creation is available on Free. The record admits this gap and that per-plan rate limits are unreadable, yet marks dev and production access as 'free'."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The help article lists contacts, tags, fields, newsletters, campaigns, statistics and funnels. The docs describe a REST API. The record itself notes webhooks were not verified, so 'webhooks' in types is weakly supported. Minor."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor-hosted developer docs describe an MCP server with MCP-key auth via X-MCP-Key or the mcpKey query parameter. The scope limits are correctly noted."
+  },
+  "verdict": {
+   "status": "insufficient",
+   "reason": "build_now requires free or trial dev access with the API on all plans. The record says it didn't confirm API keys on the Free plan and that the pricing page has an 'API requests per minute' row that may vary by plan. Without that confirmation, build_with_conditions or needs_research fits better. Check whether API key creation works on a Free account. I suspect it may be gated, as some Systeme.io features are. Also confirm webhooks."
+  }
+ },
+ "38": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence shows OAuth2 access tokens with scopes. Test tokens are a minor extra but oauth2 is the right primary method."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Trial access needs request-form approval by Pinterest, and Standard needs an upgrade. This matches the cited pages. app_review is appropriate, and public_app_review yes is consistent."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The v5 reference page lists pins, boards, ads, campaigns, audiences, catalogs, analytics and conversions. This supports a broad REST API."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The official page shows a 'new announcement' with a sign-up to be told at launch, so 'announced' fits. The record's endpoint and OAuth detail is not in the excerpt but is hedged."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_with_conditions fits. There is free developer access, but it needs Pinterest approval for Trial and an upgrade to Standard to serve real users. The access-tier review is a vendor review of a public app and should not by itself make this outreach_required. One thing to check: the gate about apps registered on or after Sept 14, 2026 is not in the excerpts shown. Today is 2026-11-23, so that date is past, and the researcher should confirm the wording against the source."
+  }
+ },
+ "39": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs say Threads user access tokens conform to OAuth 2.0 via the Authorization Window; the detail on short-lived and long-lived tokens matches the page."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The docs confirm testers can grant permissions without review. Other users need App Review per permission and a published app. Tech Provider steps are shown. Dev access is free, since a Meta app costs nothing. Business verification is flagged as an open question, which is appropriate."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The host, the 250 posts per 24h cap and the impressions-based call formula (minimum 10) all match the overview page. The permission list supports the broad resource families. The webhooks claim is not shown in the excerpts, but it is plausible and consistent with the known Threads API."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The baguskto/threads-mcp README describes a third-party server wrapping the official API. Community status is right, and no Meta-published server is evidenced."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free dev access with App Review required for non-tester users is a named condition. That fits build_with_conditions, since App Review is vendor review of a public OAuth app. Under the rubric, public_app_review should not change the verdict, which makes build_now arguably the stricter fit. Still, Testers-only access without review is a material production gate, so build_with_conditions is defensible."
+  }
+ },
+ "40": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm API keys with scoped permissions via Bearer header. SendGrid has no third-party OAuth app model for the v3 API as far as I know, so api_key alone is right."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The record has evidence for a free trial with no credit card. Two things need checking. (1) SendGrid retired its permanent free plan in 2025 and moved to a time-limited trial (about 60 days), after which sending stops unless the account is upgraded. 'production_access: free' then looks wrong, because production use needs a paid plan, though that alone is not an API gate. (2) The pricing excerpt does not show whether the trial has limits. The record itself says trial length and limits were not verified. Check the current trial terms and whether production access should be 'paid' or 'trial_only'."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The docs excerpt supports a REST v3 API covering mail send, marketing campaigns, contacts and stats. It also supports the SDKs. Webhooks are well known for SendGrid (Event Webhook, Inbound Parse), and the record flags them as unchecked."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The README says the deyikong server is an independent project and not an official SendGrid product. The record's 'community' status matches that. One caveat is that the maintainer is a SendGrid engineer, but the project is still explicitly unofficial."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now needs free or trial dev access and API access on all plans. The record leaves open whether the trial is limited and whether some marketing endpoints depend on plan. SendGrid has also dropped its free tier for a time-limited trial. That makes build_with_conditions (trial expiry, paid plan needed to keep sending, sender verification) more accurate than build_now. Check the current trial terms and the plan dependence of Marketing Campaigns endpoints."
+  }
+ },
+ "41": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs table shows OAuth/token exchange for the Admin API and tokens for the Storefront and Partner APIs. oauth2 + api_key is reasonable. Public app review is correctly kept out of the auth methods."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Partner/dev account and dev stores are free. Public app review and the one-time registration fee are recorded as public_app_review, not as an API gate. Dev-store limits are accurately quoted."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The GraphQL Admin API is versioned and rate limited by query cost, as quoted. Broad resource coverage is consistent with Shopify's documented APIs. The REST/SDK/webhook details are unverified, but the claims are standard."
+  },
+  "mcp": {
+   "status": "suspect",
+   "reason": "Dev MCP is official, and the evidence supports a local, no-auth server. The record does not cover Shopify's other official MCP servers: the Storefront MCP, which is hosted per store at /api/mcp and is used for agentic commerce, and the Catalog/Checkout MCP. Check whether any of these should be recorded; the record's own open question flags this. The 'official' status is fine, but the note that no store-operations MCP exists may be wrong."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now is plausible given free dev stores and an API on all plans. However, protected customer data (orders and customers) needs approval or declarations. Also, new apps can no longer use store-created custom app tokens, so each merchant must install via an app and OAuth. Public distribution needs review. These are conditions the record itself flags as unverified. Consider build_with_conditions, or confirm that protected customer data access is not a material barrier."
+  }
+ },
+ "42": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm consumer key/secret generated by admin, Basic Auth over HTTPS, OAuth 1.0a over HTTP, and the wc-auth endpoint. api_key is a reasonable method classification; Application Password mention for MCP is accurate."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "REST API ships with the free open-source plugin; requirements are only version and permalinks. No paid tier or vendor review is evidenced. The self-hosted nature is noted correctly as a gate."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Resource list, v3 path, pagination default of 10, and official libraries match the cited docs index. Webhooks are a resource in the docs."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Official WooCommerce developer docs describe the MCP integration, flagged as developer preview, requiring the separate MCP Adapter plugin plus an Application Password. The record states these caveats accurately."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free, self-hosted REST API available on every store with self-serve key generation and no vendor gate. build_now fits the rubric. The open questions on managed hosts are minor and do not change it."
+  }
+ },
+ "43": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm OAuth-based API accounts (store/app/account level) and authorization-code flow at login.bigcommerce.com/oauth2/token. Store-level static client_id/secret/access_token is reasonably listed as api_key; oauth2 for app flow."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Docs say to sign up for a free trial store and create credentials under Settings > API Accounts. Store-owner constraint and approval for public apps are quoted. Gates are reasonable; trial duration is already listed as an open question."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Evidence shows REST Management and GraphQL Admin/Storefront APIs across account types, and the resource families listed are plausible for BigCommerce. The cited abandoned-carts page only shows one family, but the breadth is well known."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor docs page describes an official Store Management MCP in beta, enabled by the store owner under Settings > API and MCP. The 'official' status is backed by a first-party source."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free trial store gives API access and API is not tied to a paid tier, so build_now fits. The store-owner enablement for MCP only affects the optional MCP. The only mild doubt is the unverified trial-period API access, already noted as an open question."
+  }
+ },
+ "44": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence supports SLAS (shopper, public/private clients) and Account Manager client credentials for Admin APIs. oauth2 is right. The api_key label is loose, since SLAS/AM client ID and secret are OAuth2 clients, but it is harmless."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "dev_access=paid_plan is plausibly right, since on-demand sandboxes need purchased credits and the demo sandbox is read-only shopper only. But production_access=free is awkward: the API is included at no extra cost for existing customers, yet the platform needs a B2C Commerce licence. Under the rubric a paid product is not an API gate, so the main gate is no self-serve dev access, not paid_plan. Check whether a partner or trial sandbox route exists (Salesforce Partner Program, Trailhead, or a free developer sandbox) and how dev_access should be labelled. Evidence on this was not found."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The quoted evidence supports REST SCAPI and the listed Admin families (Assignments, Catalogs, Customers, Inventory Availability, Orders, Products, plus 8 more). The SDK/CLI claims are plausible. The record admits rate limits and webhooks were not checked."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Salesforce's own docs page describes the B2C DX MCP server, implemented in the @salesforce/b2c-dx-mcp package, so official is supported. The record correctly notes it is developer-workflow focused."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_with_conditions fits: the API is free for licensed customers, but credentials need a licensed tenant or paid sandbox credits plus admin-created clients. This is closer to outreach_required if there is truly no non-customer dev access. Because the demo sandbox gives some read-only shopper access and a licensed customer can self-serve, build_with_conditions is defensible. The access dev_access label should be rechecked, but the verdict holds."
+  }
+ },
+ "45": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence supports OAuth 1.0a integrations with four credentials, admin/customer tokens via login credentials, standalone bearer disabled by default, and IMS for SaaS. Labeling OAuth 1.0a as 'oauth2' is imprecise (it's 1.0a, nearest bucket 'other'), but the detail text is accurate. Minor: 'api_key' and 'personal_token' are loose mappings."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "'free' for production_access is questionable: Adobe Commerce (PaaS/Cloud/SaaS) is a licensed product and there is no free dev sandbox evidence for SaaS; the record itself lists that as an open question. Free access holds only via self-hosted Magento Open Source. Also the integration-token-as-bearer needs merchant config enablement (an unusual admin enablement), and SaaS needs IMS/Adobe Developer Console setup. Please verify that dev access applies for the Adobe Commerce edition, not just Open Source."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST across PaaS/on-prem/Open Source, smaller SaaS subset plus GraphQL, and host-based URL are all shown in the cited pages. SOAP, webhooks and SDK types are not in the excerpts but are consistent with known Adobe Commerce capabilities."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Community server evidence is shown (magenable repo), and the note honestly says only that repo was fetched. The Adobe developer-tooling MCPs are correctly distinguished from store-data servers. From my knowledge, no official Adobe store-data MCP is known, but worth a quick check given Adobe's active MCP work."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now seems too optimistic. Each merchant has its own host, admin must create Integration, bearer use is disabled by default (requires OAuth 1.0a signing or admin enabling a setting), and SaaS uses IMS with unclear sandbox access. Open questions admit access for Adobe Commerce (non-Open Source) is unverified. build_with_conditions (merchant admin enablement / per-store setup, edition differences) fits the rubric better, as 'unusual admin enablement' is a named condition."
+  }
+ },
+ "46": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs support both a generated API key (Settings > Advanced > Developer API Keys) and OAuth client registration. Webhook Subscriptions API being OAuth only is also shown."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The Commerce Advanced requirement for API keys and the OAuth review are both supported. But the gates list says 'Squarespace Extensions are required to use OAuth', and the cited page says the OAuth review 'doesn't add your application to Extensions' and that listing is separate. The record's own gate contradicts itself, so check which is right. The page's 'Commercial development' section (cut off in the excerpt) probably explains the relationship. Also, 'Hosted MCP Commerce tools only in Claude and ChatGPT' is an MCP matter, not an API access gate, so it doesn't belong here. dev_access=paid_plan is reasonable for API keys. It is unestablished whether OAuth dev/test registration needs a paid plan, and the record lists that as an open question."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The Commerce APIs listed (orders, products, contacts, discounts, webhook subscriptions, transactions, Profiles in maintenance mode) match the permissions list on the cited page. The record also notes that rate limits were not checked."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor's own developer docs show a hosted server at mcp.squarespace.com/mcp. They say sign-in uses OAuth 2.1, that Commerce tools are currently available only in Claude and ChatGPT, and that Domains tools work in other clients."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_with_conditions fits. There are named conditions: a Commerce Advanced plan for API keys, and Squarespace review of the OAuth client. Both are backed by the docs. The blocker text is accurate. Resolve the 'Extensions required for OAuth' ambiguity, but it doesn't change the verdict."
+  }
+ },
+ "47": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm OAuth 2.0 for public apps and a custom-app secret/public token for single stores. api_key is a reasonable label for the custom-app token (could also be personal_token), but the evidence supports the flow."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The evidence supports 'only paid stores can access API' and the free developer upgrade. But the rubric says a paid product is not an API gate unless the API needs a specific higher tier or add-on. Here the evidence shows only that a paid plan is required, not which tier. The record itself admits it did not check per-tier access. I recall that Ecwid's API is available on all paid plans (Venture and up), and that the free plan lacked API. Check whether paid_plan is the right label for a plain 'any paid plan' requirement. Also check whether the free dev upgrade makes dev access effectively free-on-request, so it would be better described as a request or trial. The 'yes' for public_app_review is plausible, since the App Market is reviewed, but it has no quoted evidence."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The REST API overview supports the broad scope (store data, payment/shipping methods, storefront settings), the 600 requests/min/token limit, 429 with Retry-After, and gzip. The shown excerpts do not cover webhooks, the SDK type or some resource families such as carts/checkout, but Ecwid does have webhooks and these are plausible."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The usefulapi page supports a third-party hosted MCP server using the store ID and secret token, so 'community' fits. I'm not aware of an official Ecwid or Lightspeed MCP server. The other servers (PopMCP, Vinkius, Zapier) and the free tier are not shown in the excerpt."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_with_conditions rests on 'a paid plan is required', which the rubric says is not an API gate unless a specific higher tier is needed. Ecwid offers free paid-plan upgrades for developers, and the record found no evidence of a higher-tier requirement. The result could therefore be build_now, since dev access is free on request and the API is on all paid plans. Alternatively it could stay build_with_conditions because the free upgrade is by email request and customers need paid plans. The record leaves the per-tier question open, so the verdict can't be confirmed until the researcher checks it."
+  }
+ },
+ "48": {
+  "auth": {
+   "status": "suspect",
+   "reason": "OAuth2 with scopes is supported by the docs. The personal_token method is unconfirmed (the researcher admits this). I recall Gumroad's Settings > Advanced has an application with a 'Generate access token' button, so it is probably right, but check it. Also confirm how OAuth apps are registered."
+  },
+  "access": {
+   "status": "insufficient",
+   "reason": "The docs excerpt shows no plan gating, but the researcher did not check pricing or whether public OAuth apps need review, and public_app_review is 'unknown'. 'free' for production access is asserted without direct evidence. Gumroad charges a fee per sale, not for the API, so it is likely fine, but this is not confirmed."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The page confirms a REST/JSON OAuth API and an official CLI that wraps every endpoint. The listed resource families (products, variants, offer codes, custom fields, sales, emails, workflows) match the scopes and methods shown. The 'sdk' type and the webhook claims (resource subscriptions) are only partly shown in the excerpts but are plausible."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Gumroad's own gumroad.com/claude page gives the MCP URL https://gumroad.com/claude/v1/mcp and links to the Claude connector directory. It also lists the products, sales, buyer emails and payouts access, and says new products start as drafts. That makes it a first-party official server."
+  },
+  "verdict": {
+   "status": "insufficient",
+   "reason": "build_now needs confirmed free dev access with the API available on all plans. The researcher admits pricing was not checked, OAuth app registration was not fetched, public app review is unknown, and the personal token is unconfirmed. Confidence is medium. The verdict is plausible but is not yet backed by the evidence, so needs_research or a verification pass is more honest."
+  }
+ },
+ "49": {
+  "auth": {
+   "status": "supported",
+   "reason": "LWA OAuth 2.0 with refresh token exchange at api.amazon.com/auth/o2/token is confirmed. Private self-authorization still yields an LWA refresh token, so oauth2 is a reasonable single method."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "Evidence supports the gates (profile registration, professional account, Primary User, 10 authorizations, Appstore approval). Two things to check. (1) Amazon has historically charged an annual fee for public developers and some paid-tier fees for SP-API usage (2026 pricing changes); the record's own open question admits fees are unchecked. (2) Marking dev_access as app_review is questionable because private self-authorization and sandbox access exist, so dev access may be closer to self-serve. Researcher should verify fees and developer-registration requirements."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The REST-based claim is supported. Broad resource families, the GitHub models and the sandbox are consistent with the public docs. Webhooks is loosely labelled, since SP-API notifications go through SQS/EventBridge, but this is a minor issue."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The amzn GitHub org repo registers a hosted MCP connector at sellingpartner-ai.amazon.com/mcp with Seller Central OAuth. The source is Amazon's own org, so official is reasonable. Whether third-party agent platforms can use it is flagged in the open questions."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_with_conditions fits, since developer profile review and Appstore approval for public apps are named conditions, and private self-authorization is available without Appstore review. Confidence is medium. Fees should be confirmed, but the verdict is not contradicted."
+  }
+ },
+ "50": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show x-api-key header and key from Account → API Keys; 'no usernames or passwords'. api_key is correct; no OAuth evidence."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Evidence shows self-serve key creation in dashboard and a separate sandbox with its own dashboard/keys. The record honestly notes plan/pricing and KYC were not checked, so 'free' is lightly evidenced but conditions are disclosed."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Docs confirm REST under /public-api/ on www.fanbasis.com, scopes, the proration exception under /api/seller/v1/, and webhooks. Resource families and the SDK/CLI are plausible and consistent with the excerpts."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Vendor-published commas-cli (npm) says it is a thin client for the Commas MCP server, so an official MCP exists. The record flags that the public URL and auth are unverified, and distinguishes the Zapier third-party MCP."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now needs free dev access with API on all plans, but the record admits plan gating and KYC/merchant approval were not checked. Merchant-of-record platforms often require account approval before live use. Check the pricing page and whether API keys are available on every plan. Sandbox signup openness is also unconfirmed. Medium confidence fits build_with_conditions or needs_research more than build_now until verified."
+  }
+ },
+ "51": {
+  "auth": {
+   "status": "suspect",
+   "reason": "Basic auth with dashboard login/API password is well supported. But methods lists both 'basic' and 'api_key'; the credential is a login plus generated password, so it is just basic. 'api_key' looks redundant. The record also says OAuth 2.0 exists for the hosted MCP, so the MCP OAuth path may be missing from the auth methods. Check how the methods list should handle that."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The evidence supports the $1 trial credit, the sandbox and the $50 minimum top-up. But a pay-as-you-go top-up is usage billing, not a higher-tier or add-on API gate. The rubric says a paid product is not an API gate, and the record's own open question admits the API is not tier-gated. So production_access 'paid_plan' is probably the wrong label. The docs also link a 'Free Unlimited Trial' page, which the record doesn't address. The 'each customer must create their own account' gate is inferred, not quoted."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The REST/JSON API, the per-endpoint rate-limit headers and the support-based increases are all quoted from the docs. The webhooks/pingback, SDK and CLI claims are plausible: the docs list client libraries, and the MCP README shows a CLI. The record admits the resource-family list was inferred. That is a minor issue."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The README in the dataforseo GitHub org shows the hosted remote URL and that OAuth works out of the box. That supports an official vendor MCP server."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "Under the rubric, a free trial plus an API available on all plans, with no specific tier or add-on, points to build_now. A $50 pay-as-you-go top-up is not an API gate. The 'build_with_conditions' verdict rests on the paid_plan label and on the per-customer credential model, and neither is a named tier or admin-enablement condition. Reconsider build_now, or document why the $50 minimum counts as a real condition."
+  }
+ },
+ "52": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence confirms API key from API Dashboard, Authorization: Token header or apikey query param, one key for Data and Project APIs. OAuth 2.1 applies only to MCP, which the record says."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Pages say API access is in every plan, with a monthly credit allowance and a free trial with no credit card. Project API is on every plan with nothing extra to buy. Sub-account limit and credit gates are noted. Production access 'free' is slightly loose, since a paid plan is needed after the trial, but the rubric says a paid product is not an API gate. The 14-day/100k trial detail came only from snippets and is already listed as an open question."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Base URL, JSON responses, 10 req/s, 2xx-only billing and the resource families are consistent with the evidence. The Local Marketing and SE Visible APIs are named on the MCP page."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor's own page documents a hosted server at api.seranking.com/mcp with OAuth 2.1 dynamic client registration and an official Claude connector. The API key option is also documented."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: a free trial with no card, API access on all plans, and no partner or sales gate. The credit limits and the sub-account key limitation are not blocking conditions. The trial's Project API coverage is unverified but minor."
+  }
+ },
+ "53": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm API key as Bearer token, created by workspace owners/admins, 1-year expiry. api_key is the right method; Bearer is transport but key creation is the method."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Docs say API is on eligible paid plans; free test queries also need a paid plan and an API key. paid_plan fits since a specific eligible tier is required. Units and rate limit are documented. Which plans are eligible is left open, which is fine as an open question."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Intro page lists the resource families, the 60 req/min limit with 429 responses, and the OpenAPI spec link. REST with broad coverage is accurate."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Ahrefs' own docs describe a hosted MCP at api.ahrefs.com/mcp/mcp for Lite plans and above, with terms limiting it to MCP-compatible AI clients. Official status is backed by first-party docs. The legacy GitHub repo claim isn't shown in the evidence but is plausible."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "A named condition (eligible paid plan) applies, with no free dev access beyond tests that also need a paid plan. build_with_conditions fits the rubric. One point is worth checking: the MCP page says enterprise customers may connect with API keys, which hints the REST API may be limited to higher tiers. Confirm which plans are eligible. The record already lists this as an open question."
+  }
+ },
+ "54": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm dashboard-created API token in x-api-token (Bearer for Marketplace) and MCP OAuth 2.1 with API key fallback. Bearer is transport, but api_key is listed correctly as the method; oauth2 applies only to MCP, which the detail states."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Billing page confirms a Free plan with 100 tokens and 10 concurrency, and residential proxies only on Standard and above. The proxy restriction is a feature gate rather than an API gate, and the gates list names the limits."
+  },
+  "api": {
+   "status": "insufficient",
+   "reason": "REST with JSON, SDKs and CLI are supported by the cited pages. Webhooks are listed in types but the record admits they are unverified and came from general knowledge. The resource families and endpoint list were not enumerated. Remove webhooks or verify them."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The docs page states this is the official MrScraper MCP server, hosted at mcp.mrscraper.com/mcp, with seven tools, and links to the first-party GitHub repo and npm package."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "A free plan gives self-serve API tokens, so build_now fits the rubric. The 100-token free tier is small but is usage metering, not an API gate. Confidence is correctly medium given the unverified webhooks."
+  }
+ },
+ "55": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show API token created in Console, sent as Bearer or token param. api_key is the right method. OAuth for MCP is noted; no general OAuth app model confirmed, and the record says so honestly."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Free plan with monthly credits, no credit card, and token creation in Console are quoted. The record admits pricing pages weren't checked for per-plan API gating. From my knowledge, Apify API access is available on the free plan, so there is no tier gate."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST API v2 is documented with global and per-resource rate limits as quoted. The resource families are consistent with well-known Apify API areas (Actors, runs, tasks, datasets, KV stores, queues, schedules, webhooks, Store). Rate-limit figures match the excerpt."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Apify's own docs (docs.apify.com/mcp) describe the vendor-hosted MCP server at mcp.apify.com, and the github.com/apify org owns the open-source repo. So 'official' is justified. The OAuth/Bearer detail is plausible, though the excerpt shown is truncated."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: free signup with no card, self-serve API token, broad documented REST API, and an official MCP server. No partner, sales or tier gate is evident. The open questions are minor and don't change the verdict."
+  }
+ },
+ "56": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show Bearer API key (fc-...) and OAuth for apps with no Firecrawl approval needed (DCR / client ID metadata). Keyless is noted. Bearer is treated as transport, with api_key as the method."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Pricing page shows a free tier with 1,000 credits/month and no card. Docs show a first request works without an account. Paid plans are for volume only, not an API gate. The enterprise-only features are listed as gates, but they are not API access gates."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Docs show the REST API at api.firecrawl.dev with scrape, crawl, map, search and extract. SDKs and CLI are documented. Webhooks and some resource families, such as monitor and interact, were not shown in the evidence, but they are plausible and low-risk."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor docs at docs.firecrawl.dev/mcp-server show a vendor-hosted MCP server at mcp.firecrawl.dev/v2/mcp-oauth with OAuth sign-in, and an API-key URL at /v2/mcp. This is first-party, so 'official' is justified."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "There is a free tier with no card, the API is on every plan, and OAuth needs no vendor approval. This matches build_now."
+  }
+ },
+ "57": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm API key/token as the primary method, proxy username/password as native access, and admin-only key creation with one key per user. api_key is appropriate; no OAuth is shown."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Docs state 5,000 free credits per month with no credit card. Gates correctly say usage beyond that is pay-as-you-go and that some products need zones and billing. paid_plan is not claimed, which fits the rubric."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The docs show a broad product set with one API key, plus SDKs and a CLI. The listed resource families are consistent with that."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The brightdata GitHub org hosts the MCP repo, which describes 30 tools, a hosted remote server and a local npx option. That is a first-party source."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "A free tier with no card and API-key access for all accounts support build_now. The open questions about free-tier semantics and shared-key terms are minor and not blockers."
+  }
+ },
+ "58": {
+  "auth": {
+   "status": "supported",
+   "reason": "Local CLI, no credentials; install and Docker usage pages show none required. 'none' fits."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Install via pipx/pip/Docker with no signup; not_applicable fields are reasonable for an OSS CLI. Gates are plausible (false-positive claim is not directly evidenced but is a known caveat)."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "CLI-only, with flags and outputs matching the help text shown. No REST or SDK appears in the evidence."
+  },
+  "mcp": {
+   "status": "insufficient",
+   "reason": "The vendor MCP is verified as docs-only. Community MCP wrappers are asserted from search snippets only, and the researcher admits they were not fetched or verified. 'community' status and the Burnsedia URL are unconfirmed by the evidence shown."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "'limited' requires positive evidence of a material restriction. Here the restriction is a lack of a hosted API, which is a fit/design question rather than an access restriction. Access is free and open with no gates. Composio could wrap it in a sandbox, so 'needs_research' (or build_with_conditions, with the condition being sandbox execution) seems more fitting, especially since the researcher lists the sandbox-support question as open. Confidence is also only medium."
+  }
+ },
+ "59": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show x-api-key header with an API key and master-key sub-keys. api_key is the right method; no OAuth is mentioned."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Authentication and evaluation pages both route API access and pricing to the team by email, with no self-serve path shown. partner_or_sales fits. The record itself says it found no self-serve signup or trial, which is an absence of evidence, so it is correctly kept as an open question."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The intro page lists the REST endpoints at api.waterfall.io and marks Search Company and Company Titles as Preview. Async jobs with webhook_url delivery are described, so the REST and webhooks claims hold."
+  },
+  "mcp": {
+   "status": "insufficient",
+   "reason": "The record cites no evidence for 'none_found'. It rests on a negative search. The Agent Skills page is mentioned, but nothing shown rules out an official MCP server. Check docs.waterfall.io and the Waterfall GitHub org for an MCP server before settling on none_found."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Docs direct users to contact the team for API access and pricing, and no self-serve or trial path is shown. outreach_required fits, and the medium confidence is appropriate."
+  }
+ },
+ "60": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm clay-api-key personal API key, created in app/CLI. MCP OAuth with open DCR confirmed. api_key and oauth2 are reasonable methods."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "Docs show anyone can create a key but say nothing about which plans allow it; the record itself admits this is unverified, yet sets dev_access and production_access to 'free'. From my knowledge Clay's API/CLI access may be tied to paid plans, and Clay's older API was Enterprise-only. Check pricing/plan docs for whether free plans can create API keys and whether the public API consumes credits. Tables is Enterprise-gated, which is confirmed."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "OpenAPI spec at api.clay.com/public/v0 with the listed tag families (audiences, me, credits, search, tables, routines, workflow runs) is shown. Breadth 'moderate' is plausible."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Clay's own university docs describe a Clay-hosted MCP at api.clay.com/v3/mcp with OAuth and open DCR. This is a first-party source, so 'official' is justified."
+  },
+  "verdict": {
+   "status": "insufficient",
+   "reason": "build_now requires free/trial dev access with the API on all plans. The record's own gates and open questions say plan availability of API keys is unknown, and tables are Enterprise-only. That is a named condition, so build_with_conditions or needs_research fits better until plan availability is confirmed."
+  }
+ },
+ "61": {
+  "auth": {
+   "status": "supported",
+   "reason": "PATs, GitHub Apps, and OAuth apps are all real, and the quote backs the GitHub App recommendation. The methods list is sensible: oauth2 covers OAuth apps and GitHub App user tokens, personal_token covers PATs, and other covers installation tokens and GITHUB_TOKEN. Bearer is not listed as a method, which is correct."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Creating a PAT on a free account is documented, and the API is available on free accounts, so free dev and production access is right. The gates are named: SSO authorization, org restrictions, plan-dependent features, and rate limits. Customer org approval is correctly not treated as public_app_review, which is set to no, since GitHub does not review OAuth apps or GitHub Apps before use."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The REST API is documented per endpoint and organized by resource, as the evidence says. GraphQL, webhooks, Octokit and gh CLI are all real. The record notes that the breadth and version details were not re-verified, but they match my knowledge."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "github/github-mcp-server is GitHub's own repository, and the README states that the remote server is hosted by GitHub. That makes the official status well supported."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free PAT and app access with the API on all plans, no sales or partner gate, and no vendor review of public apps all fit build_now. The plan-gated endpoints, such as advanced security, are niche and do not block the core API."
+  }
+ },
+ "62": {
+  "auth": {
+   "status": "supported",
+   "reason": "Access Tokens in account settings (personal_token) and OAuth via team-created Apps are both shown in the docs. Bearer is correctly treated as transport."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Tokens are self-serve, and the record flags the OAuth scope uncertainty. Vercel's free Hobby plan includes API tokens, so free dev access is plausible. Some endpoints may need a paid plan, but the record lists that as an open question."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The REST base URL and rate-limit headers are confirmed. The record admits the resource families, SDK, CLI and webhooks are unverified, but these are well known and correct."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The Vercel docs call it Vercel's official remote MCP server with OAuth at mcp.vercel.com."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: free self-serve access tokens and a broad REST API. A mild caveat is that the OAuth route for broad REST scopes is unconfirmed, but the personal token path alone suffices."
+  }
+ },
+ "63": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show PAT generation in user settings and OAuth2 required for public integrations, with app registration in user settings. Both methods are covered."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The pricing page shows the Free plan at $0 with 'Deploy from AI, Git, or API'. PAT creation is self-serve. The SAML option is correctly noted as a condition. public_app_review is 'unknown', which is honest."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The OpenAPI reference confirms a REST/JSON API. The base URL is confirmed in the docs. The SDK claim is backed by the Go and JS clients listed on the page. Webhooks and build hooks are plausible from my own knowledge of Netlify."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The Netlify docs link to an MCP server at github.com/netlify/netlify-mcp and give the remote URL mcp.netlify.com/mcp. This is an official first-party source."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free plan, self-serve PAT and OAuth app registration, and a REST API on all plans fit build_now. The open questions about OAuth app review and rate limits are minor and don't show a gate."
+  }
+ },
+ "64": {
+  "auth": {
+   "status": "suspect",
+   "reason": "Token creation is supported (user and account tokens, legacy Global API key). But 'oauth2' is listed as a method while the detail says OAuth is only for the MCP server, with no general REST OAuth app model. The rubric says to list how credentials are obtained. Check whether Cloudflare has a public OAuth app model for the REST API; if not, drop oauth2 or note it as MCP-only. Also, 'api_key' vs 'personal_token' labelling is fine."
+  },
+  "access": {
+   "status": "insufficient",
+   "reason": "The cited page shows only how to create tokens. It says nothing about plan availability, so 'free' dev and production access across all plans is inferred, and the record admits this in its own open questions. A free account is a known Cloudflare offering, but the evidence doesn't show that the API is available on every plan. The gates also mention Enterprise-only features without verification."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The API reference shows official TypeScript, Python, Go and Terraform libraries and a broad resource list. The MCP docs say over 2,500 endpoints. The webhooks and cli types are not shown in the evidence but are plausible (Wrangler, notifications webhooks)."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Cloudflare's own docs describe an official MCP server at mcp.cloudflare.com/mcp, with search/execute tools, OAuth authorization, and API token bearer auth. The github.com/cloudflare/mcp repository is Cloudflare's own."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: any customer can self-serve scoped tokens, and no sales or partner gate is shown. The residual uncertainty about plan-gated endpoints is a per-endpoint feature matter, not an API gate. Confidence 'medium' is appropriate given the unverified all-plans claim."
+  }
+ },
+ "65": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm PAT (scoped/classic) and OAuth2 for Management API, and publishable/secret keys for the project data API. Methods list is consistent with the rubric."
+  },
+  "access": {
+   "status": "insufficient",
+   "reason": "Self-serve key/PAT creation is shown, but 'free' dev and production access is unverified: the record admits no pricing page was fetched. Nothing confirms Management API or project API availability on the free plan (e.g. paused projects, free project limits). Also, the gate 'Management API OAuth2 apps ...' and rate-limit wording differ slightly from the docs (per project or org vs per scope), which is minor."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Docs support the Management API, its rate limit (120/min per user, per project or org, per endpoint), and the keys-based data API. Resource breadth is plausible. The 'graphql' (pg_graphql) and 'webhooks' types are not evidenced here but are known Supabase features."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The official docs at supabase.com host the MCP guide: URL mcp.supabase.com/mcp, query params, dynamic client registration, PAT for CI, and a local CLI endpoint all match."
+  },
+  "verdict": {
+   "status": "insufficient",
+   "reason": "build_now requires evidence of free/trial dev access with API on all plans, but the record itself says pricing was not checked. Confidence is medium, and the open questions concern free-plan API access. Evidence supports self-serve access but not the free-tier claim; check the pricing page, then confirm build_now or needs_research."
+  }
+ },
+ "66": {
+  "auth": {
+   "status": "supported",
+   "reason": "Aura API credentials are created in the console and exchanged for a bearer token via OAuth2 client_credentials, with Basic auth at the token endpoint. The record lists api_key (client ID/secret) and basic (database username/password). Database access with username/password is Basic. The classification is a bit loose, since the client_credentials flow could count as oauth2, but the detail explains it."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The page says all tiers can create Aura API credentials. Rate limits by tier and the billing endpoint limit match the evidence. The Query API gate for versions below 5.25 matches the Query API page. The remaining gates are plausible."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Base URL api.neo4j.io, v1, and the Query API over HTTP that supersedes the HTTP API all match the cited pages. The SDK and CLI claims are plausible and consistent with known drivers and the Aura CLI."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The neo4j/mcp repo is in the neo4j GitHub org and its README describes the tools. This is first-party. The v2.0.0 release date of 2026-10-28 is not visible in the excerpt, but it doesn't affect the status."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free dev access (Aura Free and self-managed Community) is available and API credentials work on all tiers. Rate limits are not a gate. The open question about Aura Free Query API availability is minor, since Aura Free instances support Bolt and the Query API. build_now fits the rubric."
+  }
+ },
+ "67": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence shows OAuth, key-pair, and WIF; PATs and security-integration requirement are consistent with Snowflake docs. Mapping key-pair to service_account_or_jwt is reasonable."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Trial needs only an email; 30 days or credits; AI features disabled until card added. Production 'free' is a bit loose (API is not gated by tier), but acceptable as a paid product is not an API gate."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST APIs are OpenAPI-compliant and broad; SQL API runs SQL. Breadth and families are consistent with the cited page."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Snowflake's own docs describe a Snowflake-managed MCP server with OAuth/External OAuth; official status is correct."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free trial plus API on all accounts fits build_now. Per-customer admin security integration is normal customer admin consent, not a gate. Minor residual uncertainty on edition-dependent features, but they don't block core API use."
+  }
+ },
+ "68": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm service accounts (OAuth 2.0 client credentials, client ID/secret, 1h tokens) recommended and API keys legacy. Mapping to service_account_or_jwt and api_key is reasonable."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Org Owner requirement and IP access list 403 behavior are quoted from docs. Free signup is shown on the page. Admin API is available on free accounts, so free dev/production access is plausible. Gates are customer-admin conditions, not paid gates."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST Admin API, Go SDK and administrative resources (projects, users, clusters) are confirmed. Data-plane exclusion is confirmed. Webhooks and other surfaces are plausible, and the note admits the resource families come from general knowledge."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The mongodb-js GitHub repo describes the MongoDB MCP Server with official MongoDB plugins and a MongoDB-hosted Atlas MCP server over OAuth. This supports 'official'."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free signup, free Admin API access with service accounts, and no paid or partner gate point to build_now. The remaining open questions (rate limits, tier-limited endpoints, third-party OAuth app model) are minor and don't create a named condition. Medium confidence is appropriate."
+  }
+ },
+ "69": {
+  "auth": {
+   "status": "suspect",
+   "reason": "Evidence supports API key + application key. But Datadog also supports OAuth2 for Datadog Apps/integrations (OAuth client via Developer Platform / Marketplace), and the hosted MCP server uses OAuth. The record's open question admits OAuth was not checked. Researcher should verify whether OAuth2 is available for third-party apps to call the public API, and add it if so."
+  },
+  "access": {
+   "status": "insufficient",
+   "reason": "Pricing page supports a trial and a Free tier, but the record itself says it did not verify that Free tier includes API/application key access. 'production_access: free' is therefore asserted beyond the evidence. Also, Free tier has 1-day retention and some APIs (e.g. certain security/logs features) may require paid products; key creation needs permissions."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Rate-limit page supports per-endpoint limits and increases via support. Broad REST API with v1/v2 and per-site hosts is consistent with known Datadog docs."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Datadog docs page describes the main Datadog MCP Server as remote access to most products, hosted by Datadog on docs.datadoghq.com, so official status is supported."
+  },
+  "verdict": {
+   "status": "insufficient",
+   "reason": "build_now requires free/trial dev access with API on all plans. The record admits it didn't verify API access on the Free tier, and the trial plus own-account key creation is plausible but unconfirmed for post-trial. Also, OAuth model unchecked. Confidence is only medium; needs_research or verification of Free-tier API access is needed before build_now."
+  }
+ },
+ "70": {
+  "auth": {
+   "status": "suspect",
+   "reason": "Methods oauth2 and personal_token are supported by the docs. 'api_key' looks wrong: the docs describe legacy API keys only as a format, and internal integration tokens are the main credential, which are bearer auth tokens, not an API key. Check whether api_key should be replaced by an 'internal integration token' (listed as personal_token or other). Also note that the PKCE and device grant claims in the detail are only partly shown."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Evidence supports free creation of internal integration and personal tokens, and OAuth tokens scoped to one org. The gates are honest that plan tiers and public-integration review were not verified. public_app_review 'unknown' is acceptable."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Docs confirm web API v0, stable public endpoints and changeable beta endpoints, rate limits, and a webhook recommendation. Breadth and resource families are plausible for Sentry."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The official Sentry docs page documents the vendor-hosted MCP at mcp.sentry.dev/mcp, and says all connections use OAuth."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now rests on unverified points. The record's own open questions say the pricing/plan tier for API access wasn't checked and public OAuth integration review wasn't verified. From my knowledge, the Sentry API is available on all plans including Developer, but some features (e.g. Discover, Replays, certain endpoints) depend on plan. Confirm before keeping build_now. Confidence 'medium' is appropriate."
+  }
+ },
+ "71": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence confirms internal connection API token, PATs, and OAuth 2.0. Methods match the rubric."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Workspace-owner requirement and no-Marketplace-review for OAuth are directly quoted. Free access matches my knowledge: the API is available on all Notion plans including Free. The record itself notes that plan-specific limits were not fully verified."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The REST API with Bearer and Notion-Version headers is confirmed. The resource families and the SDK are plausible and consistent with the docs."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor-hosted Notion MCP is documented on developers.notion.com, which is Notion's own domain, so 'official' is justified. The missing endpoint URL (mcp.notion.com/mcp) is a minor gap."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: free API access on all plans, self-serve OAuth and tokens, and no vendor review. The owner requirement for internal connections is normal admin setup, and OAuth is available for multi-workspace use. The blocker field contains a stray literal '\"\"' string, which is a formatting nit only."
+  }
+ },
+ "72": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm PATs (incl. service accounts) and OAuth; legacy API keys deprecated Feb 2024. Methods oauth2 and personal_token match."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "Evidence supports free self-serve access and the privacy/ToS requirement. But from my knowledge, Airtable's API rate limits and some features (Enterprise Scim/audit logs, higher record limits, service accounts) are plan-gated, and the record itself admits the Enterprise-only point is unverified. Also the MCP docs mention admins approving OAuth apps in the admin panel, so org admin approval may matter. Check the billing-plans page for API call limits per plan (e.g., Free plan monthly API call caps) before relying on 'free production_access' and 'no gate'."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Docs show REST/JSON, webhooks, and an official JS client (airtable.js). Breadth 'broad' is plausible. The 'cli' type is only backed by the MCP CLI, which is a minor point."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Airtable's own docs describe a vendor-hosted MCP server at mcp.airtable.com/mcp, available on all plans. It supports DCR, OAuth and PATs."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now is reasonable given free self-serve PAT/OAuth, a broad API and an official MCP. The unverified plan-tier rate limits and Enterprise endpoints are noted in open questions and don't block the core API."
+  }
+ },
+ "73": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs quote confirms OAuth2 and personal API keys. Client credentials is an OAuth2 grant, so oauth2 and personal_token cover it."
+  },
+  "access": {
+   "status": "insufficient",
+   "reason": "The page shows that personal API keys can be created in settings. It shows nothing about which plans include API access, and the record admits the pricing page was not checked. 'Free' for dev and production access is an assumption. The 'no vendor review' claim is also only an absence of evidence. From my own knowledge, Linear's API and OAuth are available on the Free plan, but that needs verifying."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The GraphQL endpoint, introspection and Bearer usage are shown. The SDK and webhooks are consistent with my knowledge of Linear, and the cited page does not contradict them."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The page on linear.app/docs/mcp describes a vendor-hosted, centrally managed remote MCP server. The URL, Streamable HTTP, OAuth 2.1 and the read-only endpoint are not in the excerpt, but they match what I know of Linear's MCP."
+  },
+  "verdict": {
+   "status": "insufficient",
+   "reason": "build_now requires evidence that the API is available on all plans with free dev access. The record says the pricing page was not fetched and that the plan tier is only assumed from the absence of a requirement in the docs. Confidence is medium and the open questions are unresolved. Check the pricing page or the Free plan's API access before settling on build_now. My own knowledge suggests the verdict is probably right."
+  }
+ },
+ "74": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence supports basic auth with email+API token (api_key), OAuth 2.0 3LO, and Forge/Connect (JWT). Methods fit the rubric."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The cited pages support the gates (3LO warning until reviewed, permissions, discouraged API tokens). But 'free' production access is not backed by pricing evidence (the record admits it didn't check free plan API access). Also, Atlassian's statement that apps collecting API tokens violate security requirements may make api_key a non-viable route for a multi-tenant product. Check the Marketplace approval requirements and whether a review is needed before a shared 3LO app can be used without the warning."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST v3 URLs and ADF support are confirmed by the quoted pages. Breadth is plausible. The webhooks and sdk types are not shown in the evidence but are well known."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The Atlassian-hosted Rovo MCP page confirms the official server, the endpoint, and OAuth 2.1 or an API token for headless use. Rovo credit costs remain unchecked but that doesn't contradict the status."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now is plausible but confidence is 'high' while open questions remain: free plan API access, Marketplace approval timeline, and quotas. Also the blocker field is the literal string '\"\"', which is a data error. The Marketplace review/approval needed for a distributable 3LO app, and Atlassian's rate-limit and cost-based quotas, may warrant build_with_conditions. Verify these first."
+  }
+ },
+ "75": {
+  "auth": {
+   "status": "supported",
+   "reason": "OAuth2 auth code grant, PATs from developer console, and Enterprise super-admin Service Accounts are all shown in the cited pages. Service accounts are correctly kept as a method, not as a gate on basic access."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Rate-limit page shows free domains get API quota (150/min), so free API use is implied. Distribution page supports 'any workspace' sharing with optional App Directory submission. The Enterprise-only items are correctly limited to SA, audit log and SCIM, not core API access. public_app_review 'no' matches the optional listing. The record itself flags the lack of an explicit Free-plan statement."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The REST API with OpenAPI spec and base URL is supported. Rate limits and resource families are consistent with the cited pages and with what I know of Asana's API (webhooks, SDKs)."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The official Asana-hosted MCP V2 at mcp.asana.com/v2/mcp is on developers.asana.com. The Enterprise+ app-management control and admin unblock requirement are supported by the excerpts."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: free dev access, API on all plans (free domains have rate limits), and no sales or partner gate. Enterprise-only features are optional extras, not blockers to the core API."
+  }
+ },
+ "76": {
+  "auth": {
+   "status": "supported",
+   "reason": "Personal V2 token and OAuth2 at auth.monday.com are both confirmed by the cited pages. The record also notes the newer OAuth 2.1 flow."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Free developer account for getting a token is confirmed. Admin, member and guest users can use the API, and no tier gate is shown. The record honestly flags the unchecked plan and rate-limit differences. One caveat: viewers and student accounts can't use the API, but that is not a tier gate."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The GraphQL API and its resource families are confirmed. The record itself says SDK and webhooks were not confirmed. Both exist in reality (monday-sdk-js, webhooks via the API), so listing them is reasonable."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The monday.com docs describe the Platform MCP as maintained by the monday.com AI team. They also give the hosted URL https://mcp.monday.com/mcp, so it is an official first-party server."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: free developer account, API open to all user types, no tier gate shown, and an official MCP server. The unknown marketplace review for public apps goes in public_app_review and doesn't change the verdict. The open question about API access by plan is unverified, but from what I know monday.com API access is available on all plans, including free."
+  }
+ },
+ "77": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm personal pk_ token and OAuth2 authorization code flow; owners/admins creating OAuth apps is customer-side admin, correctly not flagged as admin_approval."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Rate limit table matches the record (100/100/100/1,000/10,000). 'Endpoints vary by plan' is quoted and disclosed as a gate. Free Forever plan gives free dev access. The claim that the core API is not tier-gated is unverified, but the record flags it as an open question."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Docs confirm API v2 with a few v3 endpoints and a demo app. Resource families are admitted to come from general knowledge, which is acceptable at medium confidence. Webhooks and SDK are plausible but unverified."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Official docs on developer.clickup.com give the URL https://mcp.clickup.com/mcp, availability on all plans, OAuth-only authentication and no delete tools. The vendor-hosted MCP server is official."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now fits: free plan, self-serve OAuth and personal token, and the API is available on all plans with only rate-limit differences. Not flagged as paid_plan. Unknown public_app_review does not change the verdict. Plan-gated endpoints are an open question worth checking, but nothing contradicts build_now."
+  }
+ },
+ "78": {
+  "auth": {
+   "status": "supported",
+   "reason": "REST uses a personal API token sent as Bearer (evidence 2); the Bearer header is transport, but the record correctly lists api_key/personal_token as the method. MCP OAuth 2 and PAT scopes are confirmed by the help center page (evidence 5). Not finding an OAuth app model for the REST API is flagged as an open question, which is acceptable."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The docs state the API is free in free and paid workspaces, with role-dependent behavior (evidence 1). Rate limits match evidence 4. The MCP free-taste limits and editor read-only restriction match evidence 7. public_app_review is not_applicable because there is no OAuth app model."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST at coda.io/apis/v1 with folders etc. is shown (evidence 3), and the rate limits match (evidence 4). The record admits the resource list and webhooks were not fully verified, and its breadth is marked as partly from prior knowledge. That is plausible, since Coda's API does include docs, pages, tables, rows, columns, formulas, controls, permissions, publishing and analytics. Automations are only partly covered (rule triggering via webhook), but this is minor."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor help center documents a remote HTTP MCP at https://coda.io/apis/mcp, with OAuth 2 and PAT support and a beta feedback form (evidence 5, 6). This is first-party, so 'official' is justified."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "The API is free on all plans with a personal token and no sales or partner gate, so build_now fits the rubric. Role-based limits like Doc Maker for createDoc are ordinary role requirements, not a tier gate. Medium confidence is appropriate given the missing REST OAuth for multi-user agents."
+  }
+ },
+ "79": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence shows personal API token generated in Personal Settings > API Access and OAuth via Developer Tools with client registration. api_key/oauth2 methods fit. Plan requirement is noted in access."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Intro and getting-started pages state 'Required plan: Business, Enterprise, or Advanced Work Management', so paid_plan is supported. The record transparently notes the conflicting FAQ and unverified trial. The claim that free/Pro 'cannot register OAuth apps' is an inference, but it is minor."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The intro shows a REST API with sheets, folders, users and more. The record itself flags webhooks, attachments and SDK details as unfetched general knowledge. These are well known and accurate: Smartsheet has webhooks and official SDKs for those languages."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor's developer docs announce the Smartsheet MCP server with 30+ tools. The install page confirms mcp.smartsheet.com, API token or OAuth for Claude/ChatGPT and others, and the required plan. The page also lists EU and AU URLs, which are a minor omission. The 'GA March 2026' date is unverified but not important."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "A paid-tier API gate (Business or higher) fits build_with_conditions. The researcher flagged the open question about whether a trial includes API access, and confidence is medium. It is consistent with the rubric."
+  }
+ },
+ "80": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show exactly two options: Personal Access Token and OAuth2 (Authorization Code/Implicit). Headers are transport details. Methods oauth2 and personal_token are correct."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "OAuth app registration is self-serve in Harvest ID Developers, as the docs show. The record openly says plan gating and public app review were not checked, and uses public_app_review unknown. Harvest offers a free trial and a free plan, and I know of no API plan gate. Rate limits are quoted correctly."
+  },
+  "api": {
+   "status": "insufficient",
+   "reason": "The REST resource families and rate limits are backed by the docs. Webhooks are listed from general knowledge and the researcher did not open the webhook docs. I believe Harvest v2 has no general webhook API, so the type may be wrong. Check this and drop webhooks if there is no evidence."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Harvest's own support center (support.getharvest.com) documents a hosted remote MCP server at api.harvestapp.com/mcp. Users sign in and authorise it. This supports 'official'."
+  },
+  "verdict": {
+   "status": "insufficient",
+   "reason": "build_now needs free or trial dev access with the API on all plans. The record says it did not check pricing, did not confirm that the API is available on every plan, and did not rule out OAuth app review. Confidence is medium and the open questions are unresolved. Verify the pricing page and trial or free-plan API access before confirming build_now. If it is confirmed, build_now is likely right."
+  }
+ },
+ "81": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence shows API keys via Basic/Bearer and Connect OAuth authorize endpoint; MCP OAuth also documented. Methods api_key and oauth2 are reasonable."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Sandboxes/test keys from a Dashboard account and RAKs are shown. Creating a Stripe account is free and the API is not gated by a paid tier. Live-key activation is noted as an open question, not a paid gate. Connect OAuth registration is correctly listed as a condition."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Page confirms REST, form-encoded requests, JSON responses, and sandbox/v2 APIs. Breadth is broad and consistent with known Stripe resources, SDKs, CLI and webhooks."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "docs.stripe.com/mcp is Stripe's own domain and describes the server (public preview). It documents OAuth and agent API keys, and the Jan 11, 2027 key change."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free sandbox and test keys, API on all accounts, and self-serve API keys without a sales or partner gate justify build_now. The Connect OAuth platform registration is a nuance, but API keys avoid it."
+  }
+ },
+ "82": {
+  "auth": {
+   "status": "supported",
+   "reason": "Dashboard-issued client_id + secret, sent in body or PLAID-CLIENT-ID/PLAID-SECRET headers, is supported by the cited docs. api_key is a reasonable classification. The Link flow's access_token is a per-user artifact, not a credential-acquisition method."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "The evidence supports free Sandbox and Production requested via the Dashboard. 'app_review' is plausible, but from my knowledge Production access also has commercial and plan conditions: Plaid's Pay-as-you-go and Growth plans, and some products (Transfer, Income, Signal, CRA/Check) need extra approval or sales contact. The record itself marks this as 'not verified'. Check the Plaid pricing page and Production request flow for plan gating. The 'free' dev_access claim also needs checking, because historically Limited Production gave a small number of free live Items."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The cited docs support a JSON-over-HTTPS POST API with Sandbox and Production hosts. The broad resource families and the SDKs/webhooks are consistent with known Plaid documentation."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The official MCP docs page describes a Plaid-hosted Dashboard MCP server at https://api.dashboard.plaid.com/mcp/ and a local Sandbox MCP in the AI coding toolkit. It also confirms that Production access is required and the server is under active development. The record's notes match this."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_with_conditions is plausible given the Production approval and Link UI requirements. The cited evidence does not settle whether Production needs a paid plan or sales contact for key products, which could push the verdict to outreach_required or limited. The record leaves this open (confidence medium). The Link UI step is an integration detail, not a gate. Verify the plan and product gating before finalizing."
+  }
+ },
+ "83": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence confirms users create API keys in API Management, HMAC/RSA/Ed25519 supported, and OAuth restricted to close ecosystem partners. api_key as the method is right; the OAuth restriction is recorded in the gates."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Trading disabled by default and enabled by user is confirmed. Free access is consistent with public docs, and the KYC/regional caveat is flagged honestly. A free testnet exists per general knowledge. Nothing shown contradicts free access."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST, signing, recvWindow default 5000 and max 60000, 10s timeout, and the data-api.binance.vision market-data base are all confirmed. The 'webhooks' type is questionable, since Binance uses WebSocket streams rather than webhooks, and the 'other' type covers WebSocket/FIX. This is minor and does not change the verdict."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The official Binance-hosted MCP server page on developers.binance.com confirms a single-URL server, scopes, the Agentic sub-account, and no withdrawal scope. The source is first-party, so 'official' is justified."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_now is reasonable. Free API keys are self-serve with no paid tier or partner gate, and OAuth being partner-only does not block API-key access. Per the rubric, KYC and regional restrictions are not an API gate. The blocker field contains a stray literal '\"\"' string, which is a cosmetic issue."
+  }
+ },
+ "84": {
+  "auth": {
+   "status": "supported",
+   "reason": "Record admits no auth docs found and uses 'other' with low-confidence wording; the docs excerpt shows only Collect.js, no credential flow. Appropriately hedged."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Unknown dev/production access matches the evidence: signup is merchant onboarding, docs are a marketing stub, and no sandbox is shown. Gates are framed as uncertain, not asserted."
+  },
+  "api": {
+   "status": "insufficient",
+   "reason": "The evidence supports Pathfinder API, Collect.js and Three-Step Redirect names plus split payments and boarding. It doesn't show 'sdk' as an API type (Collect.js is a client JS library). It also doesn't show the resource families customers, payouts, customer vault or recurring billing, or the api.paygent.com/v1/payments sample. Those come from pages not excerpted. Breadth 'unknown' is fine."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "No evidence of an official MCP server for gopaygent.com. The none_found status is reasonable given the identity-confusion note about other Paygent products."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "needs_research fits: no public API reference, auth docs or self-serve signup, and access conditions are unknown. Evidence doesn't show positive sales or partner gating, so outreach_required or limited would be premature."
+  }
+ },
+ "85": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show Bearer API key (ipx_live_/ipx_test_) generated in the dashboard. api_key is the right method."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Free tier with 10 audits/day is documented. The $199 paid tier for the forensic report is recorded as a gate. The record flags the inconsistent endpoints and unclear pricing."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The developers page shows a REST API, JSON responses, and webhook events (audit.completed, alert.triggered, api_key.regenerated). Breadth 'narrow' fits. The note that api.ipayx.ai is 'coming soon' is not visible in the excerpts."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor's own page lists the MCP server URL mcp.ipayx.ai/mcp and says it is on the MCP Registry. The record is correct to call it vendor-hosted and official. Tool names differ between pages (audit_fx_transaction vs audit_transaction, check_fx_mid_market_rate vs check_fx_rate). The record already flags the inconsistent endpoints."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now is questionable. Evidence shows a free tier, but the useful forensic report needs a paid $199 tier. The free audit response hides spread and mid-market rate. Docs are inconsistent across pages (endpoints, tool names). The vendor is tiny and the REST API looks like a single Supabase edge function. The researcher set confidence to medium and left open questions about a complete REST reference. build_with_conditions (paid tier for the forensic report) or needs_research may fit better. Check whether a free signup is enough to get a working key, and whether the free API returns enough data to be useful."
+  }
+ },
+ "86": {
+  "auth": {
+   "status": "supported",
+   "reason": "Intuit docs confirm OAuth 2.0 with Client ID/Secret from the developer portal, separate Development and Production keys, and realmId-bound tokens."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Free sandbox is shown. The platform-requirements page confirms the self-assessment questionnaire, Intuit approval, annual security assessment, and that private/unlisted apps are covered. The other gates (localhost redirect, QBO tier) are plausible and not contradicted. Minor: the page says 'we'll consider it for approval', so the review is real but not heavy."
+  },
+  "api": {
+   "status": "suspect",
+   "reason": "REST, GraphQL, batch, CDC and the OAuth SDKs are supported by the evidence. Two things to check: (1) The docs say the SDKs are 'only for OAuth 2.0 and QuickBooks Online'. Several of the listed SDKs (Node, Python, Ruby) are OAuth client libraries, not full QBO API SDKs, so 'Official OAuth/QBO SDKs for .NET, Java, PHP, Node, Python and Ruby' may overstate. (2) GraphQL on QBO is limited, in my knowledge to certain features such as some Payments/Accounting beta APIs. 'REST plus GraphQL' with broad coverage should be checked. Also, since 2025 Intuit has been moving to tiered pricing for API calls (Intuit App Partner Program with CorePlus/Builder tiers and metered call charges). The page excerpt mentions 'The Intuit App Partner Program is availa...', so verify whether API access on production is now metered or paid by tier."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The README in the intuit GitHub org confirms a local stdio MCP server with 145 tools, 29 entities and 11 reports, so 'official' is reasonable. The note correctly flags the hosted endpoint as unverified."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_with_conditions is plausible given the app review and annual security assessment. However, the Intuit App Partner Program (mentioned in the page footer) and its tiered or metered API pricing (the Builder tier is free, higher tiers are paid, with call-volume limits) could be a paid_plan condition or change production access. The record has not checked this. The open question 'is a QBO subscription needed for production' is also unresolved. Check the App Partner Program page and the current pricing before finalizing."
+  }
+ },
+ "87": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence confirms authorization code, PKCE and Custom Connections (client credentials). Custom Connections are a paid premium option, but oauth2 is the right method for all of them."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The Starter tier is free with 5 connections, and the Core tier, Custom Connection fees and regional limits all match the pages. The 1,000/day Starter limit is also confirmed. Fees for Core and higher tiers are unverified, but they are listed as open questions and don't contradict the free dev and production access claim."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The rate limits match the limits page exactly. The Accounting API and the sibling APIs (Payroll, Files, Assets, Projects, Bank Feeds) are confirmed in the docs nav."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The XeroAPI GitHub org repo is Xero's own official server, with Custom Connection and bearer-token auth confirmed. The RMCP server is listed in the official docs nav. The record's note flags honestly that RMCP details are unverified."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now is questionable. Starter allows only 5 tenant connections. A multi-tenant Composio integration that serves many customers would need the Core tier (paid, up to 50 connections), and then Plus or certification for more. Each organisation is also limited to 5 uncertified apps. The record itself says the tier fees are unverified. I recall that Xero introduced paid tiered pricing in 2026, so please check developer.xero.com/pricing. build_with_conditions (naming the connection-tier requirement) may fit better than build_now, because free dev access with the API on all plans is true only up to 5 connections."
+  }
+ },
+ "88": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show admin-generated user token (Bearer) and MCP OAuth with DCR plus API token. The record honestly notes no general REST OAuth app model was found."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Gates (production-only server, admin accepts agreement, 90-day expiry, MCP beta toggle) are all backed by cited pages. dev_access unknown and production_access free are cautious. 'free' is only weakly evidenced, but a paid product is not an API gate."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Overview page lists the REST/OpenAPI families and webhooks as claimed. The 'broad' rating is justified."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor-hosted docs at developer.brex.com describe the server at api.brex.com/mcp as Beta, with OAuth DCR and an API token option. This is an official server."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_with_conditions fits: there is no sandbox and each customer admin must supply a token, so developers need a real Brex account. No evidence of a sales or partner gate was shown, so outreach_required is not warranted. Medium confidence is appropriate."
+  }
+ },
+ "89": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm OAuth 2.0 with client credentials, authorization code and refresh grants; client ID/secret via Basic auth. oauth2 as the only method fits."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Evidence shows an admin-created developer app, sandbox via request form, admin approval for Authorization Code apps, plan-feature 403s, and partners-only scopes. Gates are listed honestly. The 'free' dev/production labels are not directly evidenced, but Ramp API access isn't known to cost extra. The Data Partner Program claim has no excerpt shown."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "A canonical OpenAPI schema, broad scope families (bills, cards, approvals and others), webhooks and the CLI are all shown in the docs excerpts."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Ramp's own docs page (docs.ramp.com) documents hosted MCP at mcp.ramp.com/mcp, with OAuth sign-in, Full or Read-only access, 30-day expiry, and redirect allowlisting. That makes it first-party and official."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_now needs free or trial dev access with the API on all plans. Evidence shows that some endpoints need a Ramp plan feature, that sandbox is request-gated, and that you must be an existing Ramp customer with admin access to create an app. The record itself lists plan-tier endpoints as an open question. Customers can use the API, but a non-customer integrator has no self-serve path other than the sandbox request. Check whether build_with_conditions fits better, with the conditions being a Ramp customer account or sandbox approval, plus plan-gated endpoints."
+  }
+ },
+ "90": {
+  "auth": {
+   "status": "supported",
+   "reason": "Postman docs confirm a static API key sent as 'Authorization: PB-Token {API_KEY}', provisioned by PitchBook, and purchased credits are needed. api_key is the right method. The 'no OAuth' claim concerns the REST API, and the evidence doesn't contradict it."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The help page and Postman docs both show a standalone contract, a request to the Direct Data team, a sandbox key from the account manager, and purchased credits. partner_or_sales for dev and production matches this. The Highspot endpoint list is correctly noted as not public."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST and the base URL are confirmed. Financing details, deal stock and VC exit predictor come from the help page. Companies, deals, people, investors, funds, service providers and LPs come from the Postman intro. The note says rate limits aren't published. 'Broad' is plausible but not fully verified, and the record is open about that."
+  },
+  "mcp": {
+   "status": "suspect",
+   "reason": "The press release supports the 'PitchBook Data MCP' being live for customers on request. But the record's date of 2026-10-14 isn't in the excerpt, so check it. The listed URL premium.mcp.pitchbook.com/mcp is admittedly from third-party listings, and the OAuth claim has no vendor source. Marking the status 'official' while pairing it with an unverified URL and unverified auth is risky. The Data MCP and the Premium MCP may be different products, so confirm which one the URL belongs to on a vendor page."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "outreach_required fits the rubric. There is no access without a standalone contract with the Direct Data team and purchased credits, and the sandbox key also needs the account manager. The paid-product-isn't-a-gate rule doesn't apply, because the API is a separate sales-gated contract, not just a paid plan."
+  }
+ },
+ "91": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show gcloud user access token with license and role; oauth2 is reasonable and service-account uncertainty is flagged."
+  },
+  "access": {
+   "status": "suspect",
+   "reason": "production_access 'free' is unsupported: each user needs a paid Gemini Notebook Enterprise license (a subscription), which is arguably a paid add-on/separate purchase. 'free_trial' dev access is only evidenced by a passing mention of free-trial subscriptions, and the record itself lists it as an open question. Verify trial availability and license pricing."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Evidence supports notebooks CRUD/list/share and sources batchCreate on v1alpha Preview. Moderate breadth is consistent with the missing chat and Studio endpoints."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "A community MCP server (dandye/notebooklm_sdk) wraps the Enterprise API, and the record correctly notes no vendor-published server was found."
+  },
+  "verdict": {
+   "status": "contradicted",
+   "reason": "build_now requires free or trial dev access and an API on all plans. Here the API requires a paid license, Preview v1alpha status, an identity provider setup, and user-only credentials, with service-account support unclear. Several of these are named conditions, and the record's own open questions are unresolved. build_with_conditions fits better, and needs_research is possible given the unresolved trial and service-account questions."
+  }
+ },
+ "92": {
+  "auth": {
+   "status": "supported",
+   "reason": "Page shows API keys created in Integrations → Developer, max 2 per user, Bearer transport. MCP uses OAuth per the MCP help page. Methods api_key and oauth2 are reasonable."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Page states the Public API is available on the Otter Enterprise plan and to contact the account manager if not visible. paid_plan is correct since a specific higher tier is required. public_app_review is unknown, which is acceptable."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Resource families and the 10 req/s Enterprise limit and cursor pagination match the page. The 'webhooks' type is not shown in the excerpts, but the page likely mentions it in the truncated part, so I am not flagging it."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The official Otter help page documents the hosted MCP server at mcp.otter.ai/mcp with OAuth, and setup steps for Claude, ChatGPT and Cursor."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Enterprise-tier API gating is a named condition, so build_with_conditions fits. The account-manager enablement note could arguably push toward outreach, but the page says the API is available for all Enterprise workspaces, so the condition is the plan tier."
+  }
+ },
+ "93": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence confirms per-user API key in User Settings > API Access (X-Api-Key) and OAuth2 app registration for public apps. Methods api_key and oauth2 are appropriate."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "FAQ states API keys and webhooks are included on all plans; no admin approval is needed for a key. Gates (per-user keys, private meetings, OAuth review) match the sources. public_app_review=yes matches the OAuth page's review statement. The marketplace 20+ users and webhook-timing gates were not shown but are not contradicted."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Base URL, REST meetings endpoint, TypeScript/Python SDKs and webhooks are all supported by the quickstart and features page. The moderate breadth is reasonable."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Fathom's own developer docs call it an official MCP server, with Claude and ChatGPT connectors. The URL is not visible in the excerpt but is plausible. The beta caveat is noted in the record."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "API access is free on all plans with self-serve keys, which fits build_now. The per-user key model and OAuth review for public apps are not blockers under the rubric."
+  }
+ },
+ "94": {
+  "auth": {
+   "status": "supported",
+   "reason": "API key via x-api-key header confirmed; MCP OAuth 2.0 dynamic discovery and Bearer key confirmed. Record honestly notes no REST OAuth."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Docs say API is self-serve on every plan, Free has 30 calls/month, key created in dashboard. Paid-only features (pagination, full text) listed as gates, not blocking basic access. Free tier is limited but exists."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST at api.consensus.app, 1 req/s, 1,000-result cap confirmed. The record itself flags webhooks and sdk as unverified; consider removing them from types, but REST is confirmed."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Vendor docs on docs.consensus.app point to mcp.consensus.app/mcp (Streamable HTTP) with OAuth or API key Bearer. Vendor-hosted, so official."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Free self-serve key and API on all plans fit build_now. The 30 calls/month limit and paid-only features are quotas, not an access gate. A stricter reviewer might prefer build_with_conditions, but the rubric says a paid product is not an API gate, so build_now stands."
+  }
+ },
+ "95": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs show API keys from Studio sent as Bearer; OAuth device-code only mints the user's own key. api_key is correct."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Pricing page shows Standard self-serve pay-as-you-go with $150 free usage and Parse/Extract/Edit/Split included; higher tiers add enterprise extras. The hosted MCP URL-only limit is confirmed by the docs."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST Parse endpoint, CLI and SDKs, and pricing for Parse/Extract/Split/Classify/Edit are shown. The record itself flags webhooks as unverified, which is acceptable."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Reducto's own docs (docs.reducto.ai/mcp-server) document a hosted server at mcp.reducto.ai and a local uvx server, so the vendor publishes it. The GitHub URL was not shown, but the docs cover the claim."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "Self-serve API key with $150 free usage, and the core APIs are on the Standard plan with no sales gate. build_now fits the rubric."
+  }
+ }
+}
