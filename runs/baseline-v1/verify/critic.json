@@ -2088,5 +2088,115 @@
    "status": "supported",
    "reason": "Self-serve API key with $150 free usage, and the core APIs are on the Standard plan with no sales gate. build_now fits the rubric."
   }
+ },
+ "96": {
+  "auth": {
+   "status": "supported",
+   "reason": "Evidence shows service user API keys and PATs, both cog_ Bearer tokens, provisioned in Settings > Devin API. Methods api_key and personal_token fit. The 'no OAuth' claim isn't directly evidenced but is consistent with the docs."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "The gates are hedged honestly. The Teams quickstart, enterprise-only /v3/enterprise scope and plan pricing match the evidence. Unknown dev/production access is reasonable because the docs don't say which plans include API. The enterprise PAT policy and the $500 legacy claim are not shown in the excerpts, but they are minor."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The v3 org and enterprise scopes, resource families and v1/v2 deprecation match the excerpts. The REST type fits. 'other' is unexplained but harmless."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor docs at docs.devin.ai describe an authenticated MCP server at mcp.devin.ai with session tools like devin_session_create. This is first-party and official. The Streamable HTTP /mcp URL detail isn't shown but is plausible."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "build_with_conditions fits. API access is via service user or PAT from a Devin org, whose plan eligibility is unconfirmed, and the enterprise scope is limited to enterprise customers. The Free plan may be unconfirmed, but the record flags this and sets medium confidence. needs_research would be arguable, but build_with_conditions is acceptable."
+  }
+ },
+ "97": {
+  "auth": {
+   "status": "supported",
+   "reason": "API key (key ID + secret from Console) is confirmed by docs. MCP/CLI sign-in is account OAuth-style browser login; listing oauth2 is reasonable and the detail explains the split."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "FAQ confirms pay-as-you-go top-up balance and committed-use invoicing via sales. Help center confirms MCP needs paid subscription and credits are always deducted. The 'no free tier found' statement is hedged honestly. Per-model 404/423/503 restrictions are quoted from the docs."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "REST at api.higgsfield.ai with status polling, server-side use, SDKs and Authorization header are all shown in the docs. The note admits the resource list is partial, and 'narrow' matches a generation-focused API."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Higgsfield's own help center and CLI landing page publish mcp.higgsfield.ai/mcp and describe account sign-in with no API keys, so 'official' is backed by first-party sources."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "build_with_conditions is defensible, but the rubric says a paid product is not an API gate, and paid_plan is only for a specific higher tier, add-on or separate API purchase. Pay-as-you-go top-up is arguably a separate API purchase, so paid_plan fits. Still, the blocker is only 'it costs money', and no evidence shows a gated tier or sales requirement. Check whether the Console gives trial credits and whether a minimum top-up applies. If there is none, the condition is the funded balance, and build_with_conditions with that named condition is acceptable."
+  }
+ },
+ "98": {
+  "auth": {
+   "status": "supported",
+   "reason": "Local npm/Docker CLI with no accounts or keys; 'none' fits the README."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "Free, open-source npm/Docker install; known Linux sandbox and Docker permission issues are listed in the README. The production_access value of not_applicable is reasonable for a local tool."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "README documents the mmdc CLI, Markdown transformation, and a Node.js run() API. It also says the Node API is not covered by semver, which answers the record's open question about stability. The 'sdk' type is a slight stretch but acceptable."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The andrewginns repo is a third-party Python wrapper over mermaid-cli, so 'community' is correct. The note about the official mcp.mermaid.ai server is explicitly uncited and applies to the separate Mermaid Chart product, so it does not affect this field."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "'limited' requires positive evidence of a material restriction. Here the tool is free, needs no auth, and has no gating. The real issue is a fit question: it has no hosted API, so it works only through local or sandboxed execution. That is closer to needs_research, or build_with_conditions with the condition 'requires sandboxed execution with Node and Chromium'. The record's own open questions say viability depends on whether Composio supports local-execution toolkits. That is unresolved, which points to needs_research. Check whether 'limited' is the right label under the rubric."
+  }
+ },
+ "99": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm API key from dashboard sent as Bearer token; OAuth 2.1 is MCP-only and correctly noted as such."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "100 free credits with no card, 402 on exhaustion, plan-based per-account rate limits all shown in evidence. Unverified pricing is honestly disclosed."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "Endpoint table shows transcripts, info, search, channels, playlists with per-endpoint credit costs. The 'sdk' type is listed although the note admits no official SDK was confirmed; minor, but worth removing."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "Vendor docs on its own domain describe a hosted remote MCP server at /mcp with 12 tools, OAuth 2.1 or Bearer API key. It is first-party, so 'official' fits."
+  },
+  "verdict": {
+   "status": "suspect",
+   "reason": "The evidence shows free trial access (100 credits, no card) and an API on all accounts, which is closer to build_now under the rubric. A paid product is not an API gate. The record labels production access 'paid_plan', but no evidence shows the API needs a specific higher tier or add-on. It only shows credit metering. Check the pricing page: if any plan or credits purchase gives API access, build_now is more consistent. Also remove 'sdk' from api.types unless an official package is confirmed."
+  }
+ },
+ "100": {
+  "auth": {
+   "status": "supported",
+   "reason": "Docs confirm PAT, workspace token (manual generation), and OAuth2 auth code + PKCE. The WAT is a manually generated token, so it is arguably personal_token-like, and listing api_key is a loose but harmless label. Bearer header is transport only."
+  },
+  "access": {
+   "status": "supported",
+   "reason": "PAT is available on every plan including Free, which is confirmed by the support article. The Workspace token needs Business/Enterprise and is correctly listed as a gate. No sandbox and the 300/min rate limit are also confirmed. public_app_review=yes matches the 'verified clients' rule for the workspace scope and the manual client registration. The OAuth client_id is issued manually, but that is a vendor review of a public app and does not change the verdict."
+  },
+  "api": {
+   "status": "supported",
+   "reason": "The support article lists recordings, transcripts, AI notes, participants, tags, teams, meeting types, uploads, sharing and webhooks. The 300/min limit and the Public-Api-Version header are confirmed. The excerpt shows webhook events for clip creation. The record's 'clips' family is plausible, but a clips REST endpoint is not shown."
+  },
+  "mcp": {
+   "status": "supported",
+   "reason": "The vendor's own FAQ says the MCP server is officially supported, and the URL and personal-token acceptance are confirmed by the developer docs."
+  },
+  "verdict": {
+   "status": "supported",
+   "reason": "A free PAT gives API access on every plan, so build_now fits the rubric. Paid-plan restrictions apply only to workspace scope, which is an optional extra. Production use by many users requires OAuth client registration by Grain, which is manual and is recorded as public_app_review. This is a minor risk, since it is flagged in open_questions."
+  }
  }
 }

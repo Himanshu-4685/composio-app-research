@@ -1,0 +1,12 @@
+{
+  "note": "Every field graded I (incorrect) in the FINAL version, grouped by cause. Grouping is a judgement made after scoring, by reading the agent record next to the human row. Scores themselves were NOT changed.",
+  "categories": [
+    { "cause": "Paid product vs paid API (definition)", "explanation": "Human marked production access as paid_plan because the product is paid; the agent followed the rubric rule 'API included on every plan = not an API gate'. A rubric-definition gap, not a factual error by either side.", "items": ["Gorgias: access, verdict", "Vonage: access, verdict", "Snowflake: access, verdict", "Sentry: access, verdict", "Gladly: access"] },
+    { "cause": "Agent missed an auth method", "explanation": "Incomplete auth lists, i.e. the agent stopped after finding the main method.", "items": ["Vonage: OAuth2", "Zoho Cliq: API key", "Bright Data: Basic", "Snowflake: other"] },
+    { "cause": "MCP classification", "explanation": "Official vs community vs announced is hard to establish from search results.", "items": ["Gladly: community (agent) vs official (human)", "fanbasis: official vs announced", "NotebookLM: community vs none found"] },
+    { "cause": "Gate type", "explanation": "Which kind of gate applies (app review vs outreach vs paid).", "items": ["Pinterest: access, verdict (app review vs outreach)", "Squarespace: production app_review vs paid_plan"] },
+    { "cause": "API surface", "explanation": "Types or breadth.", "items": ["Gladly: CLI missed", "fanbasis: breadth broad vs moderate"] },
+    { "cause": "Human listed two values", "explanation": "Human wrote 'free;free_trial'; the strict grader needs one exact value. Agent value was one of the two.", "items": ["Harvest: access", "Xero: access"] },
+    { "cause": "Verdict judgement", "explanation": "Same facts, different overall call.", "items": ["Fathom: build now (agent) vs limited (human)"] }
+  ]
+}

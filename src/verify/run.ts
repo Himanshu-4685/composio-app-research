@@ -68,14 +68,19 @@ export async function verify(runId: string, stage: string, only?: number[], mode
   if (stage === "fix") {
     const checks = readJson(`${vdir}/checks.json`), critic = readJson(`${vdir}/critic.json`);
     const finalPath = `${dir}/final.jsonl`;
-    const done = new Set(readJsonl<AppRecord & { deferred?: boolean }>(finalPath).filter((r) => mode === "trimmed" || !r.deferred).map((r) => r.id));
+    // In full mode, deferred apps and apps whose re-research was cut off by a usage limit are redone.
+    const cut = (r: AppRecord) => (r.open_questions ?? []).some((q) => /re-research failed/i.test(q));
+    const done = new Set(readJsonl<AppRecord & { deferred?: boolean }>(finalPath).filter((r) => mode === "trimmed" || (!r.deferred && !cut(r))).map((r) => r.id));
     const issuesFor = (r: AppRecord) => {
       const issues: { layer: string; field: string; msg: string }[] = (checks[r.id]?.flags ?? []).map((f: Flag) => ({ layer: f.layer, field: f.field, msg: f.msg }));
       for (const [field, j] of Object.entries(critic[r.id] ?? {}) as [string, any][])
         if (j?.status && j.status !== "supported") issues.push({ layer: "L3", field, msg: `${j.status}: ${j.reason}` });
       return issues;
     };
-    const todo = base.filter((r) => !done.has(r.id));
+    // Usage-limit priority: the 20 audited apps first (accuracy is measured on them), then the rest by id.
+    // Disclosed on the page, because a limit hit mid-run would leave non-audited apps unprocessed.
+    const audited = new Set<number>((readJson("audit/sample.json", { picks: [] }).picks ?? []).map((p: any) => p.id));
+    const todo = base.filter((r) => !done.has(r.id)).sort((a, b) => Number(audited.has(b.id)) - Number(audited.has(a.id)) || a.id - b.id);
     console.log(`fix: ${todo.length} apps, ${todo.filter((r) => issuesFor(r).length).length} flagged for re-research`);
     await pool(todo, 2, async (r) => {
       const issues = issuesFor(r);

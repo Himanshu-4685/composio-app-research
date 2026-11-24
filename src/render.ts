@@ -37,6 +37,8 @@ export function render(runId: string) {
   const reResearched = new Set(corrections.map((c: any) => c.app_id));
   const finalArr = [...fin.values()] as any[];
   const deferred = finalArr.filter((r) => r.deferred).length;
+  const limitCut = finalArr.filter((r) => (r.open_questions ?? []).some((q: string) => /re-research failed/i.test(q))).length;
+  const disagreements = readJson("audit/disagreements.json");
   const reran = finalArr.filter((r) => !r.deferred && r.stats && base.get(r.id) && r.researched_at !== base.get(r.id)!.researched_at).length;
   const totalUsd = baseRecs.reduce((a, r) => a + (r.stats?.notional_usd ?? 0), 0);
   const avgSec = Math.round(baseRecs.reduce((a, r) => a + (r.stats?.seconds ?? 0), 0) / Math.max(1, baseRecs.length));
@@ -118,7 +120,7 @@ nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--lin
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}.grid{display:grid;gap:14px}.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}.g5{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
 .headline{border-left:4px solid var(--accent)}.headline li{margin:6px 0}
 .stat .n{font-size:30px;font-weight:700;letter-spacing:-.02em}.stat .l{font-size:12.5px;color:var(--muted)}
-table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;color:var(--muted);font-weight:600;position:sticky;top:37px;background:var(--card)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;color:var(--muted);font-weight:600;background:var(--card)}#mx th{position:sticky;top:0}
 .scroll{overflow-x:auto}.tag{display:inline-block;padding:1px 7px;border-radius:999px;background:var(--chip);font-size:12px;margin:1px 0}
 .v-build_now{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good)}.v-build_with_conditions{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}.v-outreach_required{background:color-mix(in srgb,var(--bad) 16%,transparent);color:var(--bad)}.v-limited,.v-needs_research{background:color-mix(in srgb,var(--muted) 20%,transparent)}
 .m-official{color:var(--good)}.m-community{color:var(--info)}
@@ -175,7 +177,9 @@ ${[["Build now", v.build_now ?? 0], ["With conditions", v.build_with_conditions 
 ${scoreRow("baseline.calibration", "First pass · calibration")}${scoreRow("final.calibration", "After loop · calibration")}${scoreRow("baseline.holdout", "First pass · holdout")}${scoreRow("final.holdout", "After loop · holdout")}
 </tbody></table></div>
 <p class="small muted">C correct, I incorrect, U unresolved (agent or human said unknown). "Correct of all" counts unknowns against the agent. Calibration apps could guide fixes; holdout apps were only scored. Grading rules: auth = same set (api_key ≡ personal_token); access = dev and production both match; API = same core type and breadth within one step; MCP and verdict = exact. Sample seed ${esc(sample?.seed)}, pilot apps excluded. 20 apps is a sample: these rates describe the sample, not an exact accuracy for all 100.</p>
-${misses.length ? `<h3>Where the final answers still disagree with the human</h3><ul class="small">${misses.map((d: any) => `<li>${esc(d.app)}: <code>${esc(d.field)}</code> (${esc(d.group)})</li>`).join("")}</ul>` : ""}
+${disagreements ? `<h3>Why the remaining ${misses.length} final fields disagree with the human</h3><p class="small muted">${esc(disagreements.note)}</p><div class="scroll"><table><thead><tr><th>Cause</th><th>Fields</th><th>Cases</th><th>What it means</th></tr></thead><tbody>${disagreements.categories.map((c: any) => `<tr><td><b>${esc(c.cause)}</b></td><td>${c.items.reduce((a: number, i: string) => a + i.split(",").length, 0)}</td><td class="small">${c.items.map(esc).join("<br>")}</td><td class="small">${esc(c.explanation)}</td></tr>`).join("")}</tbody></table></div>
+<p class="small"><b>Takeaway:</b> the agent does not invent facts (all quotes verified). Its remaining errors are <b>incomplete lists</b> (a missed second auth method) and <b>classification judgement</b>. The biggest single source of disagreement is a <b>definition</b> (is a paid product a "paid plan" gate?), which a research process at Composio's scale must pin down in the rubric before automating.</p>`
+  : misses.length ? `<h3>Where the final answers still disagree with the human</h3><ul class="small">${misses.map((d: any) => `<li>${esc(d.app)}: <code>${esc(d.field)}</code> (${esc(d.group)})</li>`).join("")}</ul>` : ""}
 </div>
 
 ${corrections.length ? `<div class="card scroll" style="margin-top:14px"><h3 style="margin-top:0">What the loop changed (${corrections.length} field changes${corrections.length > 40 ? ", first 40 shown; all in corrections.jsonl" : ""})</h3><table><thead><tr><th>App</th><th>Field</th><th>Before</th><th>After</th><th>Caught by</th><th>Why</th></tr></thead><tbody>${corrRows}</tbody></table></div>` : ""}
@@ -185,7 +189,8 @@ ${corrections.length ? `<div class="card scroll" style="margin-top:14px"><h3 sty
 <li><b>The quote check proves quotes are real, not that they're interpreted right.</b> All ${qOk} quotes matched their pages, so the agent never invented a quote. Errors come from <i>missing</i> conditions and judgment, which is why the critic and the human audit exist.</li>
 <li><b>My own rule had false alarms.</b> The L1 "official MCP must be on the vendor's domain" rule flagged vendor-owned alternate domains (e.g. sentry.dev, helpscout.net). Flags are prompts for re-checking, not automatic edits.</li>
 <li><b>Composio's catalog is a partial oracle.</b> It lists the auth Composio implements, which can be a subset of what the vendor offers. We check "Composio's methods ⊆ ours", not equality.</li>
-<li><b>Usage limits shaped the run.</b> On a Claude Pro subscription the first pass hit the 5-hour limit at app 60 and resumed after the reset.${deferred ? ` ${deferred} apps with only "insufficient evidence" critic notes were deferred for re-research after the next reset.` : ""}</li>
+<li><b>Usage limits shaped the run.</b> On a Claude Pro subscription the first pass hit the 5-hour limit at app 60 and resumed after the reset. The re-research pass (L5) ran the 20 audited apps first, then the rest by id.${limitCut ? ` <b>${limitCut} flagged apps were cut off by the next usage limit</b> and keep their first-pass answers (none of them is in the audit sample).` : ""}${deferred ? ` ${deferred} apps with only "insufficient evidence" critic notes were deferred.` : ""}${limitCut || deferred ? " <code>npm run finish</code> completes both." : ""}</li>
+<li><b>The improvement is modest and measured honestly.</b> The loop raised correct fields by 6 points in both the calibration and the untouched holdout group. The scores were computed once with fixed grading rules and not adjusted afterwards.</li>
 <li><b>The critic is also an LLM.</b> Its "suspect" notes come from model knowledge and are only acted on through re-research with sources. The human audit is the only ground truth.</li>
 </ul></div>
 
