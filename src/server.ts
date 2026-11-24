@@ -17,7 +17,7 @@ const page = `<!doctype html><html><head><meta charset="utf-8"><meta name="viewp
 <h3>Live trace</h3><div id="log"></div><h3>Result</h3><div id="out"></div>
 <script>
 document.getElementById("f").onsubmit=e=>{e.preventDefault();const log=document.getElementById("log"),out=document.getElementById("out");log.textContent="";out.innerHTML="";
-const es=new EventSource("/api/research?name="+encodeURIComponent(name.value)+"&hint="+encodeURIComponent(hint.value));
+const nm=document.getElementById("name").value,ht=document.getElementById("hint").value;const es=new EventSource("/api/research?name="+encodeURIComponent(nm)+"&hint="+encodeURIComponent(ht));
 es.onmessage=m=>{const d=JSON.parse(m.data);if(d.type==="done"){es.close();const r=d.record;
 out.innerHTML="<p><b>"+r.name+"</b>: <b>"+r.verdict+"</b> ("+r.confidence+" confidence)<br>auth: "+r.auth.methods.join(", ")+" · dev: "+r.access.dev_access+" · prod: "+r.access.production_access+" · MCP: "+r.mcp.status+"</p><p>"+(r.blocker||"")+"</p><pre>"+JSON.stringify({checks:d.checks,critic:d.critic,record:r},null,1).replace(/</g,"&lt;")+"</pre>";}
 else log.textContent+=d.detail+"\\n";};es.onerror=()=>{log.textContent+="(connection closed)\\n";es.close()};};
