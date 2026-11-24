@@ -68,6 +68,11 @@ export function render(runId: string) {
   };
   const GR = (pf: any) => pf ? Object.entries(pf).map(([f, g]: any) => `${f} ${g.C}/${g.C + g.I + g.U}`).join(" · ") : "";
   const misses = (scores?.detail ?? []).filter((d: any) => d.version === "final" && d.grade === "I");
+  // If deferred / limit-cut apps were finished after the first scoring, show the first scoring too.
+  const first = readJson("audit/scores-first.json");
+  const fmt = (x: any) => x?.apps ? `${pct(x.C, x.N)}% (${x.C}/${x.N})` : "–";
+  const changed = first && ["final.calibration", "final.holdout"].some((k) => first.summary?.[k]?.C !== s[k]?.C || first.summary?.[k]?.I !== s[k]?.I);
+  const firstNote = first ? `<p class="small"><b>Score history.</b> First scored ${esc(String(first.computed_at).slice(0, 16).replace("T", " "))} UTC, when some flagged apps had not been re-researched yet (usage limit). After <code>npm run finish</code> completed them, re-scored ${esc(String(scores?.computed_at ?? "").slice(0, 16).replace("T", " "))} UTC. ${changed ? `After-loop scores at first scoring: calibration ${fmt(first.summary["final.calibration"])}, holdout ${fmt(first.summary["final.holdout"])}. The table shows the re-scored numbers.` : "The audited scores did not change."} Grading rules were not changed between the two.</p>` : "";
 
   // ---------- corrections examples ----------
   const corrRows = corrections.slice(0, 40).map((c: any) => `<tr><td>${esc(c.app)}</td><td><code>${esc(c.field)}</code></td><td>${esc(c.before)}</td><td>${esc(c.after)}</td><td>${esc(c.triggered_by.join(", "))}</td><td class="small">${esc((c.issues ?? [])[0] ?? "")}</td></tr>`).join("");
@@ -175,7 +180,7 @@ ${[["Build now", v.build_now ?? 0], ["With conditions", v.build_with_conditions 
 <div class="card" style="margin-top:14px"><h3 style="margin-top:0">Accuracy against the blind human audit</h3>
 <div class="scroll"><table><thead><tr><th>Version · group</th><th>Apps</th><th>C / I / U</th><th>Correct of all fields</th><th>Correct of decidable</th><th>Per field (C / checked)</th></tr></thead><tbody>
 ${scoreRow("baseline.calibration", "First pass · calibration")}${scoreRow("final.calibration", "After loop · calibration")}${scoreRow("baseline.holdout", "First pass · holdout")}${scoreRow("final.holdout", "After loop · holdout")}
-</tbody></table></div>
+</tbody></table></div>${firstNote}
 <p class="small muted">C correct, I incorrect, U unresolved (agent or human said unknown). "Correct of all" counts unknowns against the agent. Calibration apps could guide fixes; holdout apps were only scored. Grading rules: auth = same set (api_key ≡ personal_token); access = dev and production both match; API = same core type and breadth within one step; MCP and verdict = exact. Sample seed ${esc(sample?.seed)}, pilot apps excluded. 20 apps is a sample: these rates describe the sample, not an exact accuracy for all 100.</p>
 ${disagreements ? `<h3>Why the remaining ${misses.length} final fields disagree with the human</h3><p class="small muted">${esc(disagreements.note)}</p><div class="scroll"><table><thead><tr><th>Cause</th><th>Fields</th><th>Cases</th><th>What it means</th></tr></thead><tbody>${disagreements.categories.map((c: any) => `<tr><td><b>${esc(c.cause)}</b></td><td>${c.items.reduce((a: number, i: string) => a + i.split(",").length, 0)}</td><td class="small">${c.items.map(esc).join("<br>")}</td><td class="small">${esc(c.explanation)}</td></tr>`).join("")}</tbody></table></div>
 <p class="small"><b>Takeaway:</b> the agent does not invent facts (all quotes verified). Its remaining errors are <b>incomplete lists</b> (a missed second auth method) and <b>classification judgement</b>. The biggest single source of disagreement is a <b>definition</b> (is a paid product a "paid plan" gate?), which a research process at Composio's scale must pin down in the rubric before automating.</p>`

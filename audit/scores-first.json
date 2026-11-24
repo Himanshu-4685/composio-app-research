@@ -1,0 +1,2156 @@
+{
+ "run_id": "baseline-v1",
+ "computed_at": "2026-11-24T02:27:15.720Z",
+ "summary": {
+  "baseline.calibration": {
+   "C": 28,
+   "I": 15,
+   "U": 7,
+   "apps": 10,
+   "N": 50,
+   "supported_rate": 0.56,
+   "accuracy_decidable": 0.6511627906976745,
+   "coverage": 0.86,
+   "perField": {
+    "auth": {
+     "C": 6,
+     "I": 3,
+     "U": 1
+    },
+    "access": {
+     "C": 3,
+     "I": 5,
+     "U": 2
+    },
+    "api": {
+     "C": 8,
+     "I": 1,
+     "U": 1
+    },
+    "mcp": {
+     "C": 7,
+     "I": 2,
+     "U": 1
+    },
+    "verdict": {
+     "C": 4,
+     "I": 4,
+     "U": 2
+    }
+   }
+  },
+  "baseline.holdout": {
+   "C": 35,
+   "I": 15,
+   "U": 0,
+   "apps": 10,
+   "N": 50,
+   "supported_rate": 0.7,
+   "accuracy_decidable": 0.7,
+   "coverage": 1,
+   "perField": {
+    "auth": {
+     "C": 6,
+     "I": 4,
+     "U": 0
+    },
+    "access": {
+     "C": 5,
+     "I": 5,
+     "U": 0
+    },
+    "api": {
+     "C": 9,
+     "I": 1,
+     "U": 0
+    },
+    "mcp": {
+     "C": 9,
+     "I": 1,
+     "U": 0
+    },
+    "verdict": {
+     "C": 6,
+     "I": 4,
+     "U": 0
+    }
+   }
+  },
+  "final.calibration": {
+   "C": 31,
+   "I": 12,
+   "U": 7,
+   "apps": 10,
+   "N": 50,
+   "supported_rate": 0.62,
+   "accuracy_decidable": 0.7209302325581395,
+   "coverage": 0.86,
+   "perField": {
+    "auth": {
+     "C": 7,
+     "I": 2,
+     "U": 1
+    },
+    "access": {
+     "C": 4,
+     "I": 4,
+     "U": 2
+    },
+    "api": {
+     "C": 8,
+     "I": 1,
+     "U": 1
+    },
+    "mcp": {
+     "C": 7,
+     "I": 2,
+     "U": 1
+    },
+    "verdict": {
+     "C": 5,
+     "I": 3,
+     "U": 2
+    }
+   }
+  },
+  "final.holdout": {
+   "C": 38,
+   "I": 12,
+   "U": 0,
+   "apps": 10,
+   "N": 50,
+   "supported_rate": 0.76,
+   "accuracy_decidable": 0.76,
+   "coverage": 1,
+   "perField": {
+    "auth": {
+     "C": 8,
+     "I": 2,
+     "U": 0
+    },
+    "access": {
+     "C": 5,
+     "I": 5,
+     "U": 0
+    },
+    "api": {
+     "C": 9,
+     "I": 1,
+     "U": 0
+    },
+    "mcp": {
+     "C": 9,
+     "I": 1,
+     "U": 0
+    },
+    "verdict": {
+     "C": 7,
+     "I": 3,
+     "U": 0
+    }
+   }
+  }
+ },
+ "detail": [
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 7,
+   "app": "Zoho CRM",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 7,
+   "app": "Zoho CRM",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 7,
+   "app": "Zoho CRM",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 7,
+   "app": "Zoho CRM",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 7,
+   "app": "Zoho CRM",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 19,
+   "app": "Gorgias",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 19,
+   "app": "Gorgias",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 19,
+   "app": "Gorgias",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 19,
+   "app": "Gorgias",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 19,
+   "app": "Gorgias",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 30,
+   "app": "Vonage",
+   "field": "auth",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 30,
+   "app": "Vonage",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 30,
+   "app": "Vonage",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 30,
+   "app": "Vonage",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 30,
+   "app": "Vonage",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 35,
+   "app": "Mailchimp",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 35,
+   "app": "Mailchimp",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 35,
+   "app": "Mailchimp",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 35,
+   "app": "Mailchimp",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 35,
+   "app": "Mailchimp",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 50,
+   "app": "fanbasis",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 50,
+   "app": "fanbasis",
+   "field": "access",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 50,
+   "app": "fanbasis",
+   "field": "api",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 50,
+   "app": "fanbasis",
+   "field": "mcp",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 50,
+   "app": "fanbasis",
+   "field": "verdict",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 53,
+   "app": "Ahrefs",
+   "field": "auth",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 53,
+   "app": "Ahrefs",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 53,
+   "app": "Ahrefs",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 53,
+   "app": "Ahrefs",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 53,
+   "app": "Ahrefs",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 67,
+   "app": "Snowflake",
+   "field": "auth",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 67,
+   "app": "Snowflake",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 67,
+   "app": "Snowflake",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 67,
+   "app": "Snowflake",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 67,
+   "app": "Snowflake",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 80,
+   "app": "Harvest",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 80,
+   "app": "Harvest",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 80,
+   "app": "Harvest",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 80,
+   "app": "Harvest",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 80,
+   "app": "Harvest",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 84,
+   "app": "Paygent Connect",
+   "field": "auth",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 84,
+   "app": "Paygent Connect",
+   "field": "access",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 84,
+   "app": "Paygent Connect",
+   "field": "api",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 84,
+   "app": "Paygent Connect",
+   "field": "mcp",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 84,
+   "app": "Paygent Connect",
+   "field": "verdict",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 91,
+   "app": "NotebookLM",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 91,
+   "app": "NotebookLM",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 91,
+   "app": "NotebookLM",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 91,
+   "app": "NotebookLM",
+   "field": "mcp",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "calibration",
+   "id": 91,
+   "app": "NotebookLM",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 1,
+   "app": "Salesforce",
+   "field": "auth",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 1,
+   "app": "Salesforce",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 1,
+   "app": "Salesforce",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 1,
+   "app": "Salesforce",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 1,
+   "app": "Salesforce",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 20,
+   "app": "Gladly",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 20,
+   "app": "Gladly",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 20,
+   "app": "Gladly",
+   "field": "api",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 20,
+   "app": "Gladly",
+   "field": "mcp",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 20,
+   "app": "Gladly",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 23,
+   "app": "Zoho Cliq",
+   "field": "auth",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 23,
+   "app": "Zoho Cliq",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 23,
+   "app": "Zoho Cliq",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 23,
+   "app": "Zoho Cliq",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 23,
+   "app": "Zoho Cliq",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 38,
+   "app": "Pinterest",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 38,
+   "app": "Pinterest",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 38,
+   "app": "Pinterest",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 38,
+   "app": "Pinterest",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 38,
+   "app": "Pinterest",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 46,
+   "app": "Squarespace",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 46,
+   "app": "Squarespace",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 46,
+   "app": "Squarespace",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 46,
+   "app": "Squarespace",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 46,
+   "app": "Squarespace",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 57,
+   "app": "Bright Data",
+   "field": "auth",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 57,
+   "app": "Bright Data",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 57,
+   "app": "Bright Data",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 57,
+   "app": "Bright Data",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 57,
+   "app": "Bright Data",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 70,
+   "app": "Sentry",
+   "field": "auth",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 70,
+   "app": "Sentry",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 70,
+   "app": "Sentry",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 70,
+   "app": "Sentry",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 70,
+   "app": "Sentry",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 72,
+   "app": "Airtable",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 72,
+   "app": "Airtable",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 72,
+   "app": "Airtable",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 72,
+   "app": "Airtable",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 72,
+   "app": "Airtable",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 87,
+   "app": "Xero",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 87,
+   "app": "Xero",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 87,
+   "app": "Xero",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 87,
+   "app": "Xero",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 87,
+   "app": "Xero",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 93,
+   "app": "Fathom",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 93,
+   "app": "Fathom",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 93,
+   "app": "Fathom",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 93,
+   "app": "Fathom",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "baseline",
+   "group": "holdout",
+   "id": 93,
+   "app": "Fathom",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 7,
+   "app": "Zoho CRM",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 7,
+   "app": "Zoho CRM",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 7,
+   "app": "Zoho CRM",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 7,
+   "app": "Zoho CRM",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 7,
+   "app": "Zoho CRM",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 19,
+   "app": "Gorgias",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 19,
+   "app": "Gorgias",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 19,
+   "app": "Gorgias",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 19,
+   "app": "Gorgias",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 19,
+   "app": "Gorgias",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 30,
+   "app": "Vonage",
+   "field": "auth",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 30,
+   "app": "Vonage",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 30,
+   "app": "Vonage",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 30,
+   "app": "Vonage",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 30,
+   "app": "Vonage",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 35,
+   "app": "Mailchimp",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 35,
+   "app": "Mailchimp",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 35,
+   "app": "Mailchimp",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 35,
+   "app": "Mailchimp",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 35,
+   "app": "Mailchimp",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 50,
+   "app": "fanbasis",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 50,
+   "app": "fanbasis",
+   "field": "access",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 50,
+   "app": "fanbasis",
+   "field": "api",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 50,
+   "app": "fanbasis",
+   "field": "mcp",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 50,
+   "app": "fanbasis",
+   "field": "verdict",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 53,
+   "app": "Ahrefs",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 53,
+   "app": "Ahrefs",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 53,
+   "app": "Ahrefs",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 53,
+   "app": "Ahrefs",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 53,
+   "app": "Ahrefs",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 67,
+   "app": "Snowflake",
+   "field": "auth",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 67,
+   "app": "Snowflake",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 67,
+   "app": "Snowflake",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 67,
+   "app": "Snowflake",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 67,
+   "app": "Snowflake",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 80,
+   "app": "Harvest",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 80,
+   "app": "Harvest",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 80,
+   "app": "Harvest",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 80,
+   "app": "Harvest",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 80,
+   "app": "Harvest",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 84,
+   "app": "Paygent Connect",
+   "field": "auth",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 84,
+   "app": "Paygent Connect",
+   "field": "access",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 84,
+   "app": "Paygent Connect",
+   "field": "api",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 84,
+   "app": "Paygent Connect",
+   "field": "mcp",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 84,
+   "app": "Paygent Connect",
+   "field": "verdict",
+   "grade": "U",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 91,
+   "app": "NotebookLM",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 91,
+   "app": "NotebookLM",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 91,
+   "app": "NotebookLM",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 91,
+   "app": "NotebookLM",
+   "field": "mcp",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "calibration",
+   "id": 91,
+   "app": "NotebookLM",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 1,
+   "app": "Salesforce",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 1,
+   "app": "Salesforce",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 1,
+   "app": "Salesforce",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 1,
+   "app": "Salesforce",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 1,
+   "app": "Salesforce",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 20,
+   "app": "Gladly",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 20,
+   "app": "Gladly",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 20,
+   "app": "Gladly",
+   "field": "api",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 20,
+   "app": "Gladly",
+   "field": "mcp",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 20,
+   "app": "Gladly",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 23,
+   "app": "Zoho Cliq",
+   "field": "auth",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 23,
+   "app": "Zoho Cliq",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 23,
+   "app": "Zoho Cliq",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 23,
+   "app": "Zoho Cliq",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 23,
+   "app": "Zoho Cliq",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 38,
+   "app": "Pinterest",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 38,
+   "app": "Pinterest",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 38,
+   "app": "Pinterest",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 38,
+   "app": "Pinterest",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 38,
+   "app": "Pinterest",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 46,
+   "app": "Squarespace",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 46,
+   "app": "Squarespace",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 46,
+   "app": "Squarespace",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 46,
+   "app": "Squarespace",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 46,
+   "app": "Squarespace",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 57,
+   "app": "Bright Data",
+   "field": "auth",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 57,
+   "app": "Bright Data",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 57,
+   "app": "Bright Data",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 57,
+   "app": "Bright Data",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 57,
+   "app": "Bright Data",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 70,
+   "app": "Sentry",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 70,
+   "app": "Sentry",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 70,
+   "app": "Sentry",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 70,
+   "app": "Sentry",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 70,
+   "app": "Sentry",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 72,
+   "app": "Airtable",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 72,
+   "app": "Airtable",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 72,
+   "app": "Airtable",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 72,
+   "app": "Airtable",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 72,
+   "app": "Airtable",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 87,
+   "app": "Xero",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 87,
+   "app": "Xero",
+   "field": "access",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 87,
+   "app": "Xero",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 87,
+   "app": "Xero",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 87,
+   "app": "Xero",
+   "field": "verdict",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 93,
+   "app": "Fathom",
+   "field": "auth",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 93,
+   "app": "Fathom",
+   "field": "access",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 93,
+   "app": "Fathom",
+   "field": "api",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 93,
+   "app": "Fathom",
+   "field": "mcp",
+   "grade": "C",
+   "overridden": false,
+   "override_reason": ""
+  },
+  {
+   "version": "final",
+   "group": "holdout",
+   "id": 93,
+   "app": "Fathom",
+   "field": "verdict",
+   "grade": "I",
+   "overridden": false,
+   "override_reason": ""
+  }
+ ]
+}

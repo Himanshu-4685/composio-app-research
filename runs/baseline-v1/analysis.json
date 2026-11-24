@@ -3,18 +3,18 @@
  "source": "final",
  "n": 100,
  "ok": 100,
- "computed_at": "2026-11-24T02:29:01.077Z",
+ "computed_at": "2026-11-24T02:36:19.671Z",
  "verdicts": {
-  "build_with_conditions": 31,
-  "build_now": 60,
+  "build_with_conditions": 32,
+  "build_now": 58,
   "outreach_required": 6,
-  "needs_research": 2,
+  "needs_research": 3,
   "limited": 1
  },
  "auth_methods": {
-  "oauth2": 70,
+  "oauth2": 72,
   "service_account_or_jwt": 9,
-  "personal_token": 23,
+  "personal_token": 24,
   "api_key": 67,
   "other": 4,
   "basic": 2,
@@ -25,7 +25,7 @@
   "oauth2+personal_token": 11,
   "api_key+oauth2": 34,
   "oauth2": 11,
-  "api_key": 21,
+  "api_key": 20,
   "api_key+other": 1,
   "api_key+service_account_or_jwt": 2,
   "oauth2+personal_token+service_account_or_jwt": 3,
@@ -33,43 +33,44 @@
   "basic+oauth2": 1,
   "none": 2,
   "oauth2+other+personal_token": 2,
-  "api_key+oauth2+personal_token": 4,
-  "api_key+basic": 1,
+  "api_key+oauth2+personal_token": 5,
+  "api_key+basic+oauth2": 1,
   "api_key+oauth2+service_account_or_jwt": 1,
   "api_key+personal_token": 2,
   "other": 1
  },
  "dev_access": {
-  "free": 61,
+  "free": 60,
   "free_trial": 22,
   "partner_or_sales": 6,
   "app_review": 2,
   "paid_plan": 5,
   "not_applicable": 1,
-  "unknown": 3
+  "unknown": 3,
+  "admin_approval": 1
  },
  "production_access": {
   "paid_plan": 15,
-  "free": 64,
-  "unknown": 3,
+  "free": 63,
+  "unknown": 4,
   "app_review": 11,
   "partner_or_sales": 3,
   "admin_approval": 2,
   "not_applicable": 2
  },
  "public_app_review": {
-  "yes": 31,
+  "yes": 33,
   "no": 20,
   "unknown": 13,
-  "not_applicable": 36
+  "not_applicable": 34
  },
  "primary_blockers": {
   "paid tier or API add-on": 16,
-  "none": 61,
+  "none": 59,
   "partner / sales gate": 6,
   "vendor app approval": 10,
-  "org admin must enable": 2,
-  "unclear: needs research": 4,
+  "org admin must enable": 3,
+  "unclear: needs research": 5,
   "restricted / local-only tool": 1
  },
  "mcp": {
@@ -81,22 +82,22 @@
  "api_types": {
   "rest": 95,
   "soap": 2,
-  "sdk": 77,
+  "sdk": 76,
   "cli": 37,
-  "webhooks": 83,
+  "webhooks": 85,
   "graphql": 11,
   "other": 39
  },
  "breadth": {
   "broad": 84,
-  "moderate": 11,
-  "narrow": 4,
+  "moderate": 13,
+  "narrow": 2,
   "unknown": 1
  },
  "confidence": {
-  "high": 33,
-  "medium": 65,
-  "low": 2
+  "high": 35,
+  "medium": 62,
+  "low": 3
  },
  "in_composio": 74,
  "byCategory": [
@@ -217,13 +218,14 @@
    "category": "Developer, Infra and Data platforms",
    "n": 10,
    "self_serve_dev": 10,
-   "api_on_all_plans": 10,
+   "api_on_all_plans": 9,
    "verdicts": {
-    "build_now": 10
+    "build_now": 9,
+    "needs_research": 1
    },
    "auth": {
-    "oauth2": 7,
-    "personal_token": 7,
+    "oauth2": 9,
+    "personal_token": 8,
     "other": 2,
     "api_key": 5,
     "basic": 1,
@@ -253,11 +255,11 @@
   {
    "category": "Finance and Fintech",
    "n": 10,
-   "self_serve_dev": 7,
-   "api_on_all_plans": 5,
+   "self_serve_dev": 6,
+   "api_on_all_plans": 4,
    "verdicts": {
-    "build_now": 4,
-    "build_with_conditions": 4,
+    "build_now": 2,
+    "build_with_conditions": 6,
     "needs_research": 1,
     "outreach_required": 1
    },
@@ -273,10 +275,10 @@
    "category": "AI, Research and Media-native",
    "n": 10,
    "self_serve_dev": 7,
-   "api_on_all_plans": 5,
+   "api_on_all_plans": 6,
    "verdicts": {
-    "build_with_conditions": 5,
-    "build_now": 4,
+    "build_with_conditions": 4,
+    "build_now": 5,
     "limited": 1
    },
    "auth": {
@@ -476,7 +478,7 @@
    "breadth": "broad",
    "mcp": "official",
    "in_composio": true,
-   "blocker": "\"\"",
+   "blocker": "",
    "auth": [
     "oauth2"
    ]
@@ -807,7 +809,7 @@
    "breadth": "broad",
    "mcp": "official",
    "in_composio": true,
-   "blocker": "Not a hard blocker. Supabase has two API surfaces: the Management API (PAT or OAuth2) and the per-project data API (a project URL plus a secret key). The connection model must pick one or support both. I did not fetch a pricing page to confirm that the free tier includes API access.",
+   "blocker": "Not a hard blocker. Supabase has two API surfaces: the Management API (PAT or OAuth2) and the per-project data API (a project URL plus a secret key). The connection model must pick one or support both. Free-plan projects pause after 1 week of inactivity.",
    "auth": [
     "api_key",
     "personal_token",
@@ -824,6 +826,7 @@
    "in_composio": true,
    "blocker": "",
    "auth": [
+    "oauth2",
     "api_key",
     "basic"
    ]
@@ -854,19 +857,6 @@
    "blocker": "",
    "auth": [
     "service_account_or_jwt",
-    "api_key"
-   ]
-  },
-  {
-   "id": 69,
-   "name": "Datadog",
-   "category": "Developer, Infra and Data platforms",
-   "verdict": "build_now",
-   "breadth": "broad",
-   "mcp": "official",
-   "in_composio": true,
-   "blocker": "",
-   "auth": [
     "api_key"
    ]
   },
@@ -936,7 +926,7 @@
    "breadth": "broad",
    "mcp": "official",
    "in_composio": true,
-   "blocker": "\"\"",
+   "blocker": "",
    "auth": [
     "oauth2",
     "api_key",
@@ -1042,19 +1032,6 @@
    ]
   },
   {
-   "id": 89,
-   "name": "Ramp",
-   "category": "Finance and Fintech",
-   "verdict": "build_now",
-   "breadth": "broad",
-   "mcp": "official",
-   "in_composio": true,
-   "blocker": "",
-   "auth": [
-    "oauth2"
-   ]
-  },
-  {
    "id": 93,
    "name": "Fathom",
    "category": "AI, Research and Media-native",
@@ -1090,6 +1067,19 @@
    "breadth": "moderate",
    "mcp": "official",
    "in_composio": false,
+   "blocker": "",
+   "auth": [
+    "api_key"
+   ]
+  },
+  {
+   "id": 99,
+   "name": "YouTube Transcript",
+   "category": "AI, Research and Media-native",
+   "verdict": "build_now",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": true,
    "blocker": "",
    "auth": [
     "api_key"
@@ -1247,19 +1237,6 @@
    ]
   },
   {
-   "id": 85,
-   "name": "iPayX",
-   "category": "Finance and Fintech",
-   "verdict": "build_now",
-   "breadth": "narrow",
-   "mcp": "official",
-   "in_composio": false,
-   "blocker": "",
-   "auth": [
-    "api_key"
-   ]
-  },
-  {
    "id": 95,
    "name": "Reducto",
    "category": "AI, Research and Media-native",
@@ -1350,7 +1327,7 @@
    "breadth": "broad",
    "mcp": "official",
    "in_composio": true,
-   "blocker": "There is no self-serve developer access. The API needs a standalone contract with PitchBook's Direct Data team, an API key from PitchBook, a sandbox key from the account manager, and purchased credits.",
+   "blocker": "There is no self-serve developer access. The API needs a standalone contract with PitchBook's Direct Data team, an API key from PitchBook, a sandbox key from the account manager, and purchased credits. MCP access also needs a PitchBook license or a request to PitchBook.",
    "auth": [
     "api_key"
    ]
@@ -1690,11 +1667,25 @@
    "breadth": "broad",
    "mcp": "official",
    "in_composio": true,
-   "blocker": "Sandbox is free, but live use requires the customer to get Plaid Production approval via Dashboard, and end-user bank access needs a Link (UI) flow to obtain item access tokens.",
+   "blocker": "Sandbox is free, but live use requires the customer to apply for Production access via the Dashboard on a plan (free Trial limited to 10 Items for new US/Canada teams, or paid Pay-as-you-go/Growth/Custom); some products need higher plans or sales contact.",
    "auth": [
     "api_key"
    ],
    "primary": "vendor app approval"
+  },
+  {
+   "id": 85,
+   "name": "iPayX",
+   "category": "Finance and Fintech",
+   "verdict": "build_with_conditions",
+   "breadth": "moderate",
+   "mcp": "official",
+   "in_composio": false,
+   "blocker": "Free tier returns only an opaque score/verdict (no spread or mid-market rate); the useful forensic output requires paid credits or a plan (price conflicts: $199 vs $297). Docs and pricing are inconsistent and there is no complete REST reference.",
+   "auth": [
+    "api_key"
+   ],
+   "primary": "paid tier or API add-on"
   },
   {
    "id": 86,
@@ -1704,7 +1695,7 @@
    "breadth": "broad",
    "mcp": "official",
    "in_composio": true,
-   "blocker": "The API and a free sandbox are available, but production keys need Intuit's app assessment questionnaire and approval, plus an annual security review, before any real customer company can connect.",
+   "blocker": "Free sandbox and a documented API are available, but production keys need Intuit's app assessment questionnaire and approval plus an annual security review. Under the Intuit App Partner Program, the free Builder tier caps data-read (CorePlus) calls at 500,000 per month and blocks calls above that. Heavier apps need a paid Silver or higher tier.",
    "auth": [
     "oauth2"
    ],
@@ -1738,6 +1729,20 @@
     "oauth2"
    ],
    "primary": "unclear: needs research"
+  },
+  {
+   "id": 89,
+   "name": "Ramp",
+   "category": "Finance and Fintech",
+   "verdict": "build_with_conditions",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "Credentials require an existing Ramp customer account with admin access, or an approved sandbox request (form-gated). Some endpoints also need specific Ramp plan features, and some scopes are partner-only.",
+   "auth": [
+    "oauth2"
+   ],
+   "primary": "org admin must enable"
   },
   {
    "id": 91,
@@ -1788,27 +1793,13 @@
    "name": "higgsfield",
    "category": "AI, Research and Media-native",
    "verdict": "build_with_conditions",
-   "breadth": "narrow",
-   "mcp": "official",
-   "in_composio": true,
-   "blocker": "Both routes cost money. The REST API needs a topped-up pay-as-you-go balance, and the account-based MCP/CLI needs a paid subscription. Every generation spends credits. I found no free developer tier.",
-   "auth": [
-    "api_key",
-    "oauth2"
-   ],
-   "primary": "paid tier or API add-on"
-  },
-  {
-   "id": 99,
-   "name": "YouTube Transcript",
-   "category": "AI, Research and Media-native",
-   "verdict": "build_with_conditions",
    "breadth": "moderate",
    "mcp": "official",
    "in_composio": true,
-   "blocker": "Developers get 100 free credits, but production use needs a paid TranscriptAPI plan or credits bought by the end user. Credits are metered per call, and rate limits depend on the plan.",
+   "blocker": "The API has no documented free tier or trial. A developer must fund a pay-as-you-go balance (credits expire after a year) before generating. The account-based MCP/CLI needs a paid subscription. No sales contact is needed for standard use.",
    "auth": [
-    "api_key"
+    "api_key",
+    "oauth2"
    ],
    "primary": "paid tier or API add-on"
   }
@@ -1825,6 +1816,22 @@
    "blocker": "Sherlock is a local CLI with no hosted API and no credentials. A Composio toolkit would need to run it in a sandbox or container. Whether that execution model is supported is unresolved.",
    "auth": [
     "none"
+   ],
+   "primary": "unclear: needs research"
+  },
+  {
+   "id": 69,
+   "name": "Datadog",
+   "category": "Developer, Infra and Data platforms",
+   "verdict": "needs_research",
+   "breadth": "broad",
+   "mcp": "official",
+   "in_composio": true,
+   "blocker": "Free-tier API access is unconfirmed. OAuth2 is restricted to approved Technology Partners, so general toolkits would rely on API key + application key or PATs.",
+   "auth": [
+    "api_key",
+    "personal_token",
+    "oauth2"
    ],
    "primary": "unclear: needs research"
   },
@@ -1850,7 +1857,7 @@
    "breadth": "narrow",
    "mcp": "community",
    "in_composio": false,
-   "blocker": "It is a local CLI with narrow scope (render diagrams to files). There is no remote or hosted API, and it needs Node.js and headless Chromium at runtime. It could only work as a sandboxed local-execution tool.",
+   "blocker": "It is only a local CLI with narrow scope (render diagrams to files). It has no remote or hosted API and needs Node.js and headless Chromium at runtime, so it could only work as a sandboxed local-execution tool.",
    "auth": [
     "none"
    ],
