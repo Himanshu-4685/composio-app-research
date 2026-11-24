@@ -17,9 +17,8 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{text-align:left;p
 
 <div class="card">
 <div class="row">
-<div><label for="name">Experiment name (a-z, 0-9, dashes)</label><input id="name" value="or-rubric-v2"></div>
-<div><label for="engine">Engine</label><select id="engine"><option value="openrouter">OpenRouter (any tool-calling model)</option><option value="claude">Claude (Agent SDK)</option></select></div>
-<div><label for="model">Model</label><input id="model" value="openai/gpt-4o" list="models"><datalist id="models"><option value="openai/gpt-4o"><option value="openai/gpt-4.1"><option value="google/gemini-2.5-pro"><option value="anthropic/claude-sonnet-4.5"><option value="meta-llama/llama-3.3-70b-instruct"><option value="sonnet"><option value="opus"></datalist></div>
+<div><label for="name">Experiment name (a-z, 0-9, dashes)</label><input id="name" value="claude-rubric-v2"></div>
+<div><label for="model">Claude model (Agent SDK)</label><select id="model"><option value="sonnet" selected>Sonnet (same as baseline)</option><option value="opus">Opus</option><option value="haiku">Haiku</option></select></div>
 <div><label for="scope">Scope</label><select id="scope"><option value="audited">20 audited apps (measurable, cheap)</option><option value="all">All 100 apps</option></select></div>
 </div>
 <label for="prompt">Research prompt / rubric</label><select id="prompt"></select>
@@ -27,7 +26,7 @@ table{width:100%;border-collapse:collapse;font-size:13px}td,th{text-align:left;p
 <p class="muted" style="font-size:12.5px">Edit freely. If you change the text it is saved as <code>prompts/exp-&lt;name&gt;.md</code>, and the original file is untouched. Rubric v2 = "a paid product counts as a paid plan" (matches the audit guide).</p>
 <div class="row"><div><label for="critic">Critic prompt</label><select id="critic"></select></div></div>
 <label>L1 rules applied</label><div class="rules" id="rules"></div>
-<p style="margin-top:14px"><button class="go" id="run">Run experiment</button> <span class="muted" style="font-size:13px">OpenRouter usage is charged to your key; the console shows the cost per app.</span></p>
+<p style="margin-top:14px"><button class="go" id="run">Run experiment</button> <span class="muted" style="font-size:13px">Runs on your Claude Code login or ANTHROPIC_API_KEY; the log shows the cost per app.</span></p>
 </div>
 
 <div class="card"><h3 style="margin-top:0">Live log</h3><div id="log">(not started)</div></div>
@@ -45,9 +44,9 @@ async function loadText(){original=await (await fetch("/api/prompt?path="+encode
 $("#prompt").onchange=loadText;
 function pc(x){return x&&x.N?Math.round(100*x.C/x.N)+"% ("+x.C+"/"+x.N+")":"–"}
 async function loadCmp(){const rows=await (await fetch("/api/compare")).json();
- $("#cmp").innerHTML="<table><tr><th>Run</th><th>Model</th><th>Prompt</th><th>Apps</th><th>Failed</th><th>Cost</th><th>All 20: first → final</th><th>Holdout: first → final</th></tr>"+rows.map(r=>`<tr><td><b>${r.run}</b></td><td>${r.engine}:${r.model}</td><td style="font-size:12px">${r.prompt}</td><td>${r.apps}</td><td>${r.failed}</td><td>$${r.cost_usd}</td><td>${pc(r.first)} → <b>${pc(r.final)}</b></td><td>${pc(r.holdout_first)} → <b>${pc(r.holdout_final)}</b></td></tr>`).join("")+"</table>";}
+ $("#cmp").innerHTML="<table><tr><th>Run</th><th>Model</th><th>Prompt</th><th>Apps</th><th>Failed</th><th>Cost</th><th>All 20: first → final</th><th>Holdout: first → final</th></tr>"+rows.map(r=>`<tr><td><b>${r.run}</b></td><td>claude:${r.model}</td><td style="font-size:12px">${r.prompt}</td><td>${r.apps}</td><td>${r.failed}</td><td>$${r.cost_usd}</td><td>${pc(r.first)} → <b>${pc(r.final)}</b></td><td>${pc(r.holdout_first)} → <b>${pc(r.holdout_final)}</b></td></tr>`).join("")+"</table>";}
 $("#run").onclick=async()=>{
- const body={name:$("#name").value.trim(),engine:$("#engine").value,model:$("#model").value.trim(),prompt:$("#prompt").value,prompt_text:$("#ptext").value!==original?$("#ptext").value:null,
+ const body={name:$("#name").value.trim(),model:$("#model").value,prompt:$("#prompt").value,prompt_text:$("#ptext").value!==original?$("#ptext").value:null,
   critic_prompt:$("#critic").value,rules:[...document.querySelectorAll("#rules input:checked")].map(i=>i.value),scope:$("#scope").value};
  $("#log").textContent="starting…\n";$("#run").disabled=true;
  const res=await fetch("/api/experiment",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});

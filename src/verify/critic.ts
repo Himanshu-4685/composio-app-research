@@ -5,7 +5,6 @@ import { z } from "zod";
 import type { AppRecord } from "../schema.js";
 import { cachedPage } from "../agent/tools.js";
 import { normText } from "./checks.js";
-import { runAgentLoop } from "../agent/openrouter.js";
 
 const CRITIC_PROMPT = readFileSync("prompts/critic.md", "utf8");
 const Judgement = z.object({ status: z.enum(["supported", "contradicted", "insufficient", "suspect"]), reason: z.string() });
@@ -24,7 +23,7 @@ function excerpt(url: string, quote: string, radius = 700): string {
 }
 
 // Sonnet: one short turn per app fits the Pro-plan budget. Independence comes from a fresh context + adversarial prompt.
-export interface CriticOptions { engine?: "claude" | "openrouter"; model?: string; promptPath?: string }
+export interface CriticOptions { model?: string; promptPath?: string }
 
 export async function critique(r: AppRecord, modelOrOpts: string | CriticOptions = "sonnet"): Promise<{ out: CriticOutput | null; usd: number; error?: string }> {
   const o: CriticOptions = typeof modelOrOpts === "string" ? { model: modelOrOpts } : modelOrOpts;
@@ -33,10 +32,6 @@ export async function critique(r: AppRecord, modelOrOpts: string | CriticOptions
   const { stats, claims, run_id, researched_at, pass, status, ...fields } = r as any;
   const evidence = claims.map((c: any, i: number) => `[${i + 1}] field=${c.field} url=${c.url}\nclaim: ${c.text}\nquote: "${c.quote}"\npage excerpt: ${excerpt(c.url, c.quote)}`).join("\n\n");
   const prompt = `RECORD:\n${JSON.stringify(fields, null, 1)}\n\nEVIDENCE:\n${evidence || "(no claims)"}`;
-  if (o.engine === "openrouter") {
-    const res = await runAgentLoop({ model, system, user: prompt, schema: CriticOutput, submitName: "submit_review", submitDescription: "Submit your judgement for each field.", withResearchTools: false, maxTurns: 4, timeoutMs: 120_000 });
-    return res.out ? { out: res.out, usd: res.usage.cost } : { out: null, usd: res.usage.cost, error: res.error };
-  }
   let result: any = null;
   try {
     for await (const m of query({

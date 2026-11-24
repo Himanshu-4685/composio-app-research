@@ -7,7 +7,7 @@ answers through a layered verification loop and measures accuracy against a **bl
 
 - **Live case study:** https://himanshu-4685.github.io/composio-app-research/
 - **Research any new app locally:** `npm run ui` → http://127.0.0.1:8787
-- **Re-run the study with another model / prompt / rubric:** `npm run ui` → http://127.0.0.1:8787/experiment
+- **Accuracy experiments (change prompt / rubric / rules / Claude model):** `npm run ui` → http://127.0.0.1:8787/experiment
 
 ---
 
@@ -19,7 +19,7 @@ answers through a layered verification loop and measures accuracy against a **bl
 5. [Verification loop (L1–L5 + human audit)](#5-verification-loop-l1l5--human-audit)
 6. [Measuring accuracy](#6-measuring-accuracy)
 7. [Where a human was needed](#7-where-a-human-was-needed)
-8. [Experiments: other models, prompts, rubrics](#8-experiments-other-models-prompts-rubrics)
+8. [Accuracy experiments: prompts, rubrics, rules, Claude models](#8-accuracy-experiments-prompts-rubrics-rules-claude-models)
 9. [Adding new apps](#9-adding-new-apps)
 10. [Setup and commands](#10-setup-and-commands)
 11. [Repository layout](#11-repository-layout)
@@ -68,7 +68,7 @@ data/apps.json (100 apps)            any new app (CLI / local UI)
           │                                   │
           ▼                                   ▼
 ┌──────────────────────── research agent (one app) ────────────────────────┐
-│ Claude Agent SDK (Sonnet)  — or any OpenRouter model in experiments       │
+│ Claude Agent SDK (Sonnet by default; Opus/Haiku in experiments)           │
 │ tools: web_search, fetch_page  →  executed via Composio SDK (Keenable)    │
 │        served to the agent as MCP tools; every fetched page is cached     │
 │ loop: decide what to read next → read → decide … (≤12 searches, ≤14 fetches) │
@@ -237,35 +237,33 @@ objections, rule/catalog flags, gated access). That's where the next hour of hum
 
 ---
 
-## 8. Experiments: other models, prompts, rubrics
+## 8. Accuracy experiments: prompts, rubrics, rules, Claude models
 
-Re-run the study with a **different model** (any tool-calling model on OpenRouter, or Claude), a **different prompt/rubric**
-and a **different L1 rule set**, without touching the baseline. Each experiment writes only to `runs/<name>/`
+Re-run the study with a **different prompt/rubric**, a **different L1 rule set** or a **different Claude model**
+(Sonnet, Opus or Haiku, all through the Claude Agent SDK), without touching the baseline. Each experiment writes only to `runs/<name>/`
 (protected names `baseline-v1` and `pilot*` are refused) and is scored against the **same 20 human answers**, so runs compare like for like.
 
-**From the browser:** `npm run ui` → http://127.0.0.1:8787/experiment. Pick an engine and model, choose or edit the prompt
+**From the browser:** `npm run ui` → http://127.0.0.1:8787/experiment. Pick a Claude model, choose or edit the prompt
 (edits are saved as `prompts/exp-<name>.md`), the critic prompt, which rules R0–R6 apply, and the scope (20 audited or all 100). The log
 streams live and the comparison table updates.
 
 **From the CLI:**
 ```bash
-# .env: OPENROUTER_API_KEY=...
-npm run experiment -- --config experiments/or-rubric-v2.json             # 20 audited apps
-npm run experiment -- --config experiments/or-rubric-v2.json --scope all # all 100
-npm run compare                                                           # all runs vs the human audit
+npm run experiment -- --config experiments/claude-rubric-v2.json             # 20 audited apps
+npm run experiment -- --config experiments/claude-rubric-v2.json --scope all # all 100
+npm run compare                                                               # all runs vs the human audit
 ```
 
 Prepared configs ([`experiments/`](experiments/)):
 
-| Config | What changes | Purpose |
+| Config | What changes vs the baseline | Purpose |
 |---|---|---|
-| `or-rubric-v2.json` | OpenRouter model + rubric v2 (paid product = paid plan) | Model + definition change |
-| `claude-rubric-v2.json` | Claude + rubric v2 | Isolates the rubric change from the model change |
-| `or-v3-lessons.json` | OpenRouter + rubric v2 + calibration lessons (list every auth method, vendor-first MCP search, production access from the pricing page) | Tests the prompt fixes the audit suggested |
+| `claude-rubric-v2.json` | Rubric v2 (paid product = paid plan), same Sonnet model | Isolates the rubric change |
+| `claude-v3-lessons.json` | Rubric v2 + calibration lessons (list every auth method, vendor-first MCP search, production access from the pricing page) | Tests the prompt fixes the audit suggested |
+| `claude-opus-rubric-v2.json` | Rubric v2 with Opus for research | Measures the model's effect (compare with `claude-rubric-v2`) |
 
-The OpenRouter engine ([`src/agent/openrouter.ts`](src/agent/openrouter.ts)) is a standard tool-calling loop that uses the **same
-Composio-backed tools, budgets, page cache and schema**. The final record is submitted through a `submit_record` tool and validated
-with zod (with up to 2 repair attempts). Cost per app comes from OpenRouter's usage report.
+Experiments use the same agent, Composio-backed tools, budgets, page cache, schema and checks as the baseline. Only the prompt, rules and
+Claude model change. Usage runs on your Claude Code login or `ANTHROPIC_API_KEY`.
 
 **Doing it honestly:** tune using calibration apps only, and score the holdout once per configuration. If a run is tuned until the
 holdout rises, the holdout stops being a test.
@@ -286,11 +284,10 @@ only"* and are **excluded from all study statistics** (those describe the audite
 ## 10. Setup and commands
 
 Requires **Node 22+**, a **Composio API key**, and either a **Claude Code login** on the machine or `ANTHROPIC_API_KEY`.
-`OPENROUTER_API_KEY` is optional, for experiments only.
 
 ```bash
 npm install
-cp .env.example .env          # COMPOSIO_API_KEY=..., optional ANTHROPIC_API_KEY / OPENROUTER_API_KEY
+cp .env.example .env          # COMPOSIO_API_KEY=..., optional ANTHROPIC_API_KEY
 npm run preflight             # 1 Composio search + 1 fetch + catalog lookup + agent smoke test
 ```
 
@@ -303,7 +300,7 @@ npm run preflight             # 1 Composio search + 1 fetch + catalog lookup + a
 | `npm run analyze -- --run <id>` | Patterns → `runs/<id>/analysis.json` |
 | `npm run render -- --run baseline-v1` | Rebuild `site/` from saved data (no network, no LLM) |
 | `npm run finish -- --run <id>` | Run every remaining stage, safe to repeat |
-| `npm run experiment -- --config <file>` | Model/prompt/rubric experiment (section 8) |
+| `npm run experiment -- --config <file>` | Prompt/rubric/rules/Claude-model experiment (section 8) |
 | `npm run compare` | All runs vs the human audit |
 | `npm run ui` | Local UI: research any app, add to list, experiments |
 
@@ -315,7 +312,7 @@ npm run preflight             # 1 Composio search + 1 fetch + catalog lookup + a
 data/apps.json             the 100 apps (exactly as given)    data/added.jsonl   apps added later
 prompts/                   research.md (rubric v1, baseline), research_v2_rubric.md, research_v3.md, critic*.md
 experiments/               experiment configs
-src/agent/                 research.ts (Claude Agent SDK), openrouter.ts (OpenRouter engine), tools.ts (Composio tools + page cache)
+src/agent/                 research.ts (Claude Agent SDK), tools.ts (Composio tools + page cache)
 src/verify/                checks.ts (L1, L2), critic.ts (L3), catalog.ts (L4), run.ts (orchestration + L5)
 src/evaluate.ts            grading vs human audit           src/analyze.ts   patterns
 src/render.ts, render_extra.ts   the case-study page       src/server.ts, src/ui/   local UI
@@ -337,7 +334,7 @@ docs/                      PLAN.md, DESIGN.md
 - **Flags don't auto-edit.** Rules and the critic can be wrong (R3 false alarms, critic hallucination), so they trigger re-research with sources instead of overwriting answers.
 - **Composio catalog as an oracle.** It's independent of our agent; using a subset check accounts for Composio implementing fewer auth methods than a vendor offers.
 - **Static page, local agent.** The published page needs no backend and exposes no keys; the agent (and experiments) run locally with the user's keys.
-- **Pluggable engine.** Claude Agent SDK for the baseline; an OpenRouter tool-calling loop for model comparisons, with the same tools, schema and checks.
+- **Configurable experiments.** The prompt/rubric, rule set and Claude model can be changed per run, with the same tools, schema and checks, and every run is scored against the same human answers.
 
 ## 13. Limitations
 

@@ -45,8 +45,9 @@ createServer(async (req, res) => {
     if (!/^prompts\/[\w.-]+\.md$/.test(b.prompt ?? "") || (b.critic_prompt && !/^prompts\/[\w.-]+\.md$/.test(b.critic_prompt))) { res.writeHead(400); return res.end("bad prompt path"); }
     let prompt = b.prompt;
     if (typeof b.prompt_text === "string" && b.prompt_text.trim()) { prompt = `prompts/exp-${b.name}.md`; writeFileSync(prompt, b.prompt_text); }
-    const cfg = { name: b.name, description: "created from the local experiment panel", engine: b.engine === "claude" ? "claude" : "openrouter", model: String(b.model || "openai/gpt-4o").slice(0, 100),
-      prompt, critic_prompt: b.critic_prompt || undefined, rules: Array.isArray(b.rules) ? b.rules.filter((r: string) => /^R[0-6]$/.test(r)) : undefined, scope: b.scope === "all" ? "all" : "audited", concurrency: 3 };
+    const model = ["sonnet", "opus", "haiku"].includes(b.model) ? b.model : "sonnet";
+    const cfg = { name: b.name, description: "created from the local experiment panel", model,
+      prompt, critic_prompt: b.critic_prompt || undefined, rules: Array.isArray(b.rules) ? b.rules.filter((r: string) => /^R[0-6]$/.test(r)) : undefined, scope: b.scope === "all" ? "all" : "audited", concurrency: 2 };
     mkdirSync("experiments", { recursive: true });
     const cfgPath = `experiments/${b.name}.json`;
     writeFileSync(cfgPath, JSON.stringify(cfg, null, 2) + "\n");

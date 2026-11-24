@@ -4,23 +4,20 @@ import { createHash } from "node:crypto";
 import { query } from "@anthropic-ai/claude-agent-sdk";
 import { AgentOutput, agentOutputJsonSchema, type AppInput, type AppRecord } from "../schema.js";
 import { researchToolServer, type ToolCallLog } from "./tools.js";
-import { runAgentLoop } from "./openrouter.js";
 
 export const RESEARCH_PROMPT = readFileSync("prompts/research.md", "utf8");
 export const PROMPT_VERSION = createHash("sha1").update(RESEARCH_PROMPT).digest("hex").slice(0, 8);
 
 export interface ResearchOptions {
   runId: string;
-  model?: string;          // "sonnet" by default
+  model?: string;          // Claude model alias: "sonnet" (default), "opus", "haiku"
   timeoutMs?: number;      // per-app cap
   extraInstructions?: string; // used by re-research (L5) to pass the critic's objection
   onEvent?: (e: { type: "tool" | "text"; detail: string }) => void;
-  engine?: "claude" | "openrouter"; // experiments can swap the model provider
-  promptPath?: string;              // experiments can swap the prompt/rubric (default prompts/research.md)
+  promptPath?: string;     // experiments can swap the prompt/rubric (default prompts/research.md)
 }
 
 export async function researchApp(app: Omit<AppInput, "id"> & { id?: number }, opts: ResearchOptions): Promise<{ record: AppRecord; toolLog: ToolCallLog[] }> {
-  if (opts.engine === "openrouter") return researchOpenRouter(app, opts);
   const SYSTEM = opts.promptPath ? readFileSync(opts.promptPath, "utf8") : RESEARCH_PROMPT;
   const log: ToolCallLog[] = [];
   const started = Date.now();
@@ -89,28 +86,6 @@ export async function researchApp(app: Omit<AppInput, "id"> & { id?: number }, o
     return { record: { ...base, ...emptyOutput(), status: "failed", error, stats }, toolLog: log };
   }
   return { record: { ...base, ...parsed.data, status: "ok", stats }, toolLog: log };
-}
-
-/** Same task through OpenRouter (any tool-calling model). Output goes through the same zod schema. */
-async function researchOpenRouter(app: Omit<AppInput, "id"> & { id?: number }, opts: ResearchOptions): Promise<{ record: AppRecord; toolLog: ToolCallLog[] }> {
-  const started = Date.now();
-  const model = opts.model ?? "openai/gpt-4o";
-  const user = [`App: ${app.name}`, `Category (given): ${app.category || "unknown"}`, `Hint: ${app.hint || "none"}`, opts.extraInstructions ? `\n${opts.extraInstructions}` : ""].join("\n");
-  const system = (opts.promptPath ? readFileSync(opts.promptPath, "utf8") : RESEARCH_PROMPT).replace("Return the structured output when done.", "When done, call the submit_record tool with the complete record.");
-  const r = await runAgentLoop({
-    model, system, user, schema: AgentOutput, submitName: "submit_record",
-    submitDescription: "Submit the final research record (all fields, with verbatim-quote claims).",
-    withResearchTools: true, timeoutMs: opts.timeoutMs ?? 300_000, onEvent: opts.onEvent,
-  });
-  const base = { id: app.id ?? 0, name: app.name, category: app.category, hint: app.hint, run_id: opts.runId, pass: "baseline" as const, researched_at: new Date().toISOString() };
-  const stats = {
-    turns: r.turns, tool_calls: r.log.length,
-    searches: r.log.filter((l) => l.tool === "web_search").length, fetches: r.log.filter((l) => l.tool === "fetch_page").length,
-    seconds: Math.round((Date.now() - started) / 1000), notional_usd: Number(r.usage.cost.toFixed(4)), // real OpenRouter cost
-    input_tokens: r.usage.prompt_tokens, output_tokens: r.usage.completion_tokens, model: `openrouter:${model}`,
-  };
-  if (!r.out) return { record: { ...base, ...emptyOutput(), status: "failed", error: r.error, stats }, toolLog: r.log };
-  return { record: { ...base, ...r.out, status: "ok", stats }, toolLog: r.log };
 }
 
 function emptyOutput(): AgentOutput {

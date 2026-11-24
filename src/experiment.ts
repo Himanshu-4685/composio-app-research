@@ -1,9 +1,9 @@
-// Experiments: re-run the study with a different model (OpenRouter or Claude), prompt/rubric and L1 rule set,
+// Experiments: re-run the study with a different Claude model (Agent SDK), prompt/rubric and L1 rule set,
 // WITHOUT touching the baseline. Each experiment writes only to runs/<name>/ and is scored against the same
 // 20 human audit answers, so runs are directly comparable.
 //
-//   npm run experiment -- --config experiments/or-rubric-v2.json            (scope from config)
-//   npm run experiment -- --config experiments/or-rubric-v2.json --scope all
+//   npm run experiment -- --config experiments/claude-rubric-v2.json            (scope from config)
+//   npm run experiment -- --config experiments/claude-rubric-v2.json --scope all
 //   npm run compare                                                          (table of all runs)
 import "dotenv/config";
 import { readFileSync, writeFileSync, mkdirSync, existsSync, appendFileSync, readdirSync } from "node:fs";
@@ -14,8 +14,8 @@ import type { AppInput, AppRecord } from "./schema.js";
 
 export interface ExperimentConfig {
   name: string; description?: string;
-  engine: "openrouter" | "claude"; model: string;
-  prompt: string; critic_prompt?: string; critic_engine?: "openrouter" | "claude"; critic_model?: string;
+  model: string;            // Claude model alias for research: "sonnet", "opus" or "haiku"
+  prompt: string; critic_prompt?: string; critic_model?: string;
   rules?: string[]; scope?: "audited" | "all" | number[]; concurrency?: number;
 }
 
@@ -27,7 +27,7 @@ export function loadConfig(path: string): ExperimentConfig {
   if (c.name === "baseline-v1" || c.name.startsWith("pilot")) throw new Error("experiments may not write to the baseline or pilot runs");
   if (!existsSync(c.prompt)) throw new Error(`prompt file not found: ${c.prompt}`);
   if (c.critic_prompt && !existsSync(c.critic_prompt)) throw new Error(`critic prompt not found: ${c.critic_prompt}`);
-  if (c.engine === "openrouter" && !process.env.OPENROUTER_API_KEY) throw new Error("OPENROUTER_API_KEY missing in .env");
+  if (!["sonnet", "opus", "haiku"].includes(c.model ?? "")) throw new Error("model must be one of: sonnet, opus, haiku");
   return c;
 }
 
@@ -47,18 +47,18 @@ export async function runExperiment(cfg: ExperimentConfig, scopeOverride?: strin
   const out = `${dir}/baseline.jsonl`;
   const done = new Set(readJsonl(out).filter((r: AppRecord) => r.status === "ok").map((r: AppRecord) => r.id));
   const queue = targets.filter((a) => !done.has(a.id));
-  log(`experiment ${cfg.name} | ${cfg.engine}:${cfg.model} | prompt ${cfg.prompt} | ${queue.length} to research (${done.size} done, scope ${Array.isArray(scope) ? "ids" : scope})`);
+  log(`experiment ${cfg.name} | claude:${cfg.model} | prompt ${cfg.prompt} | ${queue.length} to research (${done.size} done, scope ${Array.isArray(scope) ? "ids" : scope})`);
 
   let next = 0, stopped = false, usd = 0;
   const worker = async () => {
     while (next < queue.length && !stopped) {
       const app = queue[next++];
-      const { record, toolLog } = await researchApp(app, { runId: cfg.name, engine: cfg.engine, model: cfg.model, promptPath: cfg.prompt });
+      const { record, toolLog } = await researchApp(app, { runId: cfg.name, model: cfg.model, promptPath: cfg.prompt });
       appendFileSync(out, JSON.stringify(record) + "\n");
       appendFileSync(`${dir}/trace.jsonl`, JSON.stringify({ id: record.id, name: record.name, toolLog }) + "\n");
       usd += record.stats.notional_usd;
       log(`[${record.status}] #${record.id} ${record.name}: ${record.verdict} | ${record.stats.tool_calls} tools | $${record.stats.notional_usd}${record.error ? " | " + record.error.slice(0, 140) : ""}`);
-      if (record.error && /limit|quota|429|402|credit|insufficient/i.test(record.error)) { stopped = true; log("STOPPED: rate/credit limit. Re-run the same command to resume."); }
+      if (record.error && /limit|quota|429|overloaded/i.test(record.error)) { stopped = true; log("STOPPED: rate/usage limit. Re-run the same command to resume."); }
     }
   };
   await Promise.all(Array.from({ length: Math.min(cfg.concurrency ?? 3, Math.max(1, queue.length)) }, worker));
@@ -85,7 +85,7 @@ export function compareRows() {
     const pick = (k: string) => s.summary?.[k];
     const comb = (ver: string) => { const a = pick(`${ver}.calibration`), b = pick(`${ver}.holdout`); if (!a?.apps && !b?.apps) return null; const C = (a?.C ?? 0) + (b?.C ?? 0), N = (a?.N ?? 0) + (b?.N ?? 0); return { C, N }; };
     rows.push({
-      run: d, engine: e.engine ?? "claude", model: e.model ?? "claude-sonnet (Agent SDK)", prompt: e.prompt ?? "prompts/research.md (rubric v1)",
+      run: d, engine: "claude", model: e.model ?? "sonnet", prompt: e.prompt ?? "prompts/research.md (rubric v1)",
       apps: recs.length, failed: recs.filter((r: any) => r.status !== "ok").length, cost_usd: Number(cost.toFixed(2)),
       first: comb("baseline"), final: comb("final"), holdout_first: pick("baseline.holdout"), holdout_final: pick("final.holdout"),
       perField: pick("final.holdout")?.perField ?? null,
@@ -97,6 +97,6 @@ export function compareRows() {
 export function compareTable() {
   const pc = (x: any) => (x?.N ? `${Math.round((100 * x.C) / x.N)}% (${x.C}/${x.N})` : "–");
   const rows = compareRows();
-  return ["run | engine:model | prompt | apps | failed | cost | all-20 first→final | holdout first→final",
-    ...rows.map((r) => `${r.run} | ${r.engine}:${r.model} | ${r.prompt} | ${r.apps} | ${r.failed} | $${r.cost_usd} | ${pc(r.first)} → ${pc(r.final)} | ${pc(r.holdout_first)} → ${pc(r.holdout_final)}`)].join("\n");
+  return ["run | model | prompt | apps | failed | cost | all-20 first→final | holdout first→final",
+    ...rows.map((r) => `${r.run} | claude:${r.model} | ${r.prompt} | ${r.apps} | ${r.failed} | $${r.cost_usd} | ${pc(r.first)} → ${pc(r.final)} | ${pc(r.holdout_first)} → ${pc(r.holdout_final)}`)].join("\n");
 }

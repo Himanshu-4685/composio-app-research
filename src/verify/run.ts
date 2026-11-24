@@ -29,10 +29,11 @@ async function pool<T>(items: T[], n: number, fn: (x: T) => Promise<void>) {
 export async function verify(runId: string, stage: string, only?: number[], mode: "trimmed" | "full" = "trimmed") {
   const dir = `runs/${runId}`, vdir = `${dir}/verify`;
   mkdirSync(vdir, { recursive: true });
-  // Experiment runs store their engine/model/prompt/rules in meta.json; the baseline has none (Claude defaults).
+  // Experiment runs store their Claude model/prompt/rules in meta.json; the baseline has none (defaults).
   const exp = readJson(`${dir}/meta.json`, {}).experiment ?? {};
-  const engineOpts = { engine: exp.engine, model: exp.model, promptPath: exp.prompt };
-  const criticOpts = { engine: exp.critic_engine ?? exp.engine, model: exp.critic_model ?? exp.model, promptPath: exp.critic_prompt };
+  const isExp = !!(exp.prompt || exp.model);
+  const engineOpts = { model: exp.model, promptPath: exp.prompt };
+  const criticOpts = { model: exp.critic_model ?? "sonnet", promptPath: exp.critic_prompt };
   const base = [...latestById(readJsonl<AppRecord>(`${dir}/baseline.jsonl`)).values()].filter((r) => !only || only.includes(r.id)).sort((a, b) => a.id - b.id);
 
   if (stage === "checks") {
@@ -61,7 +62,7 @@ export async function verify(runId: string, stage: string, only?: number[], mode
     const todo = base.filter((r) => r.status === "ok" && !out[r.id]?.auth);
     console.log(`critic: ${todo.length} apps`);
     await pool(todo, 2, async (r) => {
-      const c = await critique(r, exp.engine ? criticOpts : "sonnet");
+      const c = await critique(r, isExp ? criticOpts : "sonnet");
       out[r.id] = c.out ?? { error: c.error };
       writeFileSync(path, JSON.stringify(out, null, 1));
       const bad = c.out ? Object.entries(c.out).filter(([, j]) => j.status !== "supported").map(([k, j]) => `${k}:${j.status}`) : [c.error];
@@ -101,7 +102,7 @@ export async function verify(runId: string, stage: string, only?: number[], mode
         `ISSUES:\n${issues.map((i) => `- [${i.layer}] ${i.field}: ${i.msg}`).join("\n")}`,
         `PREVIOUS RECORD:\n${JSON.stringify({ identity: r.identity, auth: r.auth, access: r.access, api: { ...r.api, resource_families: undefined }, mcp: r.mcp, verdict: r.verdict, blocker: r.blocker, claims: r.claims.map((c) => ({ field: c.field, url: c.url, quote: c.quote })) })}`,
       ].join("\n\n");
-      const { record } = await researchApp(r, { runId, extraInstructions: extra, ...(exp.engine ? engineOpts : {}) });
+      const { record } = await researchApp(r, { runId, extraInstructions: extra, ...(isExp ? engineOpts : {}) });
       const fin: AppRecord = record.status === "ok" ? { ...record, pass: "final" } : { ...r, pass: "final", open_questions: [...r.open_questions, `re-research failed: ${record.error}`] };
       appendFileSync(finalPath, JSON.stringify(fin) + "\n");
       for (const c of diff(r, fin)) appendFileSync(`${dir}/corrections.jsonl`, JSON.stringify({ app_id: r.id, app: r.name, ...c, triggered_by: [...new Set(issues.map((i) => i.layer))], issues: issues.map((i) => `[${i.layer}] ${i.field}: ${i.msg}`) }) + "\n");
