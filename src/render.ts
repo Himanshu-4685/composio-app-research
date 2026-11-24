@@ -8,6 +8,8 @@ import { readAdded } from "./added.js";
 import { matchToolkit } from "./verify/catalog.js";
 import { extras } from "./render_extra.js";
 import { compareRows } from "./experiment.js";
+import { flowSection } from "./render_flow.js";
+import { writeReplay } from "./replay.js";
 
 const esc = (s: unknown) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 const readJsonl = (p: string) => existsSync(p) ? readFileSync(p, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l)) : [];
@@ -83,6 +85,9 @@ export function render(runId: string) {
 
   // ---------- interactive extras (checks explained, clusters, accuracy explorer, improvement, human map, review queue) ----------
   const X = extras({ recs, base, checks, critic, corrections, scores, sample, A, n, disagreements });
+  // Interactive pipeline diagram (click a layer → its process; L1 → R0–R6; R1 → decision tree) + a 30 s replay of one app.
+  const replayHref = writeReplay(runId, process.env.REPLAY_APP ?? "Stripe") ?? undefined;
+  const F = flowSection({ recs, baseRecs, checks, critic, corrections, scores, sample, n, inComposio: A.in_composio, replayHref });
 
   // ---------- experiments: every run scored against the same 20 human answers ----------
   const pcx = (x: any) => (x?.N ? `${Math.round((100 * x.C) / x.N)}% <span class="muted">(${x.C}/${x.N})</span>` : "–");
@@ -157,6 +162,7 @@ details summary{cursor:pointer;color:var(--accent);font-size:12.5px;white-space:
 .plist{margin:0;padding-left:18px}.plist li{margin:3px 0}pre{background:var(--chip);padding:12px;border-radius:8px;overflow-x:auto;font-size:12.5px}
 .honest{border-left:4px solid var(--warn)}
 ${X.css}
+${F.css}
 </style></head><body>
 <nav><div><a href="#top">Findings</a><a href="#patterns">Patterns</a><a href="#priorities">Priorities</a><a href="#verification">Verification</a><a href="#how-checks">How checks work</a><a href="#explorer">Accuracy explorer</a><a href="#improve">Improve accuracy</a><a href="#queue">Review queue</a><a href="#agent">The agent</a><a href="#matrix">All 100 apps</a><a href="#run">Run it</a></div></nav>
 <main id="top">
@@ -189,15 +195,7 @@ ${X.clustersHtml}
 </div>
 
 <h2 id="verification">Verification: how we know it's right</h2>
-<div class="flow">
-<div class="step"><b>First pass</b>${baseRecs.filter((r) => r.status === "ok").length}/${n} records, frozen prompt <code>${esc(meta.prompt_version)}</code></div>
-<div class="step"><b>L1 rules (code)</b>${l1.length} flags: contradictions, missing evidence</div>
-<div class="step"><b>L2 quote check (code)</b>${qOk}/${quotes.length} quotes found on the cited page</div>
-<div class="step"><b>L3 critic agent</b>${criticRows.length} apps reviewed: ${cCount("contradicted")} contradicted, ${cCount("suspect")} suspect, ${cCount("insufficient")} insufficient fields</div>
-<div class="step"><b>L4 Composio catalog</b>${l4.length} auth disagreements across ${A.in_composio} matched toolkits</div>
-<div class="step"><b>L5 re-research</b>${reran} apps re-researched, ${corrections.length} field changes</div>
-<div class="step human"><b>Human audit</b>${sample?.picks?.length ?? 20} apps, blind, 5 fields each; calibration + holdout</div>
-</div>
+${F.html}
 
 ${X.checksHtml}
 <div class="card" style="margin-top:14px"><h3 style="margin-top:0">Accuracy against the blind human audit</h3>
@@ -270,6 +268,7 @@ for(const r of rows){const ok=(!q||r.dataset.q.includes(q))&&(!c||r.dataset.cat=
 $("#count").textContent=k+" of "+rows.length+" apps";const ek=Object.entries(ext);$("#chip").style.display=ek.length?"inline-flex":"none";$("#chip").innerHTML=ek.map(([a,b])=>a+": "+b).join(", ")+(ek.length?" <button aria-label='Clear filter' onclick='for(const k in ext)delete ext[k];f()'>×</button>":"");}
 ["#q","#fc","#fv","#fm","#fx"].forEach(s=>$(s).addEventListener("input",f));$("#reset").onclick=()=>{["#q","#fc","#fv","#fm","#fx"].forEach(s=>$(s).value="");for(const k in ext)delete ext[k];f()};f();
 ${X.js}
+${F.js}
 </script></body></html>`;
 
   mkdirSync("site/data", { recursive: true });
