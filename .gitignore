@@ -3,3 +3,4 @@ node_modules/
 *.docx
 .cache/
 .claude/
+runs/adhoc*/

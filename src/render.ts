@@ -4,6 +4,8 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import type { AppRecord } from "./schema.js";
 import { latestById } from "./verify/run.js";
 import { analyze, primaryBlocker } from "./analyze.js";
+import { readAdded } from "./added.js";
+import { matchToolkit } from "./verify/catalog.js";
 
 const esc = (s: unknown) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 const readJsonl = (p: string) => existsSync(p) ? readFileSync(p, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l)) : [];
@@ -79,21 +81,25 @@ export function render(runId: string) {
 
   // ---------- matrix ----------
   const tag = (x: string, cls = "") => `<span class="tag ${cls}">${esc(x)}</span>`;
-  const rows = recs.map((r: any) => {
-    const ck = checks[r.id] ?? {}, cr = critic[r.id] ?? {};
+  // Apps added after the study (data/added.jsonl): shown in the table, excluded from every statistic above.
+  const added = readAdded();
+  const catalogList = readJson(".cache/composio_catalog.json", []);
+  const rows = [...recs, ...added].map((r: any) => {
+    const ck = r.added ? { composio: matchToolkit(r, catalogList) } : (checks[r.id] ?? {});
+    const cr = r.added ? (r.critic ?? {}) : (critic[r.id] ?? {});
     const claims = (r.claims ?? []).map((c: any) => `<li><b>${esc(c.field)}</b>: ${esc(c.text)}<br><q>${esc(c.quote)}</q> <a href="${esc(c.url)}" target="_blank" rel="noopener">source ↗</a></li>`).join("");
     const crit = Object.entries(cr).filter(([, j]: any) => j?.status).map(([f, j]: any) => `<li>${esc(f)}: <b>${esc(j.status)}</b>, ${esc(j.reason)}</li>`).join("");
     const corr = corrections.filter((c: any) => c.app_id === r.id).map((c: any) => `<li><code>${esc(c.field)}</code>: ${esc(c.before)} → <b>${esc(c.after)}</b></li>`).join("");
     const inAudit = sample?.picks?.find((p: any) => p.id === r.id);
     return `<tr class="row" data-cat="${esc(r.category)}" data-verdict="${esc(r.verdict)}" data-mcp="${esc(r.mcp.status)}" data-dev="${esc(r.access.dev_access)}" data-composio="${ck.composio ? "yes" : "no"}" data-q="${esc((r.name + " " + r.summary + " " + r.category).toLowerCase())}">
-<td>${r.id}</td><td><b>${esc(r.name)}</b><div class="small muted">${esc(r.category)}</div></td>
+<td>${r.id}</td><td><b>${esc(r.name)}</b><div class="small muted">${esc(r.category)}</div>${r.added ? `<div>${tag("Added later · automated checks only", "added")}</div>` : ""}</td>
 <td>${r.auth.methods.map((m: string) => tag(m)).join(" ")}</td>
 <td>${tag(r.access.dev_access, "a-" + r.access.dev_access)}<div class="small muted">prod: ${esc(r.access.production_access)}</div></td>
 <td>${r.api.types.filter((t: string) => t !== "other").map((t: string) => esc(t)).join(", ")}<div class="small muted">${esc(r.api.breadth)}</div></td>
 <td>${tag(r.mcp.status, "m-" + r.mcp.status)}</td>
 <td>${ck.composio ? `✓ <span class="small muted">${esc(ck.composio.slug)}</span>` : "–"}</td>
 <td>${tag(V_LABEL[r.verdict] ?? r.verdict, "v-" + r.verdict)}${r.blocker ? `<div class="small">${esc(r.blocker)}</div>` : ""}</td>
-<td><details><summary>${(r.claims ?? []).length} sources${inAudit ? " · audited" : ""}${corr ? " · corrected" : ""}</summary>
+<td><details><summary>${(r.claims ?? []).length} sources${inAudit ? " · audited" : ""}${corr ? " · corrected" : ""}${r.added ? ` · quotes ${esc(r.auto_checks?.quotes_found)}` : ""}</summary>
 <div class="det"><p>${esc(r.summary)}</p><p class="small"><b>Auth:</b> ${esc(r.auth.detail)}</p>
 ${r.access.gates?.length ? `<p class="small"><b>Conditions:</b></p><ul class="small">${r.access.gates.map((g: string) => `<li>${esc(g)}</li>`).join("")}</ul>` : ""}
 <p class="small"><b>Public OAuth app review:</b> ${esc(r.access.public_app_review)} · <b>Resources:</b> ${esc((r.api.resource_families ?? []).join(", "))} ${r.mcp.url ? `· <b>MCP:</b> <a href="${esc(r.mcp.url)}" target="_blank" rel="noopener">${esc(r.mcp.url)}</a>` : ""}</p>
@@ -101,7 +107,7 @@ ${r.access.gates?.length ? `<p class="small"><b>Conditions:</b></p><ul class="sm
 ${crit ? `<p class="small"><b>Critic (L3)</b></p><ul class="small">${crit}</ul>` : ""}
 ${corr ? `<p class="small"><b>Changed by verification loop</b></p><ul class="small">${corr}</ul>` : ""}
 ${r.open_questions?.length ? `<p class="small"><b>Open questions</b></p><ul class="small">${r.open_questions.map((q: string) => `<li>${esc(q)}</li>`).join("")}</ul>` : ""}
-<p class="small muted">confidence ${esc(r.confidence)} · ${r.stats?.tool_calls ?? "?"} tool calls · ${r.stats?.seconds ?? "?"}s · researched ${esc(String(r.researched_at).slice(0, 16))}${r.deferred ? " · re-research deferred" : ""}</p></div></details></td></tr>`;
+<p class="small muted">confidence ${esc(r.confidence)} · ${r.stats?.tool_calls ?? "?"} tool calls · ${r.stats?.seconds ?? "?"}s · researched ${esc(String(r.researched_at).slice(0, 16))}${r.deferred ? " · re-research deferred" : ""}${r.added ? ` · added ${esc(String(r.added_at).slice(0, 10))}, rule/quote flags ${r.auto_checks?.flags?.length ?? 0}, not human audited, not counted in the study's statistics` : ""}</p></div></details></td></tr>`;
   }).join("\n");
 
   const catRows = A.byCategory.map((c: any) => `<tr><td>${esc(c.category)}</td>${bar(c.self_serve_dev)}${bar(c.api_on_all_plans)}<td>${c.verdicts.build_now ?? 0}</td><td>${c.verdicts.build_with_conditions ?? 0}</td><td>${c.verdicts.outreach_required ?? 0}</td><td>${(c.verdicts.limited ?? 0) + (c.verdicts.needs_research ?? 0)}</td><td>${c.official_mcp}</td><td>${c.in_composio}</td></tr>`).join("");
@@ -127,7 +133,7 @@ nav{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--lin
 .stat .n{font-size:30px;font-weight:700;letter-spacing:-.02em}.stat .l{font-size:12.5px;color:var(--muted)}
 table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{font-size:12px;color:var(--muted);font-weight:600;background:var(--card)}#mx th{position:sticky;top:0}
 .scroll{overflow-x:auto}.tag{display:inline-block;padding:1px 7px;border-radius:999px;background:var(--chip);font-size:12px;margin:1px 0}
-.v-build_now{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good)}.v-build_with_conditions{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}.v-outreach_required{background:color-mix(in srgb,var(--bad) 16%,transparent);color:var(--bad)}.v-limited,.v-needs_research{background:color-mix(in srgb,var(--muted) 20%,transparent)}
+.v-build_now{background:color-mix(in srgb,var(--good) 18%,transparent);color:var(--good)}.v-build_with_conditions{background:color-mix(in srgb,var(--warn) 18%,transparent);color:var(--warn)}.v-outreach_required{background:color-mix(in srgb,var(--bad) 16%,transparent);color:var(--bad)}.added{background:color-mix(in srgb,var(--info) 18%,transparent);color:var(--info)}.v-limited,.v-needs_research{background:color-mix(in srgb,var(--muted) 20%,transparent)}
 .m-official{color:var(--good)}.m-community{color:var(--info)}
 .bar{display:inline-block;width:70px;height:8px;background:var(--chip);border-radius:4px;margin-right:6px;vertical-align:middle}.bar span{display:block;height:100%;background:var(--accent);border-radius:4px}
 .hb{display:grid;grid-template-columns:170px 1fr 34px;gap:8px;align-items:center;font-size:13px;margin:5px 0}.hbb{height:10px;background:var(--chip);border-radius:5px}.hbb span{display:block;height:100%;background:var(--accent);border-radius:5px}.hbv{text-align:right;font-variant-numeric:tabular-nums}
@@ -223,9 +229,10 @@ ${corrections.length ? `<div class="card scroll" style="margin-top:14px"><h3 sty
 <li>Run id <code>${esc(runId)}</code>: all raw data is in <code>runs/${esc(runId)}/</code> in the repo</li></ul></div>
 </div>
 
-<h2 id="matrix">All ${n} apps</h2>
+<h2 id="matrix">All ${n} apps${added.length ? ` <span class="muted">+ ${added.length} added later</span>` : ""}</h2>
+${added.length ? `<p class="small muted">Apps added after the study (${added.map((a) => esc(a.name)).join(", ")}) went through the same agent and automatic checks (rules, quote check, critic). They are not human audited and are not counted in any number above. Filter them with the category "${esc([...new Set(added.map((a) => a.category))].join('", "'))}".</p>` : ""}
 <div class="filters"><input id="q" placeholder="Search apps…" aria-label="Search apps">
-<select id="fc" aria-label="Category"><option value="">All categories</option>${A.byCategory.map((c: any) => `<option>${esc(c.category)}</option>`).join("")}</select>
+<select id="fc" aria-label="Category"><option value="">All categories</option>${[...A.byCategory.map((c: any) => c.category), ...new Set(added.map((a) => a.category))].filter((c, i, a) => a.indexOf(c) === i).map((c) => `<option>${esc(c)}</option>`).join("")}</select>
 <select id="fv" aria-label="Verdict"><option value="">All verdicts</option>${opts(Object.keys(V_LABEL))}</select>
 <select id="fm" aria-label="MCP"><option value="">Any MCP</option>${opts(["official", "community", "announced", "none_found", "unknown"])}</select>
 <select id="fx" aria-label="In Composio"><option value="">In Composio: any</option><option value="yes">In Composio</option><option value="no">Not in Composio</option></select>
@@ -237,7 +244,8 @@ ${corrections.length ? `<div class="card scroll" style="margin-top:14px"><h3 sty
 <pre>git clone ${esc(REPO)} && cd composio-app-research && npm install
 cp .env.example .env            # add COMPOSIO_API_KEY
 npm run research -- --app "Calendly" --hint calendly.com    # any app; prints the full record
-npm run ui                       # local page with a "Research any app" box
+npm run research -- --app "Calendly" --hint calendly.com --add   # also add it to this page's list
+npm run ui                       # local page with a "Research any app" box (+ "Add to list" checkbox)
 npm run render -- --run ${esc(runId)}   # rebuild this page from saved data (no network)</pre>
 <p class="small muted">New-app results get automatic verification only (rules + quote check + critic); they are not human audited.</p></div>
 </main>
@@ -251,7 +259,10 @@ $("#count").textContent=k+" of "+rows.length+" apps";}
 
   mkdirSync("site/data", { recursive: true });
   writeFileSync("site/index.html", html);
-  writeFileSync("site/data/records.json", JSON.stringify(recs.map(({ stats, ...r }: any) => ({ ...r, in_composio: !!checks[r.id]?.composio, composio_slug: checks[r.id]?.composio?.slug ?? null, primary_blocker: primaryBlocker(r) })), null, 1));
+  writeFileSync("site/data/records.json", JSON.stringify([
+    ...recs.map(({ stats, ...r }: any) => ({ ...r, added: false, in_composio: !!checks[r.id]?.composio, composio_slug: checks[r.id]?.composio?.slug ?? null, primary_blocker: primaryBlocker(r) })),
+    ...added.map(({ stats, ...r }: any) => { const tk = matchToolkit(r, catalogList); return { ...r, in_composio: !!tk, composio_slug: tk?.slug ?? null, primary_blocker: primaryBlocker(r) }; }),
+  ], null, 1));
   const cols = ["id", "name", "category", "verdict", "auth_methods", "dev_access", "production_access", "public_app_review", "api_types", "api_breadth", "mcp_status", "mcp_url", "in_composio", "primary_blocker", "blocker", "docs_url", "confidence", "sources"];
   const csvCell = (x: unknown) => { let s = String(x ?? ""); if (/^[=+\-@]/.test(s)) s = "'" + s; return `"${s.replace(/"/g, '""')}"`; };
   writeFileSync("site/data/records.csv", [cols.join(","), ...recs.map((r) => [r.id, r.name, r.category, r.verdict, r.auth.methods.join(";"), r.access.dev_access, r.access.production_access, r.access.public_app_review, r.api.types.join(";"), r.api.breadth, r.mcp.status, r.mcp.url, !!checks[r.id]?.composio, primaryBlocker(r), r.blocker, r.identity.docs_url, r.confidence, r.claims.map((c) => c.url).join(" ")].map(csvCell).join(","))].join("\n"));

@@ -61,6 +61,14 @@ async function research() {
       const s = record.stats;
       console.log(`[${record.status}] #${record.id} ${record.name}: ${record.verdict} | ${s.searches}s/${s.fetches}f | ${s.seconds}s | ${(s.input_tokens / 1000).toFixed(0)}k in | $${s.notional_usd}${record.error ? " | " + record.error.slice(0, 120) : ""}`);
       if (queue.length === 1) console.log(JSON.stringify(record, null, 2));
+      // --add (with --app): verify automatically and add to the case-study list, then rebuild the page.
+      if (has("add") && flag("app") && record.status === "ok") {
+        const { verifyAndAdd } = await import("./added.js");
+        const added = await verifyAndAdd(record);
+        console.log(`ADDED #${added.id} ${added.name} to data/added.jsonl | quotes ${added.auto_checks.quotes_found} | flags ${added.auto_checks.flags.length} | critic ${added.critic ? Object.values(added.critic).filter((j) => j.status !== "supported").length + " issue(s)" : "failed"}`);
+        (await import("./render.js")).render("baseline-v1");
+        console.log("Page rebuilt. Commit + push site/ and data/added.jsonl to publish.");
+      }
       // Subscription usage limit: stop cleanly; `--run <id>` resumes later (failed records are retried).
       if (record.error && /limit|rate|quota|429|overloaded/i.test(record.error)) {
         stopped = true;

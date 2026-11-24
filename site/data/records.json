@@ -128,6 +128,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "salesforce",
   "primary_blocker": "paid tier or API add-on"
@@ -257,6 +258,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "hubspot",
   "primary_blocker": "none"
@@ -381,6 +383,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "pipedrive",
   "primary_blocker": "none"
@@ -505,6 +508,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "attio",
   "primary_blocker": "none"
@@ -630,6 +634,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "twenty",
   "primary_blocker": "none"
@@ -757,6 +762,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "podio",
   "primary_blocker": "none"
@@ -875,6 +881,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "zoho",
   "primary_blocker": "none"
@@ -986,6 +993,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "close",
   "primary_blocker": "none"
@@ -1104,6 +1112,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "copper",
   "primary_blocker": "paid tier or API add-on"
@@ -1231,6 +1240,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "partner / sales gate"
@@ -1374,6 +1384,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "zendesk",
   "primary_blocker": "none"
@@ -1516,6 +1527,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "intercom",
   "primary_blocker": "vendor app approval"
@@ -1650,6 +1662,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "freshdesk",
   "primary_blocker": "paid tier or API add-on"
@@ -1778,6 +1791,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "front",
   "primary_blocker": "none"
@@ -1897,6 +1911,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "paid tier or API add-on"
@@ -2024,6 +2039,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "none"
@@ -2137,6 +2153,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "plain",
   "primary_blocker": "none"
@@ -2255,6 +2272,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "help_scout",
   "primary_blocker": "paid tier or API add-on"
@@ -2395,6 +2413,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "gorgias",
   "primary_blocker": "none"
@@ -2503,6 +2522,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "partner / sales gate"
@@ -2646,6 +2666,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "slack",
   "primary_blocker": "vendor app approval"
@@ -2766,6 +2787,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "twilio",
   "primary_blocker": "none"
@@ -2886,6 +2908,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "zoho_cliq",
   "primary_blocker": "none"
@@ -3036,6 +3059,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "lark",
   "primary_blocker": "paid tier or API add-on"
@@ -3145,6 +3169,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "pumble",
   "primary_blocker": "none"
@@ -3283,6 +3308,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "discord",
   "primary_blocker": "vendor app approval"
@@ -3404,6 +3430,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "telegram",
   "primary_blocker": "none"
@@ -3528,6 +3555,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "whatsapp",
   "primary_blocker": "none"
@@ -3671,6 +3699,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "aircall",
   "primary_blocker": "partner / sales gate"
@@ -3804,6 +3833,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "none"
@@ -3936,6 +3966,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "googleads",
   "primary_blocker": "vendor app approval"
@@ -4080,6 +4111,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "metaads",
   "primary_blocker": "vendor app approval"
@@ -4199,6 +4231,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "linkedin_ads",
   "primary_blocker": "vendor app approval"
@@ -4347,6 +4380,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "none"
@@ -4472,6 +4506,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "mailchimp",
   "primary_blocker": "none"
@@ -4615,6 +4650,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "klaviyo",
   "primary_blocker": "none"
@@ -4749,6 +4785,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "none"
@@ -4859,6 +4896,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "pinterest",
   "primary_blocker": "vendor app approval"
@@ -4981,6 +5019,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "threads",
   "primary_blocker": "vendor app approval"
@@ -5097,6 +5136,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "sendgrid",
   "primary_blocker": "paid tier or API add-on"
@@ -5228,6 +5268,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "shopify",
   "primary_blocker": "none"
@@ -5360,6 +5401,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "none"
@@ -5484,6 +5526,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "bigcommerce",
   "primary_blocker": "none"
@@ -5616,6 +5659,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "partner / sales gate"
@@ -5741,6 +5785,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "org admin must enable"
@@ -5868,6 +5913,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "paid tier or API add-on"
@@ -6002,6 +6048,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "paid tier or API add-on"
@@ -6138,6 +6185,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "gumroad",
   "primary_blocker": "none"
@@ -6275,6 +6323,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "none"
@@ -6393,6 +6442,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "org admin must enable"
@@ -6521,6 +6571,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "dataforseo",
   "primary_blocker": "none"
@@ -6658,6 +6709,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "none"
@@ -6797,6 +6849,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "ahrefs",
   "primary_blocker": "paid tier or API add-on"
@@ -6932,6 +6985,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "mrscraper",
   "primary_blocker": "none"
@@ -7028,6 +7082,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "apify",
   "primary_blocker": "none"
@@ -7135,6 +7190,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "firecrawl",
   "primary_blocker": "none"
@@ -7237,6 +7293,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "brightdata",
   "primary_blocker": "none"
@@ -7340,6 +7397,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "unclear: needs research"
@@ -7459,6 +7517,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "partner / sales gate"
@@ -7585,6 +7644,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "clay",
   "primary_blocker": "none"
@@ -7691,6 +7751,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "github",
   "primary_blocker": "none"
@@ -7808,6 +7869,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "vercel",
   "primary_blocker": "none"
@@ -7912,6 +7974,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "none"
@@ -8053,6 +8116,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "cloudflare",
   "primary_blocker": "none"
@@ -8196,6 +8260,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "supabase",
   "primary_blocker": "none"
@@ -8316,6 +8381,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "neo4j",
   "primary_blocker": "none"
@@ -8424,6 +8490,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "snowflake",
   "primary_blocker": "none"
@@ -8550,6 +8617,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "none"
@@ -8685,6 +8753,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "datadog",
   "primary_blocker": "unclear: needs research"
@@ -8847,6 +8916,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "sentry",
   "primary_blocker": "none"
@@ -8952,6 +9022,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "notion",
   "primary_blocker": "none"
@@ -9091,6 +9162,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "airtable",
   "primary_blocker": "none"
@@ -9225,6 +9297,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "linear",
   "primary_blocker": "none"
@@ -9389,6 +9462,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "jira",
   "primary_blocker": "none"
@@ -9518,6 +9592,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "asana",
   "primary_blocker": "none"
@@ -9627,6 +9702,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "monday",
   "primary_blocker": "none"
@@ -9746,6 +9822,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "clickup",
   "primary_blocker": "none"
@@ -9866,6 +9943,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "coda",
   "primary_blocker": "none"
@@ -9982,6 +10060,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "smartsheet",
   "primary_blocker": "paid tier or API add-on"
@@ -10103,6 +10182,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "harvest",
   "primary_blocker": "none"
@@ -10226,6 +10306,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "stripe",
   "primary_blocker": "none"
@@ -10364,6 +10445,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "plaid",
   "primary_blocker": "vendor app approval"
@@ -10489,6 +10571,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "none"
@@ -10613,6 +10696,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "unclear: needs research"
@@ -10749,6 +10833,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "paid tier or API add-on"
@@ -10914,6 +10999,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "quickbooks",
   "primary_blocker": "vendor app approval"
@@ -11061,6 +11147,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "xero",
   "primary_blocker": "paid tier or API add-on"
@@ -11182,6 +11269,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "brex",
   "primary_blocker": "unclear: needs research"
@@ -11317,6 +11405,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "ramp",
   "primary_blocker": "org admin must enable"
@@ -11455,6 +11544,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "pitchbook",
   "primary_blocker": "partner / sales gate"
@@ -11566,6 +11656,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "notebook_lm",
   "primary_blocker": "paid tier or API add-on"
@@ -11681,6 +11772,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "paid tier or API add-on"
@@ -11801,6 +11893,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "fathom",
   "primary_blocker": "none"
@@ -11918,6 +12011,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "consensus",
   "primary_blocker": "none"
@@ -12047,6 +12141,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "none"
@@ -12179,6 +12274,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "unclear: needs research"
@@ -12331,6 +12427,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "higgsfield",
   "primary_blocker": "paid tier or API add-on"
@@ -12429,6 +12526,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": false,
   "composio_slug": null,
   "primary_blocker": "restricted / local-only tool"
@@ -12561,6 +12659,7 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "youtube_transcript",
   "primary_blocker": "none"
@@ -12697,8 +12796,144 @@
    }
   ],
   "status": "ok",
+  "added": false,
   "in_composio": true,
   "composio_slug": "grain",
+  "primary_blocker": "none"
+ },
+ {
+  "id": 101,
+  "name": "Calendly",
+  "category": "Scheduling",
+  "hint": "calendly.com",
+  "run_id": "adhoc-ui",
+  "pass": "baseline",
+  "researched_at": "2026-11-24T03:07:00.444Z",
+  "identity": {
+   "canonical_name": "Calendly",
+   "website": "https://calendly.com",
+   "docs_url": "https://developer.calendly.com",
+   "note": "Calendly API v2. Sandbox and Production OAuth environments exist."
+  },
+  "summary": "Calendly is a scheduling platform that lets people share booking links and automates meeting scheduling, with a REST API, webhooks, embeds and a hosted MCP server.",
+  "auth": {
+   "methods": [
+    "oauth2",
+    "personal_token"
+   ],
+   "detail": "OAuth 2.1 (authorization code with PKCE) for public multi-user apps, via an OAuth app created in the developer portal with Sandbox and Production environments. Personal access tokens for internal single-account use."
+  },
+  "access": {
+   "dev_access": "free",
+   "production_access": "free",
+   "gates": [
+    "A few endpoints are Enterprise-only: activity log entries, delete invitee data, delete scheduled event data",
+    "Organization-scope webhooks require the user to be an organization admin or owner",
+    "The hosted MCP server needs clients that support DCR (dynamic client registration)",
+    "Developer-portal docs do not state an app review or marketplace requirement for production OAuth apps; this was not verified"
+   ],
+   "public_app_review": "unknown"
+  },
+  "api": {
+   "types": [
+    "rest",
+    "webhooks",
+    "sdk",
+    "other"
+   ],
+   "breadth": "broad",
+   "resource_families": [
+    "scheduling / booking",
+    "event types",
+    "scheduled events",
+    "invitees",
+    "availability",
+    "routing forms",
+    "users and organizations",
+    "webhooks",
+    "contacts",
+    "notetaker",
+    "activity log",
+    "data compliance"
+   ],
+   "note": "API v2. The 'other' type is embeds. Resource families were taken from the docs overview and the FAQ, not from the full API reference. The SDK type is not confirmed; the Cursor and CLI repos found are third-party."
+  },
+  "mcp": {
+   "status": "official",
+   "url": "https://mcp.calendly.com",
+   "note": "Hosted by Calendly. Self-hosting is not supported. Auth is OAuth with DCR. Several community MCP servers also exist."
+  },
+  "verdict": "build_now",
+  "blocker": "",
+  "confidence": "medium",
+  "open_questions": [
+   "Does a production OAuth app need Calendly review or approval before it can serve many customers? Docs fetched do not say.",
+   "Are there rate limits? None were checked.",
+   "Is there an official SDK? None was confirmed; only third-party clients were seen."
+  ],
+  "claims": [
+   {
+    "field": "auth",
+    "text": "The API v2 supports personal access tokens for internal use and OAuth for public apps.",
+    "url": "https://developer.calendly.com/docs/getting-started/introduction",
+    "quote": "If you’re integrating a **public application** that many Calendly users will use, authenticate with **OAuth**."
+   },
+   {
+    "field": "access",
+    "text": "API access is available on all subscription plans, including Free, with only a few Enterprise-only endpoints.",
+    "url": "https://developer.calendly.com/docs/getting-started/frequently-asked-questions.md",
+    "quote": "Developers can make GET and POST requests to API endpoints on behalf of a Calendly user on any subscription plan, including the Free plan"
+   },
+   {
+    "field": "access",
+    "text": "Organization-scoped webhooks need an organization admin or owner. Webhooks are available on all plans.",
+    "url": "https://developer.calendly.com/docs/getting-started/frequently-asked-questions.md",
+    "quote": "To create an `organization`-scope webhook subscription, the user must be an organization admin or owner."
+   },
+   {
+    "field": "api",
+    "text": "The REST API covers scheduling, contacts and notetaker data, with webhooks and embeds also available.",
+    "url": "https://developer.calendly.com/getting-started",
+    "quote": "Programmatically book meetings and read and write Scheduling, Contacts, and Notetaker data."
+   },
+   {
+    "field": "mcp",
+    "text": "The official MCP server is hosted by Calendly at mcp.calendly.com.",
+    "url": "https://developer.calendly.com/calendly-mcp-server",
+    "quote": "The server is **fully hosted by Calendly** at `https://mcp.calendly.com`. Self-hosting or local deployment is not supported."
+   }
+  ],
+  "status": "ok",
+  "added": true,
+  "added_at": "2026-11-24T03:07:35.010Z",
+  "auto_checks": {
+   "flags": [],
+   "quotes_found": "5/5"
+  },
+  "critic": {
+   "auth": {
+    "status": "supported",
+    "reason": "Docs state API v2 uses personal access tokens (internal) and OAuth 2.1 (public apps). Methods oauth2 and personal_token match."
+   },
+   "access": {
+    "status": "supported",
+    "reason": "FAQ confirms API on any plan including Free, with only three Enterprise-only endpoints and the org-webhook admin requirement. The record correctly flags the unverified app review question."
+   },
+   "api": {
+    "status": "supported",
+    "reason": "Docs show REST covering Scheduling, Contacts and Notetaker, plus webhooks and embeds. The record honestly notes the SDK is unconfirmed. Listing 'sdk' in types is weakly supported, since only third-party SDKs were seen, so consider removing it."
+   },
+   "mcp": {
+    "status": "supported",
+    "reason": "Official docs on developer.calendly.com say the MCP server is fully hosted by Calendly at mcp.calendly.com, with DCR OAuth 2.1 and no self-hosting."
+   },
+   "verdict": {
+    "status": "supported",
+    "reason": "Free-plan API access, OAuth with sandbox, and PATs fit build_now. The Enterprise-only endpoints are a minor carve-out, not a gate on the core API. The unverified public app review would not change the verdict under the rubric. Confidence of medium is reasonable."
+   }
+  },
+  "in_composio": true,
+  "composio_slug": "calendly",
   "primary_blocker": "none"
  }
 ]
