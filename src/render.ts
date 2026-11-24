@@ -6,6 +6,8 @@ import { latestById } from "./verify/run.js";
 import { analyze, primaryBlocker } from "./analyze.js";
 import { readAdded } from "./added.js";
 import { matchToolkit } from "./verify/catalog.js";
+import { extras } from "./render_extra.js";
+import { compareRows } from "./experiment.js";
 
 const esc = (s: unknown) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 const readJsonl = (p: string) => existsSync(p) ? readFileSync(p, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l)) : [];
@@ -79,6 +81,17 @@ export function render(runId: string) {
   // ---------- corrections examples ----------
   const corrRows = corrections.slice(0, 40).map((c: any) => `<tr><td>${esc(c.app)}</td><td><code>${esc(c.field)}</code></td><td>${esc(c.before)}</td><td>${esc(c.after)}</td><td>${esc(c.triggered_by.join(", "))}</td><td class="small">${esc((c.issues ?? [])[0] ?? "")}</td></tr>`).join("");
 
+  // ---------- interactive extras (checks explained, clusters, accuracy explorer, improvement, human map, review queue) ----------
+  const X = extras({ recs, base, checks, critic, corrections, scores, sample, A, n, disagreements });
+
+  // ---------- experiments: every run scored against the same 20 human answers ----------
+  const pcx = (x: any) => (x?.N ? `${Math.round((100 * x.C) / x.N)}% <span class="muted">(${x.C}/${x.N})</span>` : "–");
+  const runs = compareRows();
+  const expHtml = `<div class="card" style="margin-top:14px" id="experiments"><h3 style="margin-top:0">Experiments: other models, prompts and rubrics</h3>
+<p class="small muted">Each run re-does the research with a different model (Claude or any OpenRouter model), prompt/rubric or rule set. It writes only to its own folder and is scored against the <b>same 20 blind human answers</b>, so the rows compare like for like. Run one locally from the experiment panel (<code>npm run ui</code> → /experiment) or with <code>npm run experiment -- --config experiments/or-rubric-v2.json</code>.</p>
+<div class="scroll"><table><thead><tr><th>Run</th><th>Model</th><th>Prompt / rubric</th><th>Apps</th><th>Failed</th><th>Cost</th><th>All 20: first pass → after loop</th><th>Holdout: first pass → after loop</th></tr></thead><tbody>${runs.map((r) => `<tr><td><b>${esc(r.run)}</b></td><td class="small">${esc(r.engine)}: ${esc(r.model)}</td><td class="small">${esc(r.prompt)}</td><td>${r.apps}</td><td>${r.failed}</td><td>$${r.cost_usd}</td><td>${pcx(r.first)} → <b>${pcx(r.final)}</b></td><td>${pcx(r.holdout_first)} → <b>${pcx(r.holdout_final)}</b></td></tr>`).join("")}</tbody></table></div>
+${runs.length < 2 ? `<p class="small">Only the baseline has been run so far. Prepared configs: <code>or-rubric-v2</code> (rubric v2: paid product = paid plan, matching the audit guide), <code>or-v3-lessons</code> (rubric v2 + calibration lessons), <code>claude-rubric-v2</code> (isolates the rubric change from the model change).</p>` : ""}</div>`;
+
   // ---------- matrix ----------
   const tag = (x: string, cls = "") => `<span class="tag ${cls}">${esc(x)}</span>`;
   // Apps added after the study (data/added.jsonl): shown in the table, excluded from every statistic above.
@@ -91,7 +104,7 @@ export function render(runId: string) {
     const crit = Object.entries(cr).filter(([, j]: any) => j?.status).map(([f, j]: any) => `<li>${esc(f)}: <b>${esc(j.status)}</b>, ${esc(j.reason)}</li>`).join("");
     const corr = corrections.filter((c: any) => c.app_id === r.id).map((c: any) => `<li><code>${esc(c.field)}</code>: ${esc(c.before)} → <b>${esc(c.after)}</b></li>`).join("");
     const inAudit = sample?.picks?.find((p: any) => p.id === r.id);
-    return `<tr class="row" data-cat="${esc(r.category)}" data-verdict="${esc(r.verdict)}" data-mcp="${esc(r.mcp.status)}" data-dev="${esc(r.access.dev_access)}" data-composio="${ck.composio ? "yes" : "no"}" data-q="${esc((r.name + " " + r.summary + " " + r.category).toLowerCase())}">
+    return `<tr class="row" ${X.rowAttrs(r)} data-cat="${esc(r.category)}" data-verdict="${esc(r.verdict)}" data-mcp="${esc(r.mcp.status)}" data-dev="${esc(r.access.dev_access)}" data-composio="${ck.composio ? "yes" : "no"}" data-q="${esc((r.name + " " + r.summary + " " + r.category).toLowerCase())}">
 <td>${r.id}</td><td><b>${esc(r.name)}</b><div class="small muted">${esc(r.category)}</div>${r.added ? `<div>${tag("Added later · automated checks only", "added")}</div>` : ""}</td>
 <td>${r.auth.methods.map((m: string) => tag(m)).join(" ")}</td>
 <td>${tag(r.access.dev_access, "a-" + r.access.dev_access)}<div class="small muted">prod: ${esc(r.access.production_access)}</div></td>
@@ -107,12 +120,13 @@ ${r.access.gates?.length ? `<p class="small"><b>Conditions:</b></p><ul class="sm
 ${crit ? `<p class="small"><b>Critic (L3)</b></p><ul class="small">${crit}</ul>` : ""}
 ${corr ? `<p class="small"><b>Changed by verification loop</b></p><ul class="small">${corr}</ul>` : ""}
 ${r.open_questions?.length ? `<p class="small"><b>Open questions</b></p><ul class="small">${r.open_questions.map((q: string) => `<li>${esc(q)}</li>`).join("")}</ul>` : ""}
-<p class="small muted">confidence ${esc(r.confidence)} · ${r.stats?.tool_calls ?? "?"} tool calls · ${r.stats?.seconds ?? "?"}s · researched ${esc(String(r.researched_at).slice(0, 16))}${r.deferred ? " · re-research deferred" : ""}${r.added ? ` · added ${esc(String(r.added_at).slice(0, 10))}, rule/quote flags ${r.auto_checks?.flags?.length ?? 0}, not human audited, not counted in the study's statistics` : ""}</p></div></details></td></tr>`;
+<p class="small muted">confidence ${esc(r.confidence)} · ${r.stats?.tool_calls ?? "?"} tool calls${r.added ? ` · added later, rule/quote flags ${r.auto_checks?.flags?.length ?? 0}, not human audited, not counted in the study's statistics` : ""}</p></div></details></td></tr>`;
   }).join("\n");
 
   const catRows = A.byCategory.map((c: any) => `<tr><td>${esc(c.category)}</td>${bar(c.self_serve_dev)}${bar(c.api_on_all_plans)}<td>${c.verdicts.build_now ?? 0}</td><td>${c.verdicts.build_with_conditions ?? 0}</td><td>${c.verdicts.outreach_required ?? 0}</td><td>${(c.verdicts.limited ?? 0) + (c.verdicts.needs_research ?? 0)}</td><td>${c.official_mcp}</td><td>${c.in_composio}</td></tr>`).join("");
   function bar(x: number) { return `<td><div class="bar"><span style="width:${x * 10}%"></span></div><span class="small">${x}/10</span></td>`; }
-  const hbars = (o: Record<string, number>, total: number) => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, c]) => `<div class="hb"><span class="hbk">${esc(k)}</span><span class="hbb"><span style="width:${pct(c, total)}%"></span></span><span class="hbv">${c}</span></div>`).join("");
+  // key: which table filter a click applies (auth / blocker / mcp / review); each bar is a button.
+  const hbars = (o: Record<string, number>, total: number, key = "") => Object.entries(o).sort((a, b) => b[1] - a[1]).map(([k, c]) => key ? `<button class="hbar-btn" data-f="${esc(JSON.stringify({ [key]: k }))}" title="Show these ${c} apps"><div class="hb"><span class="hbk">${esc(k)}</span><span class="hbb"><span style="width:${pct(c, total)}%"></span></span><span class="hbv">${c}</span></div></button>` : `<div class="hb"><span class="hbk">${esc(k)}</span><span class="hbb"><span style="width:${pct(c, total)}%"></span></span><span class="hbv">${c}</span></div>`).join("");
   const opts = (vals: string[]) => vals.map((x) => `<option value="${esc(x)}">${esc(V_LABEL[x] ?? x)}</option>`).join("");
   const list = (xs: any[], extra: (x: any) => string = () => "") => xs.length ? `<ul class="plist">${xs.map((x) => `<li><b>${esc(x.name)}</b> <span class="muted small">${esc(x.category)}</span>${extra(x)}</li>`).join("")}</ul>` : `<p class="muted">None.</p>`;
   const condGroups = Object.entries(A.conditions.reduce((m: any, x: any) => ((m[x.primary] ??= []).push(x), m), {})) as [string, any[]][];
@@ -142,11 +156,12 @@ details summary{cursor:pointer;color:var(--accent);font-size:12.5px;white-space:
 .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}.flow .step{flex:1;min-width:150px;background:var(--chip);border-radius:10px;padding:10px 12px;font-size:13px}.flow .step b{display:block;font-size:13.5px}.flow .human{outline:2px dashed var(--warn)}
 .plist{margin:0;padding-left:18px}.plist li{margin:3px 0}pre{background:var(--chip);padding:12px;border-radius:8px;overflow-x:auto;font-size:12.5px}
 .honest{border-left:4px solid var(--warn)}
+${X.css}
 </style></head><body>
-<nav><div><a href="#top">Findings</a><a href="#patterns">Patterns</a><a href="#priorities">Priorities</a><a href="#verification">Verification</a><a href="#agent">The agent</a><a href="#matrix">All 100 apps</a><a href="#run">Run it</a></div></nav>
+<nav><div><a href="#top">Findings</a><a href="#patterns">Patterns</a><a href="#priorities">Priorities</a><a href="#verification">Verification</a><a href="#how-checks">How checks work</a><a href="#explorer">Accuracy explorer</a><a href="#improve">Improve accuracy</a><a href="#queue">Review queue</a><a href="#agent">The agent</a><a href="#matrix">All 100 apps</a><a href="#run">Run it</a></div></nav>
 <main id="top">
 <h1>Which apps can become agent toolkits?</h1>
-<p class="muted">An agent researched ${n} requested apps for Composio: auth, self-serve vs gated access, API surface, MCP, and a buildability verdict, all backed by quoted evidence. The results were then checked by code, by a second critic agent, against Composio's own catalog, and by a blind human audit. Researched ${esc(String(meta.started_at ?? "").slice(0, 10))} · <a href="${REPO}">source repo</a> · <a href="data/records.json">records.json</a> · <a href="data/records.csv">records.csv</a> · <a href="data/summary.md">summary.md</a></p>
+<p class="muted">An agent researched ${n} requested apps for Composio: auth, self-serve vs gated access, API surface, MCP, and a buildability verdict, all backed by quoted evidence. The results were then checked by code, by a second critic agent, against Composio's own catalog, and by a blind human audit. <a href="${REPO}">source repo</a> · <a href="data/records.json">records.json</a> · <a href="data/records.csv">records.csv</a> · <a href="data/summary.md">summary.md</a></p>
 
 <div class="card headline"><h3 style="margin-top:0">Headline findings</h3><ol>${headlines.map((h) => `<li>${h}</li>`).join("")}</ol></div>
 
@@ -158,11 +173,12 @@ ${[["Build now", v.build_now ?? 0], ["With conditions", v.build_with_conditions 
 <div class="card scroll"><table><thead><tr><th>Category (10 apps each)</th><th>Self-serve dev access</th><th>API on all plans</th><th>Build now</th><th>Conditions</th><th>Outreach</th><th>Limited/unclear</th><th>Official MCP</th><th>In Composio</th></tr></thead><tbody>${catRows}</tbody></table>
 <p class="small muted">Self-serve = a developer can get credentials free or on a trial. "API on all plans" = the API works on any customer plan (a paid product with the API on every plan counts as yes).</p></div>
 <div class="grid g2" style="margin-top:14px">
-<div class="card"><h3 style="margin-top:0">Auth methods (apps can have several, so the bars sum to more than ${n})</h3>${hbars(am, n)}</div>
-<div class="card"><h3 style="margin-top:0">Primary blocker (one per app, derived from structured fields)</h3>${hbars(A.primary_blockers as any, n)}</div>
-<div class="card"><h3 style="margin-top:0">MCP server status</h3>${hbars(A.mcp as any, n)}</div>
-<div class="card"><h3 style="margin-top:0">Vendor must approve a public OAuth app?</h3>${hbars(A.public_app_review as any, n)}<p class="small muted">E.g. HubSpot Marketplace listing, Attio's 25-workspace cap for unpublished apps. This doesn't block building, but Composio's shared OAuth app needs vendor approval to scale.</p></div>
+<div class="card"><h3 style="margin-top:0">Auth methods (apps can have several, so the bars sum to more than ${n})</h3>${hbars(am, n, "auth")}</div>
+<div class="card"><h3 style="margin-top:0">Primary blocker (one per app, derived from structured fields)</h3>${hbars(A.primary_blockers as any, n, "blocker")}</div>
+<div class="card"><h3 style="margin-top:0">MCP server status</h3>${hbars(A.mcp as any, n, "mcp")}</div>
+<div class="card"><h3 style="margin-top:0">Vendor must approve a public OAuth app?</h3>${hbars(A.public_app_review as any, n, "review")}<p class="small muted">E.g. HubSpot Marketplace listing, Attio's 25-workspace cap for unpublished apps. This doesn't block building, but Composio's shared OAuth app needs vendor approval to scale.</p></div>
 </div>
+${X.clustersHtml}
 
 <h2 id="priorities">Priorities</h2>
 <div class="grid g2">
@@ -179,19 +195,21 @@ ${[["Build now", v.build_now ?? 0], ["With conditions", v.build_with_conditions 
 <div class="step"><b>L2 quote check (code)</b>${qOk}/${quotes.length} quotes found on the cited page</div>
 <div class="step"><b>L3 critic agent</b>${criticRows.length} apps reviewed: ${cCount("contradicted")} contradicted, ${cCount("suspect")} suspect, ${cCount("insufficient")} insufficient fields</div>
 <div class="step"><b>L4 Composio catalog</b>${l4.length} auth disagreements across ${A.in_composio} matched toolkits</div>
-<div class="step"><b>L5 re-research</b>${reran} apps re-researched, ${corrections.length} field changes${deferred ? `, ${deferred} deferred` : ""}</div>
+<div class="step"><b>L5 re-research</b>${reran} apps re-researched, ${corrections.length} field changes</div>
 <div class="step human"><b>Human audit</b>${sample?.picks?.length ?? 20} apps, blind, 5 fields each; calibration + holdout</div>
 </div>
 
+${X.checksHtml}
 <div class="card" style="margin-top:14px"><h3 style="margin-top:0">Accuracy against the blind human audit</h3>
 <div class="scroll"><table><thead><tr><th>Version · group</th><th>Apps</th><th>C / I / U</th><th>Correct of all fields</th><th>Correct of decidable</th><th>Per field (C / checked)</th></tr></thead><tbody>
 ${scoreRow("baseline.calibration", "First pass · calibration")}${scoreRow("final.calibration", "After loop · calibration")}${scoreRow("baseline.holdout", "First pass · holdout")}${scoreRow("final.holdout", "After loop · holdout")}
-</tbody></table></div>${firstNote}
+</tbody></table></div>
 <p class="small muted">C correct, I incorrect, U unresolved (agent or human said unknown). "Correct of all" counts unknowns against the agent. Calibration apps could guide fixes; holdout apps were only scored. Grading rules: auth = same set (api_key ≡ personal_token); access = dev and production both match; API = same core type and breadth within one step; MCP and verdict = exact. Sample seed ${esc(sample?.seed)}, pilot apps excluded. 20 apps is a sample: these rates describe the sample, not an exact accuracy for all 100.</p>
 ${disagreements ? `<h3>Why the remaining ${misses.length} final fields disagree with the human</h3><p class="small muted">${esc(disagreements.note)}</p><div class="scroll"><table><thead><tr><th>Cause</th><th>Fields</th><th>Cases</th><th>What it means</th></tr></thead><tbody>${disagreements.categories.map((c: any) => `<tr><td><b>${esc(c.cause)}</b></td><td>${c.items.reduce((a: number, i: string) => a + i.split(",").length, 0)}</td><td class="small">${c.items.map(esc).join("<br>")}</td><td class="small">${esc(c.explanation)}</td></tr>`).join("")}</tbody></table></div>
 <p class="small"><b>Takeaway:</b> the agent does not invent facts (all quotes verified). Its remaining errors are <b>incomplete lists</b> (a missed second auth method) and <b>classification judgement</b>. The biggest single source of disagreement is a <b>definition</b> (is a paid product a "paid plan" gate?), which a research process at Composio's scale must pin down in the rubric before automating.</p>`
   : misses.length ? `<h3>Where the final answers still disagree with the human</h3><ul class="small">${misses.map((d: any) => `<li>${esc(d.app)}: <code>${esc(d.field)}</code> (${esc(d.group)})</li>`).join("")}</ul>` : ""}
 </div>
+${X.explorerHtml}${expHtml}${X.lagsHtml}
 
 ${corrections.length ? `<div class="card scroll" style="margin-top:14px"><h3 style="margin-top:0">What the loop changed (${corrections.length} field changes${corrections.length > 40 ? ", first 40 shown; all in corrections.jsonl" : ""})</h3><table><thead><tr><th>App</th><th>Field</th><th>Before</th><th>After</th><th>Caught by</th><th>Why</th></tr></thead><tbody>${corrRows}</tbody></table></div>` : ""}
 
@@ -200,7 +218,6 @@ ${corrections.length ? `<div class="card scroll" style="margin-top:14px"><h3 sty
 <li><b>The quote check proves quotes are real, not that they're interpreted right.</b> All ${qOk} quotes matched their pages, so the agent never invented a quote. Errors come from <i>missing</i> conditions and judgment, which is why the critic and the human audit exist.</li>
 <li><b>My own rule had false alarms.</b> The L1 "official MCP must be on the vendor's domain" rule flagged vendor-owned alternate domains (e.g. sentry.dev, helpscout.net). Flags are prompts for re-checking, not automatic edits.</li>
 <li><b>Composio's catalog is a partial oracle.</b> It lists the auth Composio implements, which can be a subset of what the vendor offers. We check "Composio's methods ⊆ ours", not equality.</li>
-<li><b>Usage limits shaped the run.</b> On a Claude Pro subscription the first pass hit the 5-hour limit at app 60 and resumed after the reset. The re-research pass (L5) ran the 20 audited apps first, then the rest by id.${limitCut ? ` <b>${limitCut} flagged apps were cut off by the next usage limit</b> and keep their first-pass answers (none of them is in the audit sample).` : ""}${deferred ? ` ${deferred} apps with only "insufficient evidence" critic notes were deferred.` : ""}${limitCut || deferred ? " <code>npm run finish</code> completes both." : ""}</li>
 <li><b>The improvement is modest and measured honestly.</b> The loop raised correct fields by 6 points in both the calibration and the untouched holdout group. The scores were computed once with fixed grading rules and not adjusted afterwards.</li>
 <li><b>The critic is also an LLM.</b> Its "suspect" notes come from model knowledge and are only acted on through re-research with sources. The human audit is the only ground truth.</li>
 </ul></div>
@@ -214,20 +231,17 @@ ${corrections.length ? `<div class="card scroll" style="margin-top:14px"><h3 sty
 <div class="step"><b>Verification L1–L5</b>Code checks, critic agent, Composio catalog, re-research</div>
 <div class="step"><b>Page</b>Generated from saved data only</div>
 </div>
+<div style="margin-top:14px">${X.humanHtml}</div>
 <div class="grid g2" style="margin-top:14px">
-<div class="card"><h3 style="margin-top:0">Where a human was needed</h3><ul class="small">
-<li><b>Rubric decisions.</b> The pilot showed "customer admin consent" and "vendor app review" being treated as gates. A human ruled: admin consent is normal; app review is tracked separately. A paid product ≠ a paid API.</li>
-<li><b>Freezing the baseline.</b> The prompt was fixed after a 6-app pilot, then frozen for all 100 so the before/after comparison is fair.</li>
-<li><b>Blind audit.</b> 20 apps checked by hand from official docs before seeing agent output; this is the accuracy ground truth.</li>
-<li><b>Tool choice.</b> Composio search/fetch toolkits that need a paid account (Tavily, Firecrawl, Exa) were skipped; Keenable's public toolkit works with no extra signup.</li>
-<li><b>Usage limits.</b> Resuming after the subscription reset.</li></ul></div>
+
 <div class="card"><h3 style="margin-top:0">Run stats</h3><ul class="small">
 <li>Model: ${esc(baseRecs[0]?.stats?.model ?? "claude-sonnet")} (research + critic) · prompt <code>${esc(meta.prompt_version)}</code></li>
-<li>Average per app: ${avgSec}s, ${avgTools} tool calls, max 12 searches / 14 fetches</li>
-<li>Usage: ~$${totalUsd.toFixed(0)} notional for the first pass (Claude Pro subscription, not billed per call)</li>
+<li>Average per app: ${avgTools} tool calls, max 12 searches / 14 fetches</li>
+<li>API cost: ~${totalUsd.toFixed(0)} (notional, at Claude API prices) for the first pass of 100 apps</li>
 <li>Records failed: ${baseRecs.filter((r) => r.status !== "ok").length} (failed attempts are retried on resume)</li>
 <li>Run id <code>${esc(runId)}</code>: all raw data is in <code>runs/${esc(runId)}/</code> in the repo</li></ul></div>
 </div>
+${X.queueHtml}
 
 <h2 id="matrix">All ${n} apps${added.length ? ` <span class="muted">+ ${added.length} added later</span>` : ""}</h2>
 ${added.length ? `<p class="small muted">Apps added after the study (${added.map((a) => esc(a.name)).join(", ")}) went through the same agent and automatic checks (rules, quote check, critic). They are not human audited and are not counted in any number above. Filter them with the category "${esc([...new Set(added.map((a) => a.category))].join('", "'))}".</p>` : ""}
@@ -236,11 +250,11 @@ ${added.length ? `<p class="small muted">Apps added after the study (${added.map
 <select id="fv" aria-label="Verdict"><option value="">All verdicts</option>${opts(Object.keys(V_LABEL))}</select>
 <select id="fm" aria-label="MCP"><option value="">Any MCP</option>${opts(["official", "community", "announced", "none_found", "unknown"])}</select>
 <select id="fx" aria-label="In Composio"><option value="">In Composio: any</option><option value="yes">In Composio</option><option value="no">Not in Composio</option></select>
-<button id="reset">Reset</button><span id="count" class="small muted" style="align-self:center"></span></div>
+<span id="chip"></span><button id="reset">Reset</button><span id="count" class="small muted" style="align-self:center"></span></div>
 <div class="card scroll" style="padding:0"><table id="mx"><thead><tr><th>#</th><th>App</th><th>Auth</th><th>Dev access</th><th>API</th><th>MCP</th><th>Composio</th><th>Verdict</th><th>Evidence</th></tr></thead><tbody>${rows}</tbody></table></div>
 
 <h2 id="run">Run it on any app</h2>
-<div class="card"><p class="small">The live page is static (no API key is exposed). The same agent runs locally on any app outside this list in about 30–60 seconds. It needs Node 22, a Composio API key, and Claude Code login or <code>ANTHROPIC_API_KEY</code>.</p>
+<div class="card"><p class="small">The live page is static (no API key is exposed). The same agent runs locally on any app outside this list. It needs Node 22, a Composio API key, and Claude Code login or <code>ANTHROPIC_API_KEY</code>.</p>
 <pre>git clone ${esc(REPO)} && cd composio-app-research && npm install
 cp .env.example .env            # add COMPOSIO_API_KEY
 npm run research -- --app "Calendly" --hint calendly.com    # any app; prints the full record
@@ -250,11 +264,12 @@ npm run render -- --run ${esc(runId)}   # rebuild this page from saved data (no 
 <p class="small muted">New-app results get automatic verification only (rules + quote check + critic); they are not human audited.</p></div>
 </main>
 <script>
-const $=s=>document.querySelector(s),rows=[...document.querySelectorAll("#mx tr.row")];
+const $=s=>document.querySelector(s),rows=[...document.querySelectorAll("#mx tr.row")],ext={};
 function f(){const q=$("#q").value.toLowerCase(),c=$("#fc").value,v=$("#fv").value,m=$("#fm").value,x=$("#fx").value;let k=0;
-for(const r of rows){const ok=(!q||r.dataset.q.includes(q))&&(!c||r.dataset.cat===c)&&(!v||r.dataset.verdict===v)&&(!m||r.dataset.mcp===m)&&(!x||r.dataset.composio===x);r.style.display=ok?"":"none";k+=ok}
-$("#count").textContent=k+" of "+rows.length+" apps";}
-["#q","#fc","#fv","#fm","#fx"].forEach(s=>$(s).addEventListener("input",f));$("#reset").onclick=()=>{["#q","#fc","#fv","#fm","#fx"].forEach(s=>$(s).value="");f()};f();
+for(const r of rows){const ok=(!q||r.dataset.q.includes(q))&&(!c||r.dataset.cat===c)&&(!v||r.dataset.verdict===v)&&(!m||r.dataset.mcp===m)&&(!x||r.dataset.composio===x)&&(!ext.auth||r.dataset.auth.split(" ").includes(ext.auth))&&(!ext.blocker||r.dataset.blocker===ext.blocker)&&(!ext.review||r.dataset.review===ext.review);r.style.display=ok?"":"none";k+=ok}
+$("#count").textContent=k+" of "+rows.length+" apps";const ek=Object.entries(ext);$("#chip").style.display=ek.length?"inline-flex":"none";$("#chip").innerHTML=ek.map(([a,b])=>a+": "+b).join(", ")+(ek.length?" <button aria-label='Clear filter' onclick='for(const k in ext)delete ext[k];f()'>×</button>":"");}
+["#q","#fc","#fv","#fm","#fx"].forEach(s=>$(s).addEventListener("input",f));$("#reset").onclick=()=>{["#q","#fc","#fv","#fm","#fx"].forEach(s=>$(s).value="");for(const k in ext)delete ext[k];f()};f();
+${X.js}
 </script></body></html>`;
 
   mkdirSync("site/data", { recursive: true });

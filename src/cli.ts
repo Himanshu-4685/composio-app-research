@@ -92,6 +92,15 @@ else if (cmd === "analyze") {
   const { analyze } = await import("./analyze.js");
   analyze(flag("run") ?? "baseline-v1");
 }
+else if (cmd === "experiment") {
+  const { loadConfig, runExperiment } = await import("./experiment.js");
+  if (!flag("config")) { console.error("Usage: experiment --config experiments/<name>.json [--scope audited|all]"); process.exit(1); }
+  await runExperiment(loadConfig(flag("config")!), flag("scope"));
+  (await import("./render.js")).render("baseline-v1"); // page gains the new run in its comparison table
+}
+else if (cmd === "compare") {
+  console.log((await import("./experiment.js")).compareTable());
+}
 else if (cmd === "render") {
   const { render } = await import("./render.js");
   render(flag("run") ?? "baseline-v1");

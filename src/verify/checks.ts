@@ -15,27 +15,30 @@ export function expectedVerdict(r: AppRecord): string | null {
   return null;
 }
 
-export function ruleChecks(r: AppRecord): Flag[] {
+/** L1 rule ids (explained on the page). `enabled` lets an experiment switch rules on/off; default = all. */
+export const RULE_IDS = ["R0", "R1", "R2", "R3", "R4", "R5", "R6"] as const;
+
+export function ruleChecks(r: AppRecord, enabled: readonly string[] = RULE_IDS): Flag[] {
   const f: Flag[] = [];
-  const add = (field: Flag["field"], msg: string) => f.push({ app_id: r.id, field, layer: "L1", msg });
-  if (r.status !== "ok") { add("all", `research failed: ${r.error}`); return f; }
+  const add = (rule: string, field: Flag["field"], msg: string) => { if (enabled.includes(rule)) f.push({ app_id: r.id, field, layer: "L1", msg }); };
+  if (r.status !== "ok") { add("R0", "all", `research failed: ${r.error}`); return f; }
 
   const exp = expectedVerdict(r);
   if (exp && r.verdict !== exp && !(r.verdict === "limited" || r.verdict === "needs_research"))
-    add("verdict", `verdict ${r.verdict} but access fields imply ${exp}`);
+    add("R1", "verdict", `verdict ${r.verdict} but access fields imply ${exp}`);
   for (const field of ["auth", "access", "api"] as const)
-    if (!r.claims.some((c) => c.field === field)) add(field, `no evidence claim for ${field}`);
+    if (!r.claims.some((c) => c.field === field)) add("R2", field, `no evidence claim for ${field}`);
   if (["official", "community", "announced"].includes(r.mcp.status) && !r.claims.some((c) => c.field === "mcp"))
-    add("mcp", `mcp=${r.mcp.status} with no mcp evidence claim`);
+    add("R2", "mcp", `mcp=${r.mcp.status} with no mcp evidence claim`);
   if (r.mcp.status === "official" && r.mcp.url) {
     const host = safeHost(r.mcp.url), vendor = [safeHost(r.identity.website), safeHost(r.identity.docs_url)].map(root);
     if (host && !vendor.includes(root(host)) && !host.endsWith("github.com"))
-      add("mcp", `official MCP url ${host} is not on the vendor domain (${vendor.filter(Boolean).join(", ")})`);
+      add("R3", "mcp", `official MCP url ${host} is not on the vendor domain (${vendor.filter(Boolean).join(", ")})`);
   }
-  if (!r.auth.methods.length && !r.api.types.includes("none_found")) add("auth", "no auth methods listed for an app with an API");
+  if (!r.auth.methods.length && !r.api.types.includes("none_found")) add("R4", "auth", "no auth methods listed for an app with an API");
   const n = r.api.resource_families.length;
-  if ((r.api.breadth === "broad" && n < 5) || (r.api.breadth === "narrow" && n > 3)) add("api", `breadth ${r.api.breadth} but ${n} resource families listed`);
-  if (r.confidence === "high" && r.claims.length < 3) add("all", "high confidence with fewer than 3 claims");
+  if ((r.api.breadth === "broad" && n < 5) || (r.api.breadth === "narrow" && n > 3)) add("R5", "api", `breadth ${r.api.breadth} but ${n} resource families listed`);
+  if (r.confidence === "high" && r.claims.length < 3) add("R6", "all", "high confidence with fewer than 3 claims");
   return f;
 }
 

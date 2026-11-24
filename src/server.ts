@@ -3,7 +3,8 @@
 // Binds to localhost only; keys come from your own .env / Claude Code login.
 import "dotenv/config";
 import { createServer } from "node:http";
-import { readFileSync, existsSync, appendFileSync, mkdirSync } from "node:fs";
+import { readFileSync, existsSync, appendFileSync, mkdirSync, readdirSync, writeFileSync } from "node:fs";
+import { spawn } from "node:child_process";
 import { researchApp } from "./agent/research.js";
 import { ruleChecks, quoteChecks } from "./verify/checks.js";
 import { critique } from "./verify/critic.js";
@@ -27,7 +28,35 @@ else log.textContent+=d.detail+"\\n";};es.onerror=()=>{log.textContent+="(connec
 
 createServer(async (req, res) => {
   const url = new URL(req.url ?? "/", `http://127.0.0.1:${PORT}`);
-  if (url.pathname === "/") { res.writeHead(200, { "content-type": "text/html; charset=utf-8" }); return res.end(page); }
+  if (url.pathname === "/") { res.writeHead(200, { "content-type": "text/html; charset=utf-8" }); return res.end(page.replace('<a href="/site/">View the 100-app case study</a>', '<a href="/site/">View the 100-app case study</a> · <a href="/experiment">Accuracy experiments (change prompt / rubric / rules / model)</a>')); }
+  // ---- accuracy experiments ----
+  if (url.pathname === "/experiment") { res.writeHead(200, { "content-type": "text/html; charset=utf-8" }); return res.end(readFileSync("src/ui/experiment.html")); }
+  if (url.pathname === "/api/prompts") { res.writeHead(200, { "content-type": "application/json" }); return res.end(JSON.stringify(readdirSync("prompts").filter((f) => f.endsWith(".md")).map((f) => "prompts/" + f))); }
+  if (url.pathname === "/api/prompt") {
+    const p = url.searchParams.get("path") ?? "";
+    if (!/^prompts\/[\w.-]+\.md$/.test(p) || !existsSync(p)) { res.writeHead(400); return res.end("bad path"); }
+    res.writeHead(200, { "content-type": "text/plain; charset=utf-8" }); return res.end(readFileSync(p));
+  }
+  if (url.pathname === "/api/compare") { const { compareRows } = await import("./experiment.js"); res.writeHead(200, { "content-type": "application/json" }); return res.end(JSON.stringify(compareRows())); }
+  if (url.pathname === "/api/experiment" && req.method === "POST") {
+    let raw = ""; for await (const ch of req) raw += ch;
+    let b: any; try { b = JSON.parse(raw); } catch { res.writeHead(400); return res.end("bad json"); }
+    if (!/^[a-z0-9][a-z0-9-]{1,60}$/.test(b.name ?? "") || b.name === "baseline-v1" || String(b.name).startsWith("pilot")) { res.writeHead(400); return res.end("invalid or protected experiment name"); }
+    if (!/^prompts\/[\w.-]+\.md$/.test(b.prompt ?? "") || (b.critic_prompt && !/^prompts\/[\w.-]+\.md$/.test(b.critic_prompt))) { res.writeHead(400); return res.end("bad prompt path"); }
+    let prompt = b.prompt;
+    if (typeof b.prompt_text === "string" && b.prompt_text.trim()) { prompt = `prompts/exp-${b.name}.md`; writeFileSync(prompt, b.prompt_text); }
+    const cfg = { name: b.name, description: "created from the local experiment panel", engine: b.engine === "claude" ? "claude" : "openrouter", model: String(b.model || "openai/gpt-4o").slice(0, 100),
+      prompt, critic_prompt: b.critic_prompt || undefined, rules: Array.isArray(b.rules) ? b.rules.filter((r: string) => /^R[0-6]$/.test(r)) : undefined, scope: b.scope === "all" ? "all" : "audited", concurrency: 3 };
+    mkdirSync("experiments", { recursive: true });
+    const cfgPath = `experiments/${b.name}.json`;
+    writeFileSync(cfgPath, JSON.stringify(cfg, null, 2) + "\n");
+    res.writeHead(200, { "content-type": "text/plain; charset=utf-8", "cache-control": "no-cache" });
+    res.write(`config saved: ${cfgPath}\n`);
+    const child = spawn("npx", ["tsx", "src/cli.ts", "experiment", "--config", cfgPath], { shell: true }); // name validated above
+    child.stdout.on("data", (d) => res.write(d)); child.stderr.on("data", (d) => res.write(d));
+    child.on("close", (code) => res.end(`\nexperiment process exited (${code}). Results in runs/${b.name}/\n`));
+    return;
+  }
   if (url.pathname.startsWith("/site/")) {
     const f = "site/" + (url.pathname.slice(6) || "index.html");
     if (!f.includes("..") && existsSync(f)) { res.writeHead(200, { "content-type": f.endsWith(".html") ? "text/html; charset=utf-8" : f.endsWith(".json") ? "application/json" : "text/plain; charset=utf-8" }); return res.end(readFileSync(f)); }

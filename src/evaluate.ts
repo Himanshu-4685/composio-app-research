@@ -8,7 +8,7 @@ import { latestById } from "./verify/run.js";
 type Grade = "C" | "I" | "U";
 export const GRADED = ["auth", "access", "api", "mcp", "verdict"] as const;
 
-function parseCsv(text: string): Record<string, string>[] {
+export function parseCsv(text: string): Record<string, string>[] {
   const rows: string[][] = []; let row: string[] = [], cell = "", q = false;
   for (let i = 0; i < text.length; i++) {
     const ch = text[i];
@@ -86,6 +86,9 @@ export function evaluate(runId: string) {
       summary[`${ver}.${group}`] = { ...c, N, supported_rate: N ? c.C / N : null, accuracy_decidable: c.C + c.I ? c.C / (c.C + c.I) : null, coverage: N ? (c.C + c.I) / N : null, perField };
     }
   }
-  writeFileSync("audit/scores.json", JSON.stringify({ run_id: runId, computed_at: new Date().toISOString(), summary, detail }, null, 1));
+  // Every run keeps its own scores; only the original Claude baseline writes the headline audit/scores.json.
+  const outJson = JSON.stringify({ run_id: runId, computed_at: new Date().toISOString(), summary, detail }, null, 1);
+  writeFileSync(`runs/${runId}/scores.json`, outJson);
+  if (runId === "baseline-v1") writeFileSync("audit/scores.json", outJson);
   for (const [k, v] of Object.entries(summary) as any) if (v.apps) console.log(`${k.padEnd(22)} apps ${v.apps}  C ${v.C} I ${v.I} U ${v.U}  supported ${(100 * v.supported_rate).toFixed(0)}%  decidable-acc ${v.accuracy_decidable == null ? "-" : (100 * v.accuracy_decidable).toFixed(0) + "%"}`);
 }

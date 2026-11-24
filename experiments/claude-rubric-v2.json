@@ -1,0 +1,10 @@
+{
+  "name": "claude-rubric-v2",
+  "description": "Rubric v2 with the original Claude engine (isolates the rubric change from the model change).",
+  "engine": "claude",
+  "model": "sonnet",
+  "prompt": "prompts/research_v2_rubric.md",
+  "critic_prompt": "prompts/critic_v2.md",
+  "scope": "audited",
+  "concurrency": 2
+}

@@ -1,0 +1,58 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Accuracy Experiments</title>
+<style>
+:root{--bg:#fbfaf8;--fg:#1d1d1f;--muted:#6b6b70;--card:#fff;--line:#e6e3de;--accent:#4b3fd1;--chip:#f1efeb}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#121214;--fg:#ececef;--muted:#9a9aa2;--card:#1b1b1f;--line:#2c2c32;--accent:#a49bff;--chip:#25252b}}
+body{font:15px/1.5 system-ui,sans-serif;max-width:980px;margin:24px auto;padding:0 16px;background:var(--bg);color:var(--fg)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin:14px 0}
+label{display:block;font-size:13px;color:var(--muted);margin:10px 0 4px}input,select,textarea,button{font:inherit;font-size:14px;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
+textarea{width:100%;box-sizing:border-box;min-height:260px;font:12.5px ui-monospace,monospace}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}.rules label{display:inline-flex;gap:6px;align-items:center;margin-right:14px;color:var(--fg)}
+button.go{background:var(--accent);color:var(--card);border:0;padding:9px 16px;cursor:pointer}
+#log{background:var(--chip);padding:12px;border-radius:8px;font:12.5px ui-monospace,monospace;white-space:pre-wrap;max-height:360px;overflow:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}td,th{text-align:left;padding:6px;border-bottom:1px solid var(--line)}.muted{color:var(--muted)}a{color:var(--accent)}
+</style></head><body>
+<h1>Accuracy experiments</h1>
+<p class="muted">Change the <b>prompt</b> (it includes the rubric), the <b>L1 rules</b> and the <b>model</b>, then re-run the study. Each experiment writes only to <code>runs/&lt;name&gt;/</code>. The original 100-app baseline is never modified. Every run is scored against the same 20 blind human answers. <a href="/">← Research any app</a> · <a href="/site/">Case study</a></p>
+
+<div class="card">
+<div class="row">
+<div><label for="name">Experiment name (a-z, 0-9, dashes)</label><input id="name" value="or-rubric-v2"></div>
+<div><label for="engine">Engine</label><select id="engine"><option value="openrouter">OpenRouter (any tool-calling model)</option><option value="claude">Claude (Agent SDK)</option></select></div>
+<div><label for="model">Model</label><input id="model" value="openai/gpt-4o" list="models"><datalist id="models"><option value="openai/gpt-4o"><option value="openai/gpt-4.1"><option value="google/gemini-2.5-pro"><option value="anthropic/claude-sonnet-4.5"><option value="meta-llama/llama-3.3-70b-instruct"><option value="sonnet"><option value="opus"></datalist></div>
+<div><label for="scope">Scope</label><select id="scope"><option value="audited">20 audited apps (measurable, cheap)</option><option value="all">All 100 apps</option></select></div>
+</div>
+<label for="prompt">Research prompt / rubric</label><select id="prompt"></select>
+<textarea id="ptext" aria-label="Prompt text"></textarea>
+<p class="muted" style="font-size:12.5px">Edit freely. If you change the text it is saved as <code>prompts/exp-&lt;name&gt;.md</code>, and the original file is untouched. Rubric v2 = "a paid product counts as a paid plan" (matches the audit guide).</p>
+<div class="row"><div><label for="critic">Critic prompt</label><select id="critic"></select></div></div>
+<label>L1 rules applied</label><div class="rules" id="rules"></div>
+<p style="margin-top:14px"><button class="go" id="run">Run experiment</button> <span class="muted" style="font-size:13px">OpenRouter usage is charged to your key; the console shows the cost per app.</span></p>
+</div>
+
+<div class="card"><h3 style="margin-top:0">Live log</h3><div id="log">(not started)</div></div>
+<div class="card"><h3 style="margin-top:0">All runs vs the human audit</h3><div id="cmp"></div></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const RULES=[["R0","research completed"],["R1","verdict follows access"],["R2","every field has evidence"],["R3","official MCP on vendor domain"],["R4","API needs an auth method"],["R5","breadth matches resources"],["R6","confidence matches evidence"]];
+$("#rules").innerHTML=RULES.map(([id,t])=>`<label><input type="checkbox" value="${id}" checked> ${id} ${t}</label>`).join("");
+let original="";
+async function loadPrompts(){const ps=await (await fetch("/api/prompts")).json();
+ $("#prompt").innerHTML=ps.filter(p=>p.includes("research")||p.includes("exp-")).map(p=>`<option ${p.endsWith("research_v2_rubric.md")?"selected":""}>${p}</option>`).join("");
+ $("#critic").innerHTML=ps.filter(p=>p.includes("critic")).map(p=>`<option ${p.endsWith("critic_v2.md")?"selected":""}>${p}</option>`).join("");await loadText();}
+async function loadText(){original=await (await fetch("/api/prompt?path="+encodeURIComponent($("#prompt").value))).text();$("#ptext").value=original;}
+$("#prompt").onchange=loadText;
+function pc(x){return x&&x.N?Math.round(100*x.C/x.N)+"% ("+x.C+"/"+x.N+")":"–"}
+async function loadCmp(){const rows=await (await fetch("/api/compare")).json();
+ $("#cmp").innerHTML="<table><tr><th>Run</th><th>Model</th><th>Prompt</th><th>Apps</th><th>Failed</th><th>Cost</th><th>All 20: first → final</th><th>Holdout: first → final</th></tr>"+rows.map(r=>`<tr><td><b>${r.run}</b></td><td>${r.engine}:${r.model}</td><td style="font-size:12px">${r.prompt}</td><td>${r.apps}</td><td>${r.failed}</td><td>$${r.cost_usd}</td><td>${pc(r.first)} → <b>${pc(r.final)}</b></td><td>${pc(r.holdout_first)} → <b>${pc(r.holdout_final)}</b></td></tr>`).join("")+"</table>";}
+$("#run").onclick=async()=>{
+ const body={name:$("#name").value.trim(),engine:$("#engine").value,model:$("#model").value.trim(),prompt:$("#prompt").value,prompt_text:$("#ptext").value!==original?$("#ptext").value:null,
+  critic_prompt:$("#critic").value,rules:[...document.querySelectorAll("#rules input:checked")].map(i=>i.value),scope:$("#scope").value};
+ $("#log").textContent="starting…\n";$("#run").disabled=true;
+ const res=await fetch("/api/experiment",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(body)});
+ const rd=res.body.getReader(),dec=new TextDecoder();
+ for(;;){const {done,value}=await rd.read();if(done)break;$("#log").textContent+=dec.decode(value);$("#log").scrollTop=1e9;}
+ $("#run").disabled=false;loadCmp();};
+loadPrompts();loadCmp();
+</script></body></html>

@@ -1,0 +1,19 @@
+{
+  "name": "or-v3-lessons",
+  "description": "Rubric v2 + calibration lessons (list every auth method, vendor-first MCP search, production access from pricing page). OpenRouter model.",
+  "engine": "openrouter",
+  "model": "openai/gpt-4o",
+  "prompt": "prompts/research_v3.md",
+  "critic_prompt": "prompts/critic_v2.md",
+  "rules": [
+    "R0",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6"
+  ],
+  "scope": "audited",
+  "concurrency": 3
+}

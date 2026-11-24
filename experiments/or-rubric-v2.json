@@ -1,0 +1,19 @@
+{
+  "name": "or-rubric-v2",
+  "description": "Rubric v2 (paid product = paid plan, matching the audit guide). Same method prompt otherwise. OpenRouter model.",
+  "engine": "openrouter",
+  "model": "openai/gpt-4o",
+  "prompt": "prompts/research_v2_rubric.md",
+  "critic_prompt": "prompts/critic_v2.md",
+  "rules": [
+    "R0",
+    "R1",
+    "R2",
+    "R3",
+    "R4",
+    "R5",
+    "R6"
+  ],
+  "scope": "audited",
+  "concurrency": 3
+}
